@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Panes"
+permalink: /panes/
+---
+
 # Panes
 
 A pane is a container holding one terminal together with the application's own

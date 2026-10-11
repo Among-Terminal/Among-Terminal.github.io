@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Source delivery, rebuilding and library modification"
+permalink: /source-delivery/
+---
+
 # Source delivery, rebuilding and library modification
 
 Publish `among-source-materials.tar` and `source-association.json` alongside the

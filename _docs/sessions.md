@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Sessions"
+permalink: /sessions/
+---
+
 # Sessions
 
 Session snapshots live at `${XDG_DATA_HOME:-$HOME/.local/share}/among/session.json`.

@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Debian packaging development"
+permalink: /debian-packaging/
+---
+
 # Debian packaging development
 
 This is local packaging work, not an available public `.deb` release. The target

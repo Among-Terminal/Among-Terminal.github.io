@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Plugins"
+permalink: /plugins/
+---
+
 # Plugins
 
 A plugin is an executable run directly by Among Terminal as a separate process.

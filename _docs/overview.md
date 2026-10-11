@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Among Terminal overview"
+permalink: /overview/
+---
+
 # Among Terminal overview
 
 Among Terminal combines native VTE terminals, nested panes and live workspaces

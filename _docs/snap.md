@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Snap distribution preparation"
+permalink: /snap/
+---
+
 # Snap distribution preparation
 
 An exploratory amd64 Snap 0.1.0 has been built and inspected locally in an Ubuntu

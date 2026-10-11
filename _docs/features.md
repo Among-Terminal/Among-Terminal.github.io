@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Features in practice"
+permalink: /features/
+---
+
 # Features in practice
 
 Among Terminal keeps native VTE terminals in a single GNOME window. This guide

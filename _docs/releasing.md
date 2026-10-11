@@ -1,3 +1,9 @@
+---
+layout: default
+title: "First publication guide"
+permalink: /releasing/
+---
+
 # First publication guide
 
 No public product release or Snap Store publication has been performed. Private

@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Installing Among Terminal"
+permalink: /install/
+---
+
 # Installing Among Terminal
 
 From a source checkout, run as your normal user:
