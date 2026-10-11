@@ -7,7 +7,7 @@ permalink: /overview/
 # Among Terminal overview
 
 Among Terminal combines native VTE terminals, nested panes and live workspaces
-in a GNOME window. The short [short demonstration](/#demo) introduces the interface;
+in a GNOME window. The short [demonstration](/#demo) introduces the interface;
 the full-length recordings here cover more workflows and controls.
 
 ## Complete workflow tour
