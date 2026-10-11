@@ -12,7 +12,7 @@ The recordings use synthetic projects; zsh, Starship, `ll`, `mc` and `htop` are
 demo tools, not software installed or configured by Among Terminal.
 
 [Full-length overview videos](overview.md) ·
-[Browse all video previews](media/features/index.md) ·
+[Browse all video previews](/media/features/index.md) ·
 [Default shortcuts](shortcuts.md)
 
 ## Split and resize terminals
@@ -25,11 +25,11 @@ Drag a divider to allocate more space, or use **Ctrl+Shift+Right** to grow the
 focused pane and **Ctrl+Shift+Left** to shrink it. Resizing keeps the terminals
 running rather than starting replacement shells.
 
-[![Separate live terminals running ll, mc and htop](media/features/02-split-resize.png)](media/features/02-split-resize.mp4)
+[![Separate live terminals running ll, mc and htop](/media/features/02-split-resize.png)](/media/features/02-split-resize.mp4)
 
-**Demonstrations:** [split panes](media/features/02-split-resize.mp4) ·
-[keyboard resize](media/features/02b-keyboard-resize.mp4) ·
-[mouse resize](media/features/02c-mouse-resize.mp4).
+**Demonstrations:** [split panes](/media/features/02-split-resize.mp4) ·
+[keyboard resize](/media/features/02b-keyboard-resize.mp4) ·
+[mouse resize](/media/features/02c-mouse-resize.mp4).
 
 ## Rearrange panes without restarting tools
 
@@ -38,7 +38,7 @@ edges place panes side by side; top/bottom edges stack them. The drop indicator
 previews the destination. The moved terminal retains its process and focus;
 dragging inside terminal text still selects text.
 
-[![Moving a live pane by its header](media/features/03-pane-drag.png)](media/features/03-pane-drag.mp4)
+[![Moving a live pane by its header](/media/features/03-pane-drag.png)](/media/features/03-pane-drag.mp4)
 
 [Pane movement and drop rules](panes.md#dragging-a-pane-to-a-new-position).
 
@@ -49,11 +49,11 @@ dragging inside terminal text still selects text.
   recover the same nested layout; hidden panes keep running.
 - **F11** enters or leaves fullscreen. Normal startup is maximized, not fullscreen.
 
-[![Zooming a pane while preserving the workspace layout](media/features/04b-zoom.png)](media/features/04b-zoom.mp4)
+[![Zooming a pane while preserving the workspace layout](/media/features/04b-zoom.png)](/media/features/04b-zoom.mp4)
 
-**Demonstrations:** [focus](media/features/04-focus.mp4) ·
-[zoom and restore](media/features/04b-zoom.mp4) ·
-[fullscreen](media/features/04c-fullscreen.mp4).
+**Demonstrations:** [focus](/media/features/04-focus.mp4) ·
+[zoom and restore](/media/features/04b-zoom.mp4) ·
+[fullscreen](/media/features/04c-fullscreen.mp4).
 
 ## Organize projects into workspaces
 
@@ -66,10 +66,10 @@ Inactive workspaces keep their terminals and processes running. The sidebar
 collapse button reduces the list to a strip: colours and counts remain visible,
 and every workspace remains reachable.
 
-[![Renaming and switching between Atlas and Orbit](media/features/05-workspaces.png)](media/features/05-workspaces.mp4)
+[![Renaming and switching between Atlas and Orbit](/media/features/05-workspaces.png)](/media/features/05-workspaces.mp4)
 
-**Demonstrations:** [create, rename and switch](media/features/05-workspaces.mp4) ·
-[collapse and expand the sidebar](media/features/05b-sidebar.mp4).
+**Demonstrations:** [create, rename and switch](/media/features/05-workspaces.mp4) ·
+[collapse and expand the sidebar](/media/features/05b-sidebar.mp4).
 
 ## Clipboard, links and pane actions
 
@@ -119,7 +119,7 @@ path. Resource readings describe the plugin's process/mount namespace, which may
 differ from the whole host in a sandbox. Plugins run as separate processes, but
 that is fault isolation, not a security sandbox: install only trusted code.
 
-[![Toggling clock, resource meters and pane directories in Settings](media/features/06-plugins.png)](media/features/06-plugins.mp4)
+[![Toggling clock, resource meters and pane directories in Settings](/media/features/06-plugins.png)](/media/features/06-plugins.mp4)
 
 [Live status and directory integration](plugins.md#live-status-examples) ·
 [Third-party plugin protocol](plugins.md#protocol).
@@ -137,7 +137,7 @@ the directory plugin is disabled. Missing directories fall back to an accessible
 home/startup directory and are reported in Settings. Storage failures are visible
 and retryable; recent changes can be lost after a crash.
 
-[![Choosing Restore and reopening separate project directories](media/features/07-session-restore.png)](media/features/07-session-restore.mp4)
+[![Choosing Restore and reopening separate project directories](/media/features/07-session-restore.png)](/media/features/07-session-restore.mp4)
 
 [Session consent, storage and recovery limits](sessions.md).
 
@@ -149,7 +149,7 @@ Closing a workspace's last pane closes that workspace; the final workspace asks
 for confirmation before the application exits. Closing a pane can end a running
 job: this is not a detach operation.
 
-[![Closing one pane and typing ll in its surviving sibling](media/features/08-close-pane.png)](media/features/08-close-pane.mp4)
+[![Closing one pane and typing ll in its surviving sibling](/media/features/08-close-pane.png)](/media/features/08-close-pane.mp4)
 
 [Closing, process exit and focus rules](panes.md#closing-and-exiting).
 
@@ -159,7 +159,7 @@ The native interface supports light and dark styling. Terminal colours and the
 prompt in these recordings come from the private demo shell setup, not a
 GNOME Terminal profile-import feature.
 
-[![The terminal listing in light and dark appearance](media/features/01-themes.png)](media/features/01-themes.mp4)
+[![The terminal listing in light and dark appearance](/media/features/01-themes.png)](/media/features/01-themes.mp4)
 
 In **Settings → Keyboard**, select an action and press a new shortcut, or use
 **Escape** to remove its binding. Changes take effect without restarting and are
@@ -178,5 +178,5 @@ GPU, arm64 or screen-reader support. The overview joins the approved clips with
 direct cuts; no actions are simulated, sped up or replayed by editing.
 
 If your Markdown viewer does not play video inline, open/download the linked MP4.
-The descriptions above and [the preview gallery](media/features/index.md) also
+The descriptions above and [the preview gallery](/media/features/index.md) also
 explain the actions without requiring video playback.

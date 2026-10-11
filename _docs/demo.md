@@ -97,7 +97,7 @@ hashes, scene timings and output hashes. Decode, visually inspect and play the
 result in a browser before replacing documentation assets. The user-facing
 [feature guide](features.md) pairs controls and caveats with individual videos.
 
-[The feature gallery](media/features/index.md) contains 13 clips of 3.52–17.52
+[The feature gallery](/media/features/index.md) contains 13 clips of 3.52–17.52
 seconds, 1600x1200 H.264/yuv420p with no audio/subtitle streams. Videos total about
 2.4 MB. `media/features/manifest.json` records exact MP4/poster hashes and review
 scope. The complete files decode; all 20 two-frames-per-second timeline sheets
