@@ -8,7 +8,18 @@ Keep your shells, projects and tools together in one native GNOME window.
 Among Terminal combines VTE terminals with split panes, named workspaces and
 optional live status plugins.
 
-## Quick install
+## Install a release package
+
+Use a ready-made package from [GitHub Releases](https://github.com/Among-Terminal/among/releases).
+No Rust toolchain or compilation is needed.
+
+| Format | Best for | Availability |
+| --- | --- | --- |
+| AppImage | A portable bundle with the main runtime libraries included | In preparation; not downloadable yet |
+| DEB | Debian/Ubuntu; APT installs runtime dependencies | **RC2 preview available**, amd64 and arm64 |
+| RPM | Fedora; DNF installs runtime dependencies | In preparation; not downloadable yet |
+
+### Install the available DEB
 
 Download a ready-made **0.1.0 RC2 preview** package for
 [Ubuntu 24.04 or Debian 13](/install/), on amd64 or arm64.

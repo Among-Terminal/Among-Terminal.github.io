@@ -4,8 +4,16 @@ title: Installing Among Terminal
 
 # Installing Among Terminal
 
-Download a ready-made package and install it with APT. No Git, Rust, Cargo or
-build scripts are needed.
+Install a ready-made release package. No Git, Rust, Cargo or build scripts are needed.
+
+| Format | How dependencies are handled | Availability |
+| --- | --- | --- |
+| AppImage | The main runtime libraries are intended to be bundled | In preparation; not downloadable yet |
+| DEB | APT installs the required distribution libraries automatically | **RC2 preview available** for Ubuntu 24.04 and Debian 13 |
+| RPM | DNF installs the required distribution libraries automatically | In preparation; not downloadable yet |
+
+Only the DEB packages below are currently published. AppImage and RPM download
+links will be added after their build and runtime checks pass.
 
 ## Download
 
