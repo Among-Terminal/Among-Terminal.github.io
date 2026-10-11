@@ -1,9 +1,3 @@
----
-layout: default
-title: "Build prerequisites"
-permalink: /build/
----
-
 # Build prerequisites
 
 Built on Debian 13 (trixie), Rust 1.98.1, against GTK 4.18.6, libadwaita 1.7.6,

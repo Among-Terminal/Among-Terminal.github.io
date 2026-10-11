@@ -1,9 +1,3 @@
----
-layout: default
-title: "Among Terminal overview"
-permalink: /overview/
----
-
 # Among Terminal overview
 
 Among Terminal combines native VTE terminals, nested panes and live workspaces
@@ -34,10 +28,8 @@ It is retained here separately from the approved 23-second README film.
 ## Explore individual features
 
 - [Feature guide](features.md): demonstrations alongside controls and caveats.
-- [Video gallery](/media/features/index.md): separate previews for all 13 features.
 - [Panes](panes.md), [sessions](sessions.md), [preferences](preferences.md)
   and [plugins](plugins.md): detailed references.
-- [Isolated capture](demo.md): how the synthetic demonstrations were recorded.
 
 Use fullscreen to inspect terminal text. Previews link to MP4 files; GitHub
 inline playback is not assumed. The recordings use isolated synthetic projects,

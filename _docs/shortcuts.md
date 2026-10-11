@@ -1,9 +1,3 @@
----
-layout: default
-title: "Keyboard shortcuts"
-permalink: /shortcuts/
----
-
 # Keyboard shortcuts
 
 The header's left controls are Settings, sidebar toggle, then New workspace.

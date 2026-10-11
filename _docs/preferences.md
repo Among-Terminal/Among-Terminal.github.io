@@ -1,9 +1,3 @@
----
-layout: default
-title: "Preferences storage"
-permalink: /preferences/
----
-
 # Preferences storage
 
 The storage module uses `$XDG_CONFIG_HOME/among`, falling back to

@@ -1,9 +1,3 @@
----
-layout: default
-title: "Licensing and distribution obligations"
-permalink: /licensing/
----
-
 # Licensing and distribution obligations
 
 ## Original work

@@ -1,9 +1,3 @@
----
-layout: default
-title: "Native payload audit boundaries"
-permalink: /native-payload-audit/
----
-
 # Native payload audit boundaries
 
 The amd64 core24 candidate uses Ubuntu GTK 4.14.5, libadwaita 1.5.0 and VTE
