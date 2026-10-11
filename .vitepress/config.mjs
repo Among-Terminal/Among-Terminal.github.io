@@ -32,7 +32,7 @@ export default defineConfig({
     })],
   },
   themeConfig: {
-    logo: '/media/icon.png',
+    logo: { src: '/media/logo.png', alt: 'Among' },
     nav: [
       { text: 'Features', link: '/features/' },
       { text: 'Plugin development', link: '/plugin-development/' },

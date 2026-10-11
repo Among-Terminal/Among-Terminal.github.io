@@ -16,6 +16,12 @@
   border-radius: 12px;
 }
 
+/* The wordmark stays legible on the dark theme without modifying its pixels. */
+.dark .VPNavBarTitle .logo {
+  background: #fff;
+  border-radius: 4px;
+}
+
 .vp-doc img {
   max-width: 100%;
   height: auto;
