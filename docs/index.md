@@ -10,15 +10,17 @@ optional live status plugins.
 
 ## Quick install
 
-On Debian/Ubuntu, with Git and Rust/Cargo 1.98+ installed:
+Download a ready-made **0.1.0 RC2 preview** package for
+[Ubuntu 24.04 or Debian 13](/install/), on amd64 or arm64.
+For Ubuntu 24.04 on amd64, open a terminal in your download folder:
 
 ```sh
-git clone https://github.com/Among-Terminal/among.git && cd among && sh scripts/install.sh --install-deps
+sudo apt install ./among-terminal_0.1.0.rc.2-1.ubuntu24.04_amd64.deb
 ```
 
-Launch **Among Terminal** from the applications menu. Only system dependency
-installation uses sudo; the application is built and installed as your user.
-[Other distributions, updates and removal](/install/).
+Launch **Among Terminal** from the applications menu. No Git, Rust or build
+scripts are required. This is a prerelease, not a stable release.
+[Downloads, updates and removal](/install/).
 
 <video id="demo" controls playsinline preload="metadata" poster="/media/among-terminal-action-v5.png" aria-label="Among Terminal: panes, workspaces and plugins" style="width:100%;height:auto">
   <source src="/media/among-terminal-action-v5.mp4" type="video/mp4">

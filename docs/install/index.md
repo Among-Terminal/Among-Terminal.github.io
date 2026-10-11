@@ -1,114 +1,74 @@
 ---
-title: "Installing Among Terminal"
+title: Installing Among Terminal
 ---
 
 # Installing Among Terminal
 
-From a source checkout, run as your normal user:
+Download a ready-made package and install it with APT. No Git, Rust, Cargo or
+build scripts are needed.
+
+## Download
+
+These are **0.1.0 RC2 preview packages**, not a stable release. Choose the file
+matching both your distribution version and CPU architecture:
+
+| Distribution | amd64 (Intel/AMD 64-bit) | arm64 (64-bit ARM) |
+| --- | --- | --- |
+| Ubuntu 24.04 | [Download `.deb`](https://github.com/Among-Terminal/among/releases/download/v0.1.0-rc.2/among-terminal_0.1.0.rc.2-1.ubuntu24.04_amd64.deb) | [Download `.deb`](https://github.com/Among-Terminal/among/releases/download/v0.1.0-rc.2/among-terminal_0.1.0.rc.2-1.ubuntu24.04_arm64.deb) |
+| Debian 13 | [Download `.deb`](https://github.com/Among-Terminal/among/releases/download/v0.1.0-rc.2/among-terminal_0.1.0.rc.2-1.debian13_amd64.deb) | [Download `.deb`](https://github.com/Among-Terminal/among/releases/download/v0.1.0-rc.2/among-terminal_0.1.0.rc.2-1.debian13_arm64.deb) |
+
+Not sure which architecture you have? Run `dpkg --print-architecture`.
+Check your distribution version in **Settings → About**, or `/etc/os-release`.
+Do not use a Debian package on Ubuntu or vice versa. Other distribution versions
+have not been accepted for these packages.
+
+## Install and launch
+
+Open a terminal in the folder containing the downloaded file. On Ubuntu 24.04
+with amd64, run:
 
 ```sh
-sh scripts/install.sh --install-deps
+sudo apt install ./among-terminal_0.1.0.rc.2-1.ubuntu24.04_amd64.deb
 ```
 
-Rust/Cargo 1.98 or newer is required for the native installer bootstrap and source
-build. No project interpreter is used. `--install-deps` uses
-`sudo apt-get` to install Debian/Ubuntu build dependencies. It does not install
-Rust or change your toolchain. On other distributions install GTK 4.12+,
-libadwaita 1.5+, GTK4 VTE 0.76+, a C toolchain, pkg-config and a gdk-pixbuf SVG
-loader first, then run:
+For another supported target, use the exact filename you downloaded. Keep the
+`./` prefix: it tells APT to install a local package. APT downloads the required
+runtime libraries from your configured distribution repositories.
 
-```sh
-sh scripts/install.sh
-```
-
-The installer builds with `cargo install --path … --locked` into a temporary
-staging directory before replacing installed files. No build runs under sudo.
-Launch **Among Terminal** from the applications menu, or `~/.local/bin/among`.
-If `~/.local/bin` is already in PATH, the command is `among`.
-The installer does not edit shell startup files. If the menu does not refresh
-immediately, log out and back in.
-
-## Cargo installation (binary only)
-
-With the native prerequisites from [building](/build/) installed:
-
-```sh
-cargo install --git https://github.com/Among-Terminal/among --locked among
-among
-```
-
-This builds the moving default branch and installs only the executable in Cargo's
-bin directory (normally `~/.cargo/bin`). It does not install a desktop entry,
-icons or plugins. Use the source installer above for desktop integration.
-Do not run Cargo as root. Rerun the command to update, and remove this binary with:
-
-```sh
-cargo uninstall among
-```
-
-Settings, sessions and separately installed plugins are preserved.
+Launch **Among Terminal** from the applications menu, or run `among`.
+If an older Cargo, Snap or source-built copy is also installed, `/usr/bin/among`
+explicitly launches the DEB installation.
 
 ## Update and remove
 
-Rerun the installation command from the updated checkout to update.
-Close and relaunch the application to use the new binary; installation never
-closes running terminals for you.
+Download the newer package for the same distribution and architecture, then run
+`sudo apt install ./filename.deb` with its exact filename. Close and relaunch
+Among Terminal after the update.
+
+There is no Among APT repository yet: `apt upgrade` does not download newer
+Among releases automatically. An RC of the same base version sorts below the
+stable version; do not downgrade an existing stable installation to that RC.
 
 ```sh
-sh scripts/install.sh --uninstall
+sudo apt remove among-terminal
 ```
 
-The checkout is not required for removal: run `~/.local/bin/among-uninstall`.
+Your preferences, sessions and separately installed plugins are kept in your
+home directory. Removing the DEB does not remove another Snap, Cargo or
+source-built copy.
 
-Removal preserves application preferences, sessions and separately installed
-plugins. Only files recorded by this installer are removed. Existing unrelated
-files, symlinks and locally modified installed files block both replacement and
-removal; move conflicting files aside before retrying. A binary previously
-installed by `cargo install` under `~/.cargo/bin` is not removed or updated;
-use the applications-menu entry or the absolute path above to avoid ambiguity.
+## Package contents and integrity
 
-## Prebuilt executable
+The DEB installs the application, desktop entry, icon and licence notices.
+Example plugins are provided but disabled by default. See [using plugins](/plugins/).
 
-To install an already built native binary and the same desktop assets:
+The [release page](https://github.com/Among-Terminal/among/releases/tag/v0.1.0-rc.2)
+provides checksums, matching source materials and build/check provenance.
+Checksums detect changed files; they are not a separate publisher signature.
+Installed CI checks cover X11/Xvfb, not full stable acceptance or GNOME/Wayland
+certification. See the release notes for the exact scope and known limitations.
 
-```sh
-sh scripts/install.sh --binary ./target/release/among
-```
+## For developers
 
-The binary must match your architecture and installed native libraries. This
-mode does not build the application or install dependencies, nor certify binary
-compatibility. The shell launcher builds the headless Rust installer if it is
-missing. To avoid that bootstrap, supply prebuilt `among-tools` and its sibling
-`among-uninstall` (both native for this machine):
-
-```sh
-AMONG_TOOLS=/absolute/path/among-tools sh scripts/install.sh --binary ./among
-```
-
-The two tooling binaries must come from the same checked build. Once installed,
-`~/.local/bin/among-uninstall` does not need Cargo, an interpreter or the checkout.
-A valid version-1 installation made by the old installer is upgraded only after
-its helper and launcher pass the existing ownership/hash checks; edited legacy
-files block the upgrade instead of being deleted.
-
-## Installed files
-
-- `~/.local/bin/among`
-- `~/.local/bin/among-uninstall`
-- `$XDG_DATA_HOME/applications/com.github.among-terminal.desktop`
-- `$XDG_DATA_HOME/icons/hicolor/scalable/apps/com.github.among-terminal.svg`
-- `$XDG_DATA_HOME/metainfo/com.github.among-terminal.metainfo.xml`
-- `$XDG_DATA_HOME/doc/among/`: license, notice and third-party license inventory
-- `$XDG_STATE_HOME/among-installer/install.json`: ownership and content hashes
-
-The XDG defaults are `~/.local/share` and `~/.local/state`. Use the same HOME
-and XDG directories for installation, updates and removal. A lock prevents
-simultaneous installers. Each file is replaced atomically; ordinary write
-failures roll back installed files. Power loss or forced termination during
-installation is not a transaction across all files and may require recovery.
-Rollback of changed files can itself fail if storage becomes full or unwritable;
-the installer reports those errors rather than claiming recovery. Originals
-whose bytes and mode already match the saved state do not need to be rewritten.
-
-Optional plugins remain a separate installation:
-`sh scripts/install-plugins.sh --enable-new`; see [plugins](/plugins/#installing).
+To compile or modify the application, see [building from source](/build/).
+Source compilation is not required to install these packages.

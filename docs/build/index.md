@@ -4,6 +4,37 @@ title: "Build prerequisites"
 
 # Build prerequisites
 
+This page is for developers. For ready-made packages, see [installation](/install/).
+
+## Build and install from source
+
+With Rust/Cargo 1.98.1 installed, clone the repository and run the source
+installer as your normal user:
+
+```sh
+git clone https://github.com/Among-Terminal/among.git
+cd among
+sh scripts/install.sh --install-deps
+```
+
+The installer uses sudo only for Debian/Ubuntu build dependencies; compilation
+and application installation run as your user. It installs a desktop entry and
+`~/.local/bin/among`. It does not install Rust or change your toolchain.
+Rerun it from an updated checkout to update; `~/.local/bin/among-uninstall`
+removes only installer-owned files and preserves preferences and sessions.
+See the [source installer reference](https://github.com/Among-Terminal/among/blob/main/docs/install.md)
+for conflicts, XDG paths, rollback limitations and prebuilt-binary mode.
+
+For a binary-only Cargo installation with the native prerequisites below:
+
+```sh
+cargo install --git https://github.com/Among-Terminal/among --locked among
+```
+
+This compiles the moving default branch, without desktop integration or plugins.
+Do not run Cargo as root. Repeat to update; `cargo uninstall among` removes the
+Cargo binary but preserves settings and sessions.
+
 Built on Debian 13 (trixie), Rust 1.98.1, against GTK 4.18.6, libadwaita 1.7.6,
 and VTE 0.80.1. Live acceptance runs use isolated Xephyr/native X11 with GNOME
 Shell. A Wayland host desktop is not evidence of native Wayland application
