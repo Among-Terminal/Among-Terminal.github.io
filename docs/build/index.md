@@ -1,7 +1,5 @@
 ---
-layout: default
 title: "Build prerequisites"
-permalink: /build/
 ---
 
 # Build prerequisites

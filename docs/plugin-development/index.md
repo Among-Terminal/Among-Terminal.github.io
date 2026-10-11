@@ -1,7 +1,5 @@
 ---
-layout: default
 title: "Plugin development"
-permalink: /plugin-development/
 ---
 
 # Plugin development

@@ -1,7 +1,5 @@
 ---
-layout: default
 title: "Installing Among Terminal"
-permalink: /install/
 ---
 
 # Installing Among Terminal

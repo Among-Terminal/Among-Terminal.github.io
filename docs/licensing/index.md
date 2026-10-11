@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Licensing
-permalink: /licensing/
 ---
 
 # Licensing

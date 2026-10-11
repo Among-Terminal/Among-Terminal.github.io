@@ -1,6 +1,5 @@
 ---
-layout: default
-title: Among Terminal — features
+title: Features and quick install
 ---
 
 # Among Terminal
@@ -8,6 +7,18 @@ title: Among Terminal — features
 Keep your shells, projects and tools together in one native GNOME window.
 Among Terminal combines VTE terminals with split panes, named workspaces and
 optional live status plugins.
+
+## Quick install
+
+On Debian/Ubuntu, with Git and Rust/Cargo 1.98+ installed:
+
+```sh
+git clone https://github.com/Among-Terminal/among.git && cd among && sh scripts/install.sh --install-deps
+```
+
+Launch **Among Terminal** from the applications menu. Only system dependency
+installation uses sudo; the application is built and installed as your user.
+[Other distributions, updates and removal](/install/).
 
 <video id="demo" controls playsinline preload="metadata" poster="/media/among-terminal-action-v5.png" aria-label="Among Terminal: panes, workspaces and plugins" style="width:100%;height:auto">
   <source src="/media/among-terminal-action-v5.mp4" type="video/mp4">

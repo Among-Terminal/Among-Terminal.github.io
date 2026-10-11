@@ -1,7 +1,5 @@
 ---
-layout: default
 title: "Among Terminal overview"
-permalink: /overview/
 ---
 
 # Among Terminal overview

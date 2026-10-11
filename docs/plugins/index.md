@@ -1,7 +1,5 @@
 ---
-layout: default
 title: "Using plugins"
-permalink: /plugins/
 ---
 
 # Plugins

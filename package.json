@@ -1,0 +1,18 @@
+{
+  "name": "among-terminal-docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
+    "check": "node scripts/check-site.mjs"
+  },
+  "overrides": {
+    "vite": "6.4.4"
+  },
+  "devDependencies": {
+    "vitepress": "1.6.4",
+    "vitepress-plugin-llms": "1.14.0"
+  }
+}

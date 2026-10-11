@@ -1,7 +1,5 @@
 ---
-layout: default
 title: "Panes"
-permalink: /panes/
 ---
 
 # Panes

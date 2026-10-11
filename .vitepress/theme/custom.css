@@ -1,0 +1,23 @@
+:root {
+  --vp-c-brand-1: #8f5b00;
+  --vp-c-brand-2: #a86c00;
+  --vp-c-brand-3: #ba7900;
+}
+
+.dark {
+  --vp-c-brand-1: #ffc247;
+  --vp-c-brand-2: #ffd16e;
+  --vp-c-brand-3: #e9a812;
+}
+
+.vp-doc video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.vp-doc img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

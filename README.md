@@ -2,19 +2,33 @@
 
 Source for [among-terminal.github.io](https://among-terminal.github.io).
 
-A Jekyll site with a feature-led homepage, user guides and a separate
-plugin-development reference. Public guides live in `_docs/`; media lives only
-in `media/`.
+A VitePress site with a feature-led homepage, user guides and a separate plugin
+development reference. Public guides live in `docs/`; static media lives in
+`docs/public/media/`.
 
-When adapting prose from [Among-Terminal/among](https://github.com/Among-Terminal/among),
-preserve each page's front matter and use published routes, not repository-relative
-Markdown paths. The site intentionally excludes internal recording tools,
-release rehearsal reports and local machine paths.
+With Node 24:
 
 ```sh
-bundle install
-bundle exec jekyll serve
+npm ci
+npm run dev
 ```
 
-Build and check the generated pages before deploying; a successful Markdown copy
-does not prove Jekyll has created the corresponding routes.
+Before deploying:
+
+```sh
+npm run build
+npm run check
+```
+
+Directory-based pages preserve the existing routes, such as `/features/` and
+`/plugin-development/`. Adapt repository-relative links to these public routes;
+do not copy internal recording tools, rehearsal reports or local machine paths.
+
+`vitepress-plugin-llms` generates `/llms.txt`, `/llms-full.txt` and per-page
+Markdown automatically on every build, including the homepage's quick install.
+Do not maintain manual copies. Pages deploys `.vitepress/dist` only after the
+route, generated-content and privacy checks pass.
+
+Vite is pinned to 6.4.4 via an override: VitePress 1.6.4 otherwise selects an
+older development server with known security advisories. Keep the override until
+VitePress itself supplies a patched dependency; retest build and search on updates.

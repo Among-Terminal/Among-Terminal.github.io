@@ -1,7 +1,5 @@
 ---
-layout: default
 title: "Keyboard shortcuts"
-permalink: /shortcuts/
 ---
 
 # Keyboard shortcuts

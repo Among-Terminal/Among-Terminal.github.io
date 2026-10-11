@@ -1,7 +1,5 @@
 ---
-layout: default
 title: "Features in practice"
-permalink: /features/
 ---
 
 # Features in practice

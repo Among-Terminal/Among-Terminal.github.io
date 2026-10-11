@@ -1,7 +1,5 @@
 ---
-layout: default
 title: "Preferences storage"
-permalink: /preferences/
 ---
 
 # Preferences storage
