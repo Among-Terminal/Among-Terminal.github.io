@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{{ page.description | default: site.description | strip_newlines }}">
+    {% seo %}
+    <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  </head>
+  <body>
+    <a class="skip" href="#content">Skip to content</a>
+    <header class="masthead">
+      <a class="brand" href="{{ '/' | relative_url }}">
+        <span class="mark" aria-hidden="true">▚</span>
+        <span class="name">{{ site.title }}</span>
+      </a>
+      <nav aria-label="Main">
+        <a href="{{ '/install/' | relative_url }}">Install</a>
+        <a href="{{ '/overview/' | relative_url }}">Overview</a>
+        <a href="{{ '/shortcuts/' | relative_url }}">Shortcuts</a>
+        <a href="{{ '/plugins/' | relative_url }}">Plugins</a>
+        <a href="https://github.com/Among-Terminal/among">Source</a>
+      </nav>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar" aria-label="Documentation">
+        <p class="sidebar-title">Documentation</p>
+        <ul>
+          {% assign pages_list = site.pages | where_exp: "item", "item.url contains '/docs/'" | sort: "title" %}
+          {% for item in pages_list %}
+            {% unless item.title == nil %}
+              <li><a href="{{ item.url | relative_url }}">{{ item.title | remove_first: "Among Terminal " | remove_first: "Among Terminal" | strip }}</a></li>
+            {% endunless %}
+          {% endfor %}
+          <li class="group">Packaging</li>
+          <li><a href="{{ '/snap/' | relative_url }}">Snap</a></li>
+          <li><a href="{{ '/debian-packaging/' | relative_url }}">Debian</a></li>
+          <li><a href="{{ '/build/' | relative_url }}">Building</a></li>
+          <li><a href="{{ '/licensing/' | relative_url }}">Licensing</a></li>
+          <li class="group">Project</li>
+          <li><a href="{{ '/features/' | relative_url }}">Features</a></li>
+          <li><a href="{{ '/demo/' | relative_url }}">Demonstration</a></li>
+        </ul>
+      </aside>
+
+      <main id="content">
+        {{ content }}
+      </main>
+    </div>
+
+    <footer>
+      <p>
+        {{ site.title }} — Apache-2.0.
+        <a href="https://github.com/Among-Terminal/among">among</a>
+        on GitHub.
+      </p>
+    </footer>
+  </body>
+</html>

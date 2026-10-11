@@ -1,0 +1,41 @@
+title: Among Terminal
+description: >-
+  A native GTK4 terminal multiplexer: split panes, named workspaces in a
+  collapsible sidebar, and a plugin pipeline that turns shell data into
+  interface content.
+lang: en
+baseurl: ""
+url: "https://among-terminal.github.io"
+author: Among Terminal
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Pages are plain Markdown under the repository root; the copy under docs/ in
+# the application repository is the same text.
+collections:
+  docs:
+    output: true
+    permalink: /:name/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: "docs"
+    values:
+      layout: doc
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
