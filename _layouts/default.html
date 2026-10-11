@@ -16,10 +16,9 @@
         <span class="name">{{ site.title }}</span>
       </a>
       <nav aria-label="Main">
+        <a href="{{ '/features/' | relative_url }}">Features</a>
+        <a href="{{ '/plugin-development/' | relative_url }}">Plugin development</a>
         <a href="{{ '/install/' | relative_url }}">Install</a>
-        <a href="{{ '/overview/' | relative_url }}">Overview</a>
-        <a href="{{ '/shortcuts/' | relative_url }}">Shortcuts</a>
-        <a href="{{ '/plugins/' | relative_url }}">Plugins</a>
         <a href="https://github.com/Among-Terminal/among">Source</a>
       </nav>
     </header>
@@ -28,19 +27,22 @@
       <aside class="sidebar" aria-label="Documentation">
         <p class="sidebar-title">Documentation</p>
         <ul>
-          {% assign pages_list = site.pages | where_exp: "item", "item.url contains '/docs/'" | sort: "title" %}
-          {% for item in pages_list %}
-            {% unless item.title == nil %}
-              <li><a href="{{ item.url | relative_url }}">{{ item.title | remove_first: "Among Terminal " | remove_first: "Among Terminal" | strip }}</a></li>
-            {% endunless %}
-          {% endfor %}
-          <li class="group">Packaging</li>
-          <li><a href="{{ '/snap/' | relative_url }}">Snap</a></li>
-          <li><a href="{{ '/debian-packaging/' | relative_url }}">Debian</a></li>
-          <li><a href="{{ '/build/' | relative_url }}">Building</a></li>
-          <li><a href="{{ '/licensing/' | relative_url }}">Licensing</a></li>
-          <li class="group">Project</li>
+          <li class="group">Using Among Terminal</li>
           <li><a href="{{ '/features/' | relative_url }}">Features</a></li>
+          <li><a href="{{ '/panes/' | relative_url }}">Panes</a></li>
+          <li><a href="{{ '/sessions/' | relative_url }}">Workspaces and sessions</a></li>
+          <li><a href="{{ '/shortcuts/' | relative_url }}">Keyboard shortcuts</a></li>
+          <li><a href="{{ '/preferences/' | relative_url }}">Preferences</a></li>
+          <li><a href="{{ '/plugins/' | relative_url }}">Using plugins</a></li>
+          <li class="group">Plugin development</li>
+          <li><a href="{{ '/plugin-development/#writing-one' | relative_url }}">Write your first plugin</a></li>
+          <li><a href="{{ '/plugin-development/#protocol' | relative_url }}">Protocol reference</a></li>
+          <li><a href="{{ '/plugin-development/#scopes' | relative_url }}">Scopes and fragments</a></li>
+          <li class="group">Resources</li>
+          <li><a href="{{ '/overview/' | relative_url }}">Video overview</a></li>
+          <li><a href="{{ '/install/' | relative_url }}">Installation</a></li>
+          <li><a href="{{ '/build/' | relative_url }}">Building from source</a></li>
+          <li><a href="{{ '/licensing/' | relative_url }}">Licensing</a></li>
         </ul>
       </aside>
 

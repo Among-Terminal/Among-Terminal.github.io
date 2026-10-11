@@ -58,6 +58,8 @@ body {
 
 a { color: var(--accent); }
 a:hover { text-decoration: none; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+html { scroll-padding-top: 6rem; }
 
 /* Masthead ------------------------------------------------------------- */
 
@@ -163,6 +165,7 @@ main p, main li { color: var(--ink); }
 main ul, main ol { padding-left: 1.3rem; }
 main li { margin: 0.3rem 0; }
 main img { max-width: 100%; height: auto; border-radius: 8px; }
+main video { max-width: 100%; border-radius: 8px; }
 main hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
 
 main code {

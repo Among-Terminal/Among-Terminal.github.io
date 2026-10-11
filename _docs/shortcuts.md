@@ -12,7 +12,7 @@ The header's left controls are Settings, sidebar toggle, then New workspace.
 Edits in Preferences are saved immediately and restored on the next launch,
 including removed bindings and actions displaced by a shortcut reassignment.
 Storage is `$XDG_CONFIG_HOME/among/shortcuts.json` (or
-`~/.config/among/shortcuts.json`); see [Preferences storage](preferences.md).
+`~/.config/among/shortcuts.json`); see [Preferences storage](/preferences/).
 If saving fails, the edit remains session-only and Preferences shows a warning.
 
 Bindings live in a single registry (`src/shortcuts.rs`), which is what makes them

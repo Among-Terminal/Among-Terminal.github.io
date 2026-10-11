@@ -11,8 +11,8 @@ connects each everyday control to a real demonstration and its detailed referenc
 The recordings use synthetic projects; zsh, Starship, `ll`, `mc` and `htop` are
 demo tools, not software installed or configured by Among Terminal.
 
-[Full-length overview videos](overview.md) ·
-[Default shortcuts](shortcuts.md)
+[Full-length overview videos](/overview/) ·
+[Default shortcuts](/shortcuts/)
 
 ## Split and resize terminals
 
@@ -39,7 +39,7 @@ dragging inside terminal text still selects text.
 
 [![Moving a live pane by its header](/media/features/03-pane-drag.png)](/media/features/03-pane-drag.mp4)
 
-[Pane movement and drop rules](panes.md#dragging-a-pane-to-a-new-position).
+[Pane movement and drop rules](/panes/#dragging-a-pane-to-a-new-position).
 
 ## Focus, zoom and fullscreen
 
@@ -98,11 +98,11 @@ pane controls. Their shortcut hints follow Settings, and removing a shortcut doe
 not disable its menu action. Arrow keys navigate, Enter activates, and Escape
 returns to terminal input. No context-menu recording is included in the videos.
 
-[Detailed menu and pane rules](panes.md#terminal-context-menu).
+[Detailed menu and pane rules](/panes/#terminal-context-menu).
 
 ## Optional live status plugins
 
-After [installing the examples](plugins.md#installing), open **Settings** with
+After [installing the examples](/plugins/#installing), open **Settings** with
 **Ctrl+,** and select **Plugins**. All three examples are disabled by default;
 enable only the ones you want. Switches apply immediately and persist on restart.
 
@@ -120,8 +120,8 @@ that is fault isolation, not a security sandbox: install only trusted code.
 
 [![Toggling clock, resource meters and pane directories in Settings](/media/features/06-plugins.png)](/media/features/06-plugins.mp4)
 
-[Live status and directory integration](plugins.md#live-status-examples) ·
-[Third-party plugin protocol](plugins.md#protocol).
+[Live status and directory integration](/plugins/#live-status-examples) ·
+[Third-party plugin protocol](/plugin-development/#protocol).
 
 ## Restore a layout, not yesterday's commands
 
@@ -138,7 +138,7 @@ and retryable; recent changes can be lost after a crash.
 
 [![Choosing Restore and reopening separate project directories](/media/features/07-session-restore.png)](/media/features/07-session-restore.mp4)
 
-[Session consent, storage and recovery limits](sessions.md).
+[Session consent, storage and recovery limits](/sessions/).
 
 ## Close a pane and keep working
 
@@ -150,13 +150,13 @@ job: this is not a detach operation.
 
 [![Closing one pane and typing ll in its surviving sibling](/media/features/08-close-pane.png)](/media/features/08-close-pane.mp4)
 
-[Closing, process exit and focus rules](panes.md#closing-and-exiting).
+[Closing, process exit and focus rules](/panes/#closing-and-exiting).
 
 ## Appearance and preferences
 
-The native interface supports light and dark styling. Terminal colours and the
-prompt in these recordings come from the private demo shell setup, not a
-GNOME Terminal profile-import feature.
+The native interface supports light and dark styling. Shell prompts and terminal
+colours are configured separately; Among Terminal does not import GNOME Terminal
+profiles.
 
 [![The terminal listing in light and dark appearance](/media/features/01-themes.png)](/media/features/01-themes.mp4)
 
@@ -166,16 +166,9 @@ saved together with explicit unbinding. Save failures leave the current edit
 active for this session and show a warning; a later edit retries saving.
 
 Shortcut editing and storage recovery are documented but are not demonstrated
-in these clips. See [shortcut controls](shortcuts.md) and
-[preference persistence](preferences.md).
+in these clips. See [shortcut controls](/shortcuts/) and
+[preference persistence](/preferences/).
 
-## Demonstration scope
-
-Videos are silent, with a visible cursor and bold key badges only for actual
-pressed combinations. They show native X11 behaviour, not proof of Wayland,
-GPU, arm64 or screen-reader support. The overview joins the approved clips with
-direct cuts; no actions are simulated, sped up or replayed by editing.
-
-If your Markdown viewer does not play video inline, open/download the linked MP4.
-The descriptions above also
-explain the actions without requiring video playback.
+The written instructions explain each action without requiring video playback.
+Demonstrations show native X11 behaviour; they do not establish support for
+untested platforms or assistive technologies.

@@ -2,15 +2,19 @@
 
 Source for [among-terminal.github.io](https://among-terminal.github.io).
 
-A Jekyll site. Pages live in `_docs/`; the prose is kept in step with the
-`docs/` directory of [Among-Terminal/among](https://github.com/Among-Terminal/among)
-and the two are edited together.
+A Jekyll site with a feature-led homepage, user guides and a separate
+plugin-development reference. Public guides live in `_docs/`; media lives only
+in `media/`.
+
+When adapting prose from [Among-Terminal/among](https://github.com/Among-Terminal/among),
+preserve each page's front matter and use published routes, not repository-relative
+Markdown paths. The site intentionally excludes internal recording tools,
+release rehearsal reports and local machine paths.
 
 ```sh
 bundle install
 bundle exec jekyll serve
 ```
 
-Ruby code inside a page must be wrapped in `{% raw %}` … `{% endraw %}`: the
-Rust plugin example contains doubled braces that Liquid would otherwise read as
-an interpolation.
+Build and check the generated pages before deploying; a successful Markdown copy
+does not prove Jekyll has created the corresponding routes.

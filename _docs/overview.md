@@ -7,7 +7,7 @@ permalink: /overview/
 # Among Terminal overview
 
 Among Terminal combines native VTE terminals, nested panes and live workspaces
-in a GNOME window. The short [README film](../README.md) introduces the interface;
+in a GNOME window. The short [short demonstration](/#demo) introduces the interface;
 the full-length recordings here cover more workflows and controls.
 
 ## Complete workflow tour
@@ -33,9 +33,9 @@ It is retained here separately from the approved 23-second README film.
 
 ## Explore individual features
 
-- [Feature guide](features.md): demonstrations alongside controls and caveats.
-- [Panes](panes.md), [sessions](sessions.md), [preferences](preferences.md)
-  and [plugins](plugins.md): detailed references.
+- [Feature guide](/features/): demonstrations alongside controls and caveats.
+- [Panes](/panes/), [sessions](/sessions/), [preferences](/preferences/)
+  and [plugins](/plugins/): detailed references.
 
 Use fullscreen to inspect terminal text. Previews link to MP4 files; GitHub
 inline playback is not assumed. The recordings use isolated synthetic projects,

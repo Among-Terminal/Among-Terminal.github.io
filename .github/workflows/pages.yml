@@ -30,6 +30,15 @@ jobs:
         with:
           source: ./
           destination: ./_site
+      - name: Check public documentation routes and privacy
+        run: |
+          for page in index.html features/index.html plugins/index.html plugin-development/index.html install/index.html overview/index.html build/index.html licensing/index.html panes/index.html sessions/index.html shortcuts/index.html preferences/index.html; do
+            test -s "_site/$page" || exit 1
+          done
+          if grep -R -n -E '/tmp/opencode|/home/me/|Among-Terminal/ci-probe|sync-docs\.py|refresh-public-docs\.mjs' _site --include='*.html'; then
+            echo 'Internal material found in the public site' >&2
+            exit 1
+          fi
       - name: Upload the built site
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
 

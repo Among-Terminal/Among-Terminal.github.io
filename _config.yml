@@ -13,8 +13,7 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
-# Pages are plain Markdown under the repository root; the copy under docs/ in
-# the application repository is the same text.
+# Public guides are a collection with explicit page permalinks.
 collections:
   docs:
     output: true
@@ -26,9 +25,10 @@ defaults:
     values:
       layout: default
   - scope:
-      path: "docs"
+      path: ""
+      type: docs
     values:
-      layout: doc
+      layout: default
 
 plugins:
   - jekyll-sitemap

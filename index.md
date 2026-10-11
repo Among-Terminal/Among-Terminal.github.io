@@ -1,60 +1,51 @@
 ---
 layout: default
-title: Among Terminal
+title: Among Terminal — features
 ---
 
 # Among Terminal
 
-A terminal multiplexer for GNOME: **split panes**, **named workspaces** in a
-collapsible sidebar, and a **plugin pipeline** that turns shell data into
-interface content.
+Keep your shells, projects and tools together in one native GNOME window.
+Among Terminal combines VTE terminals with split panes, named workspaces and
+optional live status plugins.
 
-The binary is `among`.
+<video id="demo" controls playsinline preload="metadata" poster="/media/among-terminal-action-v5.png" aria-label="Among Terminal: panes, workspaces and plugins" style="width:100%;height:auto">
+  <source src="/media/among-terminal-action-v5.mp4" type="video/mp4">
+  <a href="/media/among-terminal-action-v5.mp4">Watch or download the demonstration</a>.
+</video>
 
-Terminal emulation is delegated to VTE (`libvte-2.91-gtk4`) through the
-official GNOME World `vte4` crate — the same widget GNOME Terminal is built
-on. Among Terminal owns the pane tree, workspace lifecycle, key routing and the
-plugin pipeline, and does not reimplement terminal emulation.
+[Watch or download the video](/media/among-terminal-action-v5.mp4).
+The feature guide describes every action without requiring video playback.
 
-## Install
+## Built for several things at once
 
-Distributed as Snap, DEB and RPM for amd64 and arm64. Pick the package built
-for your distribution:
+- **Split and resize.** Keep an editor, shell and monitor side by side;
+  adjust dividers with the mouse or keyboard.
+- **Rearrange live panes.** Drag pane headers to change the layout without
+  restarting their processes.
+- **Organize workspaces.** Name and colour-code projects, switch instantly,
+  and collapse the sidebar without losing access to running terminals.
+- **Stay on the keyboard.** Move focus, zoom a pane, switch workspaces and
+  customize shortcuts in Settings.
+- **Restore your layout.** Reopen splits and known directories in fresh shells.
+  Running commands and scrollback are not resumed.
+- **Choose your status.** Enable a clock, resource meters or per-pane directory
+  labels. Plugins are optional and disabled by default.
 
-- **Snap** — `sudo snap install among`
-- **DEB** — `sudo apt install ./among-terminal_<version>-1_amd64.deb`
-- **RPM** — `sudo dnf install ./among-<version>-1.fc44.x86_64.rpm`
+[Explore features with screenshots and demonstrations →](/features/)
 
-See [installation](/install/) for the full matrix, upgrade, removal and
-rollback.
+## Make your own plugin
 
-## Start here
+Plugins are separate executables exchanging JSON lines with the application.
+They can supply status text, icons and meters without depending on GTK.
+They run as your user, not in a security sandbox: install only trusted code.
 
-| | |
-|---|---|
-| [Overview](/overview/) | What the pieces are and how they fit together |
-| [Panes](/panes/) | Splitting, resizing and moving panes |
-| [Sessions](/sessions/) | Saving and restoring your workspace layout |
-| [Shortcuts](/shortcuts/) | Every keyboard binding |
-| [Plugins](/plugins/) | Writing a plugin that feeds the interface |
-| [Preferences](/preferences/) | Settings and where they live |
+[Write your first plugin →](/plugin-development/#writing-one) ·
+[Protocol reference](/plugin-development/#protocol)
 
-## Build from source
+## Learn the controls
 
-Three independent Cargo packages, so a successful host build cannot stand in
-for the others:
+[Panes](/panes/) · [Workspaces and sessions](/sessions/) ·
+[Keyboard shortcuts](/shortcuts/) · [Preferences](/preferences/)
 
-```sh
-cargo build --release --locked
-cargo build --release --locked --manifest-path examples/plugins/Cargo.toml
-cargo build --release --locked --manifest-path tools/among-tools/Cargo.toml
-```
-
-Development prerequisites and the packaging checks are described in
-[building](/build/).
-
-## Licence
-
-Apache-2.0. Native libraries are dynamically linked and keep their own terms;
-see [licensing](/licensing/) for what is bundled, what is linked, and which
-obligations apply.
+Ready to try it? See [installation](/install/).

@@ -30,6 +30,26 @@ If `~/.local/bin` is already in PATH, the command is `among`.
 The installer does not edit shell startup files. If the menu does not refresh
 immediately, log out and back in.
 
+## Cargo installation (binary only)
+
+With the native prerequisites from [building](/build/) installed:
+
+```sh
+cargo install --git https://github.com/Among-Terminal/among --locked among
+among
+```
+
+This builds the moving default branch and installs only the executable in Cargo's
+bin directory (normally `~/.cargo/bin`). It does not install a desktop entry,
+icons or plugins. Use the source installer above for desktop integration.
+Do not run Cargo as root. Rerun the command to update, and remove this binary with:
+
+```sh
+cargo uninstall among
+```
+
+Settings, sessions and separately installed plugins are preserved.
+
 ## Update and remove
 
 Rerun the installation command from the updated checkout to update.
@@ -93,4 +113,4 @@ the installer reports those errors rather than claiming recovery. Originals
 whose bytes and mode already match the saved state do not need to be rewritten.
 
 Optional plugins remain a separate installation:
-`sh scripts/install-plugins.sh --enable-new`; see [plugins](plugins.md#installing).
+`sh scripts/install-plugins.sh --enable-new`; see [plugins](/plugins/#installing).

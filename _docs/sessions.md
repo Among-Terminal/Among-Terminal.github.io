@@ -37,7 +37,7 @@ rather than assuming the requested path was used. Only the actual known location
 is recorded. New ordinary terminals retain the normal startup directory.
 
 For directory changes after launch, the shell must publish OSC 7. See the tested
-[Bash integration](plugins.md#live-status-examples). This does not require enabling
+[Bash integration](/plugins/#live-status-examples). This does not require enabling
 pane-pwd or any other plugin, and Among Terminal never edits your shell files.
 For example, after enabling the optional Bash hook, `cd /tmp` is recorded on the
 next checkpoint even when the workspace is inactive.
