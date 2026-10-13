@@ -4,77 +4,157 @@ title: Installing Among Terminal
 
 # Installing Among Terminal
 
-Install a ready-made release package. No Git, Rust, Cargo or build scripts are needed.
-
-| Format | How dependencies are handled | Availability |
-| --- | --- | --- |
-| AppImage | The main runtime libraries are intended to be bundled | In preparation; not downloadable yet |
-| DEB | APT installs the required distribution libraries automatically | **RC2 preview available** for Ubuntu 24.04 and Debian 13 |
-| RPM | DNF installs the required distribution libraries automatically | In preparation; not downloadable yet |
-
-Only the DEB packages below are currently published. AppImage and RPM download
-links will be added after their build and runtime checks pass.
+Download the file for your system. The links below always fetch the
+[latest release](https://github.com/Among-Terminal/among/releases/latest).
+No Git, Rust toolchain or compilation is needed.
 
 ## Download
 
-These are **0.1.0 RC2 preview packages**, not a stable release. Choose the file
-matching both your distribution version and CPU architecture:
+Every release carries the same files for x86-64 (`amd64`) and ARM 64-bit
+(`arm64`), under names without a version.
 
-| Distribution | amd64 (Intel/AMD 64-bit) | arm64 (64-bit ARM) |
+| System | x86-64 (`amd64`) | ARM 64-bit (`arm64`) |
 | --- | --- | --- |
-| Ubuntu 24.04 | [Download `.deb`](https://github.com/Among-Terminal/among/releases/download/v0.1.0-rc.2/among-terminal_0.1.0.rc.2-1.ubuntu24.04_amd64.deb) | [Download `.deb`](https://github.com/Among-Terminal/among/releases/download/v0.1.0-rc.2/among-terminal_0.1.0.rc.2-1.ubuntu24.04_arm64.deb) |
-| Debian 13 | [Download `.deb`](https://github.com/Among-Terminal/among/releases/download/v0.1.0-rc.2/among-terminal_0.1.0.rc.2-1.debian13_amd64.deb) | [Download `.deb`](https://github.com/Among-Terminal/among/releases/download/v0.1.0-rc.2/among-terminal_0.1.0.rc.2-1.debian13_arm64.deb) |
+| Ubuntu 24.04 — DEB | [among-terminal-ubuntu24.04-amd64.deb](https://github.com/Among-Terminal/among/releases/latest/download/among-terminal-ubuntu24.04-amd64.deb) | [among-terminal-ubuntu24.04-arm64.deb](https://github.com/Among-Terminal/among/releases/latest/download/among-terminal-ubuntu24.04-arm64.deb) |
+| Debian 13 — DEB | [among-terminal-debian13-amd64.deb](https://github.com/Among-Terminal/among/releases/latest/download/among-terminal-debian13-amd64.deb) | [among-terminal-debian13-arm64.deb](https://github.com/Among-Terminal/among/releases/latest/download/among-terminal-debian13-arm64.deb) |
+| Fedora 44 — RPM | [among-terminal-fedora44-amd64.rpm](https://github.com/Among-Terminal/among/releases/latest/download/among-terminal-fedora44-amd64.rpm) | [among-terminal-fedora44-arm64.rpm](https://github.com/Among-Terminal/among/releases/latest/download/among-terminal-fedora44-arm64.rpm) |
+| Fedora 43 — RPM | [among-terminal-fedora43-amd64.rpm](https://github.com/Among-Terminal/among/releases/latest/download/among-terminal-fedora43-amd64.rpm) | [among-terminal-fedora43-arm64.rpm](https://github.com/Among-Terminal/among/releases/latest/download/among-terminal-fedora43-arm64.rpm) |
+| Other distributions with glibc 2.39+ — AppImage | [among-terminal-amd64.AppImage](https://github.com/Among-Terminal/among/releases/latest/download/among-terminal-amd64.AppImage) | [among-terminal-arm64.AppImage](https://github.com/Among-Terminal/among/releases/latest/download/among-terminal-arm64.AppImage) |
+| Ubuntu 24.04 — binary archive | [among-terminal-ubuntu24.04-amd64.tar.gz](https://github.com/Among-Terminal/among/releases/latest/download/among-terminal-ubuntu24.04-amd64.tar.gz) | [among-terminal-ubuntu24.04-arm64.tar.gz](https://github.com/Among-Terminal/among/releases/latest/download/among-terminal-ubuntu24.04-arm64.tar.gz) |
+| Debian 13 — binary archive | [among-terminal-debian13-amd64.tar.gz](https://github.com/Among-Terminal/among/releases/latest/download/among-terminal-debian13-amd64.tar.gz) | [among-terminal-debian13-arm64.tar.gz](https://github.com/Among-Terminal/among/releases/latest/download/among-terminal-debian13-arm64.tar.gz) |
 
-Not sure which architecture you have? Run `dpkg --print-architecture`.
-Check your distribution version in **Settings → About**, or `/etc/os-release`.
-Do not use a Debian package on Ubuntu or vice versa. Other distribution versions
-have not been accepted for these packages.
+`uname -m` prints `x86_64` for amd64 and `aarch64` for arm64. Use the package
+built for your own distribution release: a Debian package is not a substitute
+on Ubuntu or the reverse, and a package for one Fedora release is not a
+substitute on another. Earlier versions and their notes are on the
+[releases page](https://github.com/Among-Terminal/among/releases).
 
-## Install and launch
+## Verify the download
 
-Open a terminal in the folder containing the downloaded file. On Ubuntu 24.04
-with amd64, run:
+Each release also carries
+[SHA256SUMS](https://github.com/Among-Terminal/among/releases/latest/download/SHA256SUMS).
+Put it next to your downloaded file and run:
 
 ```sh
-sudo apt install ./among-terminal_0.1.0.rc.2-1.ubuntu24.04_amd64.deb
+sha256sum --check --ignore-missing SHA256SUMS
 ```
 
-For another supported target, use the exact filename you downloaded. Keep the
-`./` prefix: it tells APT to install a local package. APT downloads the required
-runtime libraries from your configured distribution repositories.
+The line for your file must end in `OK`. Releases are immutable: once
+published, their files and tag cannot change. GitHub records an attestation for
+each release; with the GitHub CLI,
+`gh release verify-asset <tag> <file> --repo Among-Terminal/among` checks a
+downloaded file against it.
 
-Launch **Among Terminal** from the applications menu, or run `among`.
-If an older Cargo, Snap or source-built copy is also installed, `/usr/bin/among`
-explicitly launches the DEB installation.
+## Debian and Ubuntu (DEB)
+
+Open a terminal in the download directory and install the file you downloaded:
+
+```sh
+sudo apt install ./among-terminal-ubuntu24.04-amd64.deb
+```
+
+Keep the `./` prefix: it tells APT to install a local file. APT installs the
+libraries Among needs from your distribution repositories.
+
+## Fedora (RPM)
+
+```sh
+sudo dnf install ./among-terminal-fedora44-amd64.rpm
+```
+
+DNF installs GTK 4, libadwaita, GTK 4 VTE and the icon and settings data from
+the Fedora repositories.
+
+After installing the DEB or RPM, start **Among Terminal** from the applications
+menu, or run `among`. If a Cargo-built, Snap or source-installed copy is also
+present, `/usr/bin/among` starts the package installation explicitly.
+
+## AppImage
+
+An AppImage is one executable file that carries Among together with GTK,
+libadwaita, VTE and the libraries they need. It installs nothing. It needs GNU
+C library 2.39 or newer; its release checks start it on Debian 13, Ubuntu 24.04
+and Fedora 43 on both architectures. Some libraries must come from the host,
+including the C and C++ runtime, X11 and XCB, Wayland client, fontconfig and
+FreeType; the
+[AppImage section of the installation guide](https://github.com/Among-Terminal/among/blob/main/docs/install.md#appimage)
+lists all of them with install commands.
+
+Make the file executable and start it:
+
+```sh
+chmod +x among-terminal-amd64.AppImage
+./among-terminal-amd64.AppImage
+```
+
+The AppImage mounts itself with FUSE, which needs `fusermount3` from the
+`fuse3` package (`sudo apt-get install fuse3` or `sudo dnf install fuse3`).
+Without FUSE it prints `Cannot mount AppImage, please check your FUSE setup`.
+Then extract it and start the extracted copy instead:
+
+```sh
+./among-terminal-amd64.AppImage --appimage-extract
+./squashfs-root/AppRun
+```
+
+This creates `squashfs-root/` in the current directory; move or delete it like
+any directory. The AppImage does not add itself to the applications menu; the
+installation guide linked above shows how to add a menu entry.
+
+## Binary archive
+
+A binary archive holds the same executables as the DEB of the same release,
+without a package manager. It is built for one distribution and architecture
+and does not bundle libraries: Debian 13 or Ubuntu 24.04 must provide them.
+
+```sh
+sudo apt-get install --no-install-recommends libgtk-4-1 libadwaita-1-0 libvte-2.91-gtk4-0 librsvg2-common
+mkdir ~/among
+tar -xzf among-terminal-ubuntu24.04-amd64.tar.gz -C ~/among
+~/among/bin/among
+```
+
+`INSTALL.txt` inside the archive lists the exact runtime packages and minimum
+versions. The archive adds no applications-menu entry. See the
+[binary archive guide](https://github.com/Among-Terminal/among/blob/main/docs/install.md#binary-archive)
+for details.
 
 ## Update and remove
 
-Download the newer package for the same distribution and architecture, then run
-`sudo apt install ./filename.deb` with its exact filename. Close and relaunch
-Among Terminal after the update.
-
-There is no Among APT repository yet: `apt upgrade` does not download newer
-Among releases automatically. An RC of the same base version sorts below the
-stable version; do not downgrade an existing stable installation to that RC.
+To update, download the newer release's file and install it the same way:
+`sudo apt install ./file.deb` or `sudo dnf upgrade ./file.rpm` with its exact
+name; for the AppImage, use the newer file in place of the old one. There is no
+Among APT or RPM repository, so `apt upgrade` and `dnf upgrade` never move to a
+new version by themselves. Close and reopen Among to use the new version.
 
 ```sh
-sudo apt remove among-terminal
+sudo apt remove among-terminal   # DEB
+sudo dnf remove among            # RPM
 ```
 
-Your preferences, sessions and separately installed plugins are kept in your
-home directory. Removing the DEB does not remove another Snap, Cargo or
-source-built copy.
+To remove the AppImage, delete the file and, if you added them, its desktop
+entry and icon. To remove a binary archive, delete `~/among`.
 
-## Package contents and integrity
+Removal keeps your preferences, sessions and separately installed plugins:
+they live in your home directory and belong to the application, not to the
+package. A Cargo-built, Snap or source-installed copy is separate and stays
+after the package is removed.
 
-The DEB installs the application, desktop entry, icon and licence notices.
-Example plugins are provided but disabled by default. See [using plugins](/plugins/).
+## Plugins
 
-The [release page](https://github.com/Among-Terminal/among/releases/tag/v0.1.0-rc.2)
-provides checksums, matching source materials and build/check provenance.
-Checksums detect changed files; they are not a separate publisher signature.
-Installed CI checks cover X11/Xvfb, not full stable acceptance or GNOME/Wayland
-certification. See the release notes for the exact scope and known limitations.
+Every format ships the example plugins, disabled by default: the DEB and RPM
+install them under `/usr/share/among/plugins/`, the binary archive in
+`~/among/plugins/`, and the AppImage carries them inside the image in
+`usr/share/among/plugins/`. They stay disabled until you install and enable
+them as described in [using plugins](/plugins/#installing).
+
+## What the release checks cover
+
+DEB and RPM packages are built and installed for checking on GitHub release
+runners, once per distribution and architecture, in fresh containers. The
+display backend exercised there is X11 under Xvfb; GNOME and Wayland sessions
+are not covered. Nothing here is a claim about distributions, versions or
+architectures outside the table above.
 
 ## For developers
 
