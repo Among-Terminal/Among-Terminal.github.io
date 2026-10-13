@@ -10,28 +10,28 @@ optional live status plugins.
 
 ## Install a release package
 
-Use a ready-made package from [GitHub Releases](https://github.com/Among-Terminal/among/releases).
-No Rust toolchain or compilation is needed.
+Download a ready-made file from the
+[latest release](https://github.com/Among-Terminal/among/releases/latest), for
+x86-64 (`amd64`) or ARM 64-bit (`arm64`). No Rust toolchain or compilation is
+needed.
 
-| Format | Best for | Availability |
-| --- | --- | --- |
-| AppImage | A portable bundle with the main runtime libraries included | In preparation; not downloadable yet |
-| DEB | Debian/Ubuntu; APT installs runtime dependencies | **RC2 preview available**, amd64 and arm64 |
-| RPM | Fedora; DNF installs runtime dependencies | In preparation; not downloadable yet |
+| Format | Best for |
+| --- | --- |
+| DEB | Ubuntu 24.04, Debian 13; APT installs runtime dependencies |
+| RPM | Fedora 43, Fedora 44; DNF installs runtime dependencies |
+| AppImage | Other distributions with glibc 2.39+; GTK, libadwaita and VTE included |
+| Binary archive | Ubuntu 24.04, Debian 13 without a package manager |
 
-### Install the available DEB
-
-Download a ready-made **0.1.0 RC2 preview** package for
-[Ubuntu 24.04 or Debian 13](/install/), on amd64 or arm64.
-For Ubuntu 24.04 on amd64, open a terminal in your download folder:
+Install from the download directory, using the file name you downloaded:
 
 ```sh
-sudo apt install ./among-terminal_0.1.0.rc.2-1.ubuntu24.04_amd64.deb
+sudo apt install ./among-terminal-ubuntu24.04-amd64.deb   # Debian, Ubuntu
+sudo dnf install ./among-terminal-fedora44-amd64.rpm      # Fedora
+chmod +x among-terminal-amd64.AppImage && ./among-terminal-amd64.AppImage
 ```
 
-Launch **Among Terminal** from the applications menu. No Git, Rust or build
-scripts are required. This is a prerelease, not a stable release.
-[Downloads, updates and removal](/install/).
+Start **Among Terminal** from the applications menu, or run `among`.
+[Direct download links, checksums, updates and removal](/install/).
 
 <video id="demo" controls playsinline preload="metadata" poster="/media/among-terminal-action-v5.png" aria-label="Among Terminal: panes, workspaces and plugins" style="width:100%;height:auto">
   <source src="/media/among-terminal-action-v5.mp4" type="video/mp4">
