@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import path from 'node:path'
+import { createHash } from 'node:crypto'
 
 const root = path.resolve('.vitepress/dist')
 const routes = ['', 'features', 'plugin-development', 'plugins', 'panes', 'sessions',
@@ -9,6 +10,19 @@ const routes = ['', 'features', 'plugin-development', 'plugins', 'panes', 'sessi
 for (const route of routes) {
   const file = path.join(root, route, 'index.html')
   assert(fs.existsSync(file) && fs.statSync(file).size > 0, `Missing route /${route}/`)
+  const html = fs.readFileSync(file, 'utf8')
+  assert(html.includes('src="/media/logo-small.svg"'), `Wrong navigation artwork on /${route}/`)
+  assert(html.includes('href="/media/logo-small.png"'), `Wrong favicon on /${route}/`)
+}
+
+// bind delivered artwork to the supplied square mark, not another logo with the same filename.
+for (const [name, expected] of [
+  ['logo-small.svg', '9c6b334d1a60119e834681ffb95acc8707128756f2e74f440e8f1aa3fa9b0a01'],
+  ['logo-small.png', '941cd693d135e329344312e3466cded3a6294c951a7d640a9c8fe77141b2857a'],
+]) {
+  const delivered = fs.readFileSync(path.join(root, 'media', name))
+  assert.equal(createHash('sha256').update(delivered).digest('hex'), expected, `Unapproved ${name}`)
+  assert.deepEqual(delivered, fs.readFileSync(path.join('docs/public/media', name)))
 }
 
 const index = fs.readFileSync(path.join(root, 'llms.txt'), 'utf8')
