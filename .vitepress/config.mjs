@@ -20,7 +20,7 @@ export default defineConfig({
     ]
   },
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: '/media/icon.png' }],
+    ['link', { rel: 'icon', type: 'image/png', href: '/media/logo-small.png' }],
     ['link', { rel: 'alternate', type: 'text/plain', title: 'LLM documentation', href: '/llms.txt' }],
   ],
   vite: {
@@ -32,7 +32,7 @@ export default defineConfig({
     })],
   },
   themeConfig: {
-    logo: { src: '/media/logo.png', alt: 'Among' },
+    logo: { src: '/media/logo-small.svg', alt: 'Among Terminal' },
     nav: [
       { text: 'Features', link: '/features/' },
       { text: 'Plugin development', link: '/plugin-development/' },
