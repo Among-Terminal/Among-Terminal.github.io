@@ -29,6 +29,13 @@ on Ubuntu or the reverse, and a package for one Fedora release is not a
 substitute on another. Earlier versions and their notes are on the
 [releases page](https://github.com/Among-Terminal/among/releases).
 
+## Other installation channels
+
+Snap Store and distribution archive packages are not available yet. The direct
+packages above are the supported installation route. A channel is listed here
+only after its package has passed installation checks and is publicly
+available.
+
 ## Verify the download
 
 Each release also carries
