@@ -153,12 +153,14 @@ cd "$among_icon_dir"
 "$HOME/Applications/among.AppImage" --appimage-extract usr/share/icons/hicolor/scalable/apps/com.github.among-terminal.svg
 cp squashfs-root/usr/share/icons/hicolor/scalable/apps/com.github.among-terminal.svg \
   ~/.local/share/icons/hicolor/scalable/apps/
+among_exec=$(printf '%s\n' "$HOME/Applications/among.AppImage" |
+  sed 's/[\\"`$]/\\&/g; s/\\/\\\\/g')
 cat > ~/.local/share/applications/com.github.among-terminal.desktop <<EOF_DESKTOP
 [Desktop Entry]
 Type=Application
 Name=Among Terminal
 Comment=Organize live terminals in project workspaces
-Exec=$HOME/Applications/among.AppImage
+Exec="$among_exec"
 Icon=com.github.among-terminal
 Terminal=false
 Categories=System;TerminalEmulator;
@@ -175,11 +177,12 @@ update `Exec=`. This manual entry uses the native package's ID and can override
 its launcher if both are installed.
 
 For a binary archive, create `~/.local/share/applications/` and save the same
-desktop entry there as `com.github.among-terminal.desktop`. Set `Exec=` to the
-absolute path of the archive's `bin/among` executable. For the extraction below,
-that is `$HOME/among/bin/among`. Expand `$HOME` to your home directory when
-editing the file; desktop entries do not expand shell variables. Skip the
-AppImage icon-extraction commands.
+desktop entry there as `com.github.among-terminal.desktop`. Quote the absolute
+path of the archive's `bin/among` executable: `Exec="$HOME/among/bin/among"` for
+the extraction below. Replace `$HOME` with your home directory when editing the
+file; desktop entries do not expand shell variables. Inside the quotes, escape
+`"`, a backtick, `$` and `\` with a backslash, then double every backslash for the
+desktop entry's string escaping. Skip the AppImage icon-extraction commands.
 
 `X-GNOME-UsesNotifications=true` makes the entry available in GNOME's notification
 settings. Notification clicks target the running application; they do not restart
