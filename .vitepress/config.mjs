@@ -46,9 +46,9 @@ export default defineConfig({
           { text: 'Panes and workspaces', link: '/panes/' },
           { text: 'Terminal notifications', link: '/notifications/' },
           { text: 'Sessions', link: '/sessions/' },
+          { text: 'Using plugins', link: '/plugins/' },
           { text: 'Keyboard shortcuts', link: '/shortcuts/' },
           { text: 'Preferences', link: '/preferences/' },
-          { text: 'Using plugins', link: '/plugins/' },
         ],
       },
       {
