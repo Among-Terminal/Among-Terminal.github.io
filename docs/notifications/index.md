@@ -61,9 +61,9 @@ IEEE-float WAV, at most 10 seconds and 10 MiB, with a sample rate up to
 
 ## Run a command
 
-Choose a program and put each argument on its own line, then select Save.
-Arguments are passed literally: shell quoting and operators do not apply.
-Saving does not run the command. Turn the channel on when you are ready.
+Choose an absolute program path and put each argument on its own line, then
+select Save. Arguments are passed literally: shell quoting and operators do not
+apply. Saving does not run the command. Turn the channel on when you are ready.
 
 ## Plugin channels
 

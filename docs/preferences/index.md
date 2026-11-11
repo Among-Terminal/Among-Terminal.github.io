@@ -5,8 +5,9 @@ title: Preferences
 # Preferences
 
 Press `Ctrl+,` to open Settings. Choose Plugins, Notifications, Keyboard,
-Terminal or About at the top. Changes apply immediately; the tab has no Save
-button.
+Terminal or About at the top. Most changes apply immediately and there is no
+general Save button; plugin forms and the command fields have their own Save
+buttons.
 
 ## Terminal
 
@@ -40,8 +41,8 @@ requires Save. Saving does not enable a disabled plugin. See
 ### Retained plugin settings
 
 After uninstalling a plugin, Settings of removed plugins deletes its saved
-settings. Private data and accepted access remain until you remove them
-separately.
+settings. The plugin's private data directory and the record of accepted access
+remain. Among has no separate action to delete them yet.
 
 ## About
 
