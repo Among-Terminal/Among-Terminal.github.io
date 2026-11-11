@@ -35,7 +35,7 @@ export default defineConfig({
   themeConfig: {
     logo: { src: '/media/logo-small.svg', alt: 'Among Terminal' },
     nav: [
-      { text: 'Features', link: '/features/' },
+      { text: 'Panes', link: '/panes/' },
       { text: 'Plugins', link: '/plugins/' },
       { text: 'Install', link: '/install/' },
     ],
@@ -43,9 +43,8 @@ export default defineConfig({
       {
         text: 'Using Among Terminal',
         items: [
-          { text: 'Start here', link: '/' },
-          { text: 'Features', link: '/features/' },
           { text: 'Panes and workspaces', link: '/panes/' },
+          { text: 'Terminal notifications', link: '/notifications/' },
           { text: 'Sessions', link: '/sessions/' },
           { text: 'Keyboard shortcuts', link: '/shortcuts/' },
           { text: 'Preferences', link: '/preferences/' },
@@ -55,7 +54,6 @@ export default defineConfig({
       {
         text: 'Resources',
         items: [
-          { text: 'A workspace in practice', link: '/overview/' },
           { text: 'Installation', link: '/install/' },
           { text: 'Licensing', link: '/licensing/' },
         ],

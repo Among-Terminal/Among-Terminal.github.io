@@ -63,9 +63,9 @@ visible text. Check the destination before opening it.
 
 ## Terminal bells
 
-An unfocused terminal can mark its pane and workspace when it rings a bell.
-Focus the terminal to clear its unread mark. Set the conditions in
-[notification preferences](/preferences/#notifications).
+A bell in an unfocused terminal marks its pane and workspace. Focus that
+terminal to clear the mark. See [terminal notifications](/notifications/) for
+desktop banners, sound, commands and the conditions that turn each one on.
 
 ## Closing and exiting
 

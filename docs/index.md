@@ -18,7 +18,7 @@ outline: false
 
 <div class="showcase-actions">
 <a class="showcase-button" href="/install/">Install Among Terminal</a>
-<a class="showcase-link" href="/features/">See what you can do</a>
+<a class="showcase-link" href="/panes/">See how it works</a>
 </div>
 
 </div>
@@ -73,7 +73,7 @@ sidebar. Reorder them to match your work.
 Inside the window, the stripes beside the workspace and the pane that rang pulse
 until you focus that terminal.
 
-[Choose your notifications](/preferences/#notifications)
+[Choose your notifications](/notifications/)
 
 </section>
 

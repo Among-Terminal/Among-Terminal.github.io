@@ -152,16 +152,14 @@ among_osc7
 ```
 
 Use it only in local shells. Reports from a remote SSH shell are treated as
-local paths and do not restore the remote connection. Other shells need their
-own directory-reporting setup. Among does not edit your shell configuration.
+local paths and do not restore the remote connection. Other shells can send
+the same OSC 7 sequence from their own prompt hook; a report from an inactive
+workspace is still recorded. Among does not edit your shell configuration.
 
 ## Your first workspace
 
-Press `Ctrl+Shift+N` to split a pane and `Ctrl+Shift+T` to create a workspace.
-Double-click a workspace name to rename it. Open Settings with `Ctrl+,` to
-choose colours or [install optional plugins](/plugins/#installing).
-
-Continue with [panes and workspaces](/panes/).
+Continue with [panes and workspaces](/panes/) to split your first pane, name a
+workspace and choose the tools you want to see together.
 
 ## Update and remove
 

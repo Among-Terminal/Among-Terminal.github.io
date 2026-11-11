@@ -86,10 +86,11 @@ to delete retained settings.
 
 ## Notifications
 
-A plugin can produce events or deliver notifications. Review that role on
-its details page. Delivery channels also need their own switch in
-[Notifications](/preferences/#notifications); access review alone does not
-enable them. Delivery plugins still have no network access.
+A plugin can request a delivery role or provide a channel. Review that role on
+its details page. A provided channel has its own switch in
+[Notifications](/preferences/#notifications) and starts off; access review
+alone does not enable delivery. See [plugin channels](/notifications/#plugin-channels).
+Delivery plugins still have no network access.
 
 ## If a plugin stops working
 

@@ -13,24 +13,17 @@ Open Among and choose Restore when asked. Your other workspaces return too.
 Commands, running tools and scrollback do not return. Start those tools again
 in the restored panes.
 
+[![The restore prompt explains that layouts return but commands and processes do not](/media/app/session-restore.png)](/media/app/session-restore.png)
+
 Choose Start new for a single empty workspace. Its next save replaces the
 previous session. Closing the restore prompt with the window's close button
 leaves the saved session untouched.
 
 ## Keep track of directories
 
-Shell integration lets Among follow directory changes. New splits can then
-start in the directory you are working in, and session restoration can return
-there. The optional pane directory plugin uses the same information. Other
-shells can report the current directory with an OSC 7 prompt hook; a report
-from an inactive workspace is still recorded.
-
-Follow the optional [shell integration setup](/install/#shell-integration).
-Among does not change your shell configuration. Without integration, it knows
-the directory where each shell started.
-
-Use this setup in local shells. It does not restore SSH connections. A directory
-reported by a remote shell is treated as a path on your own computer.
+Optional [shell integration](/install/#shell-integration) lets new splits and
+restored sessions use the directory you are working in. Without integration,
+Among knows the directory where each shell started.
 
 If a directory no longer exists or cannot be opened, the shell starts in an
 accessible home or startup directory. Settings tells you which panes were affected.

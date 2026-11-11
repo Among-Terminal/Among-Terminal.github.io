@@ -4,8 +4,8 @@ import path from 'node:path'
 import { createHash } from 'node:crypto'
 
 const root = path.resolve('.vitepress/dist')
-const routes = ['', 'features', 'plugin-development', 'plugins', 'panes', 'sessions',
-  'preferences', 'shortcuts', 'overview', 'build', 'install', 'licensing']
+const routes = ['', 'notifications', 'plugin-development', 'plugins', 'panes', 'sessions',
+  'preferences', 'shortcuts', 'build', 'install', 'licensing']
 
 for (const route of routes) {
   const file = path.join(root, route, 'index.html')
