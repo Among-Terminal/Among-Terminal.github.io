@@ -1,128 +1,150 @@
 ---
-title: "Panes"
+title: Panes and workspaces
 ---
 
-# Panes
+# Panes and workspaces
 
-A pane is a container holding one terminal together with the application's own
-interface around it. This is what the container looks like:
+Each pane holds a terminal, a header and any plugin footer content. The header
+shows the terminal's title and a permanent `#N` identity label. An empty footer
+stays hidden.
 
-```
-+------------------------------------------+
-| title, and any plugin content for the pane|   <- the header, and the drag handle
-+------------------------------------------+
-|                                          |
-|               terminal                   |
-|                                          |
-+------------------------------------------+
-| plugin footer content, when there is any |   <- hidden while empty
-+------------------------------------------+
-```
+## Splitting a pane
+
+Press `Ctrl+Shift+N` to split the focused pane. If its width is at least its
+height, the terminals sit side by side. A taller pane splits into a stack.
+The new pane receives keyboard focus.
+
+The new terminal starts in the original pane's known directory. Its shell and
+subsequent directory changes are independent. If that directory is unavailable,
+the new shell uses an accessible home or startup directory and Among reports
+the fallback. A workspace's first terminal uses the normal startup directory.
+
+The initial shell directory is known at launch. Later changes need
+[shell directory reporting](/sessions/#directory-reporting).
+
+Drag a divider to resize the panes. `Ctrl+Shift+Left` and `Ctrl+Shift+Right`
+move the nearest side-by-side divider above the focused pane in the layout.
+`Ctrl+Shift+Up` and `Ctrl+Shift+Down` move the nearest stacked divider.
 
 ## Dragging a pane to a new position
 
-A pane can be moved by dragging its header onto another pane. While the drag is
-in progress the target shows which half the pane would occupy, and dropping
-divides the target's area in half along that edge.
+Drag a pane header onto another pane's edge. The drop indicator shows where
+it will go. Left and right edges place the panes side by side; top and bottom
+edges stack them. Dropping divides the target's area in half.
 
-- Drop on the **left** or **right** part of a pane: the two end up side by side.
-- Drop on the **top** or **bottom** part: the two end up stacked.
-- The indication follows the pointer between edges, so the result is known before
-  the pane is dropped.
-- A drag that leaves every pane, or ends anywhere else, changes nothing.
+The moved pane keeps its terminal and running process, and focus follows it.
+Its old space closes up. Dropping on itself or outside a pane changes nothing.
+Dragging inside terminal text selects text.
 
-The header is the handle rather than the whole pane, because dragging across a
-terminal body is text selection — a gesture a terminal user relies on constantly.
+## Moving a pane to another project
 
-A moved pane keeps its identity: the terminal and the process running in it are
-the same afterwards, and focus follows the pane to its new position. The space
-the pane vacated is reclaimed by whatever shared it, so no gap is left behind. A
-drop on a pane's own area does nothing.
+Drag a pane header onto another workspace's entry in either sidebar view.
+The outlined destination receives the pane after its last pane in layout order,
+becomes active and gives the moved terminal focus.
+
+The terminal retains its process, scrollback, directory, plugin content and
+title-change marker. Its header takes the destination workspace's colour.
+A workspace that loses its only pane closes. Dropping on the same workspace
+or empty sidebar space changes nothing. Hovering alone does not switch workspaces.
+
+## Workspaces
+
+Use New workspace in the header or `Ctrl+Shift+T`. Click an entry in the sidebar
+to activate it. Inactive workspaces keep their terminals running.
+
+Double-click a name to edit it. Enter or clicking elsewhere applies the name;
+Escape cancels. An empty name or one containing only spaces is refused.
+Starting another rename ends the first. Renaming preserves terminals,
+directories and layout, then returns keyboard focus to the terminal.
+
+Drag a workspace entry onto the upper or lower half of another entry to place
+it before or after that workspace. The insertion edge is highlighted. This
+works in the expanded list and collapsed strip. Holding a drag near a scrollable
+sidebar edge reveals more entries. Escape or a drop outside leaves the order
+unchanged. Reordering does not change the active workspace.
+
+`Alt+1` through `Alt+9` follow the current sidebar order. `Ctrl+PageUp` and
+`Ctrl+PageDown` cycle through it. The order is saved with the [session](/sessions/).
+
+The sidebar toggle collapses the list to a strip with workspace colours and
+terminal counts. Drag the expanded sidebar's right edge to change its width.
+The width returns after expansion and restart, including when starting a new
+session. A smaller window may temporarily constrain the displayed width.
 
 ## Headers and the terminal's title
 
-Clicking a terminal or its header makes that pane active: keyboard input, pane
-actions and the focused highlight follow the same pane. Dragging within terminal
-text remains selection; only the header is a pane-movement handle.
+Clicking a terminal or its header makes that pane active. A program can set
+its title to show a file, remote host or current task. Without a nonempty title,
+the header shows `Terminal N`.
 
-A pane's header shows the title the program in that terminal has set, through the
-usual OSC escapes, alongside a permanent `#N` identity label supplied by the host.
-Workspace terminal counts in both sidebar forms also belong to the host and do
-not require a plugin. Programs use titles to advertise what they are doing.
-Examples include a file
-open in an editor, a host being connected to, a build in progress — so the header
-is the natural place to read it.
+When an unfocused terminal changes its title, its header stays marked until
+you focus it. A title change in the focused terminal leaves no mark. Plugin
+content appears beside the title. Workspace terminal counts require no plugin.
 
-When a title changes on a pane that is **not** focused, the header is marked and
-stays marked until that pane is focused. A title change on the focused pane leaves
-no mark, because the user is already looking at it.
+## Terminal bells
 
-A pane whose terminal has never set a title, which is rare because most shells do
-at every prompt, falls back to showing the pane's number.
-
-Plugin content for the pane's header appears beside the title; neither replaces
-the other. See [plugins](/plugins/).
+Bells have separate unread indicators and desktop notification controls. See
+[notification preferences](/preferences/#notifications) for defaults and how
+to return to a terminal that rang.
 
 ## Terminal context menu
 
-Right-click a terminal, or press **Shift+F10** in the focused terminal. If the
-program has enabled mouse reporting, an ordinary right-click goes to that
-program; use **Shift+right-click** for Among's menu instead. Arrow keys navigate
-the menu, **Enter** activates a row, and **Escape** returns to terminal input.
+Right-click a terminal or press `Shift+F10` in the focused terminal. If a program
+handles mouse input, use `Shift+right-click` for Among's menu. Arrow keys navigate,
+Enter activates a row, and Escape returns to terminal input.
 
-The menu belongs to the requesting pane, not whichever pane was previously
-focused. It uses symbolic icons alongside text labels. Copy uses selected text,
-Paste delegates to VTE (including bracketed paste when enabled by the program),
-and Select All selects terminal text. Copy is disabled without a selection;
-Paste is disabled when the clipboard offers no text.
-Both states update while the menu is open. Select All includes available
-scrollback and blank terminal rows; Copy preserves the resulting text. Paste
-sends text to the receiving program rather than replaying a saved session. A
-shell may interpret pasted newlines, so do not paste untrusted commands.
+The menu belongs to the terminal that opened it. Copy uses its selection;
+Paste sends clipboard text through VTE, including bracketed paste when the
+program requests it. Copy is disabled without a selection and Paste without
+clipboard text. Both update while the menu is open. Select All includes available
+terminal text and scrollback. A shell can interpret pasted newlines, so paste
+only commands you trust.
 
-At a pointer target, explicit hyperlinks take precedence over plain absolute
-http/https/mailto URLs. Copy Link uses the captured URI even if the pointer later
-moves. Other valid explicit schemes are copy-only; Open Link is disabled for them.
-Malformed, control-containing and oversized targets are not offered. Keyboard
-invocation has no link target and omits link entries. Open Link requests the
-desktop's handler asynchronously; failures are reported without shell execution.
+A pointer-opened menu can offer Copy Link and Open Link. An explicit hyperlink
+uses its target, even when the displayed text differs. Plain absolute `http`,
+`https` and `mailto` URLs are also recognized. Other valid explicit schemes
+can be copied but not opened. Malformed, control-containing or oversized targets
+are refused. A keyboard-opened menu has no link target.
 
-Split Pane, Expand/Restore Pane and Close Terminal use the same operations as
-their shortcuts. The menu remains available when those shortcuts are unbound;
-its hints follow the current bindings. Closing the last terminal still asks for
-confirmation rather than silently exiting.
+Split Pane, Expand/Restore Pane and Close Terminal use the same controls as
+keyboard shortcuts. Their hints follow your bindings, and removing a binding
+leaves its menu action available. Split Pane is inactive while a pane is expanded.
+
+## Following a link
+
+`Ctrl+left-click` opens an `http`, `https` or `mailto` link with the desktop
+handler. Plain URLs exclude trailing sentence punctuation. An explicit
+hyperlink opens its target. Other schemes do not launch.
+
+A Ctrl+click on an openable link takes precedence over mouse-reporting programs
+and text selection, including a drag beginning on that link. Other clicks and
+drags keep their usual behaviour. Opening a link preserves selection and
+scrollback; an unfocused pane receives focus first. Refused launches are
+reported on stderr without a dialog, and the terminal stays usable.
 
 ## Closing and exiting
 
-Closing the focused pane focuses the sibling that expands into its space. If
-that sibling is split, its first leaf in tree order wins. Closing a background
-pane preserves focus; process exit follows the same rule.
+`Ctrl+Shift+W` closes the focused pane and its process. Its surviving sibling
+receives focus; if the sibling is split, its first terminal in layout order
+receives focus. Closing a background pane preserves focus.
 
-A pane is a terminal window and the application is what surrounds it, so closing
-cascades upward:
-
-```
-Ctrl+Shift+W    the pane and its process go, the layout closes up
-  last pane     the workspace closes too
-    last one    a confirmation appears before the application exits
-```
-
-A pane also closes when the process in it exits — typing `exit`, or a program
-that ends — following the same cascade. The exit is reported, naming the status
-when it is not zero, so a terminal disappearing is never mistaken for something
-the user did. Closing the window with the platform's close control takes the same
-path, including the confirmation.
-
-The cascade stops at the last workspace: it asks rather than exiting, because
-every terminal's process goes with it.
+A shell exiting follows the same layout rules. Closing a workspace's last pane
+closes that workspace. At the final workspace, Among asks for confirmation
+before exiting. Closing the application window also asks while terminals are
+running. Closing a pane can end a running job.
 
 ## Expanding a pane
 
-`Ctrl+Shift+X` expands the focused pane to fill its workspace, and pressing it
-again restores the layout.
+`Ctrl+Shift+X` expands the focused pane to fill its workspace. Press it again
+or use Restore pane at the right of its header to return to the stored layout.
+The button also works with Enter or Space when focused.
 
-Only the rendering changes. The layout tree is untouched, so restoring brings
-back every pane at exactly the size and position it had, nested dividers
-included, and no terminal is restarted. Closing the expanded pane simply returns
-the workspace to its normal layout. Expanding in one workspace does not affect
-any other.
+Hidden terminals keep running. While expanded, directional focus stays on the
+visible pane and splitting is refused. Closing or restoring still works.
+Restoration preserves nested divider positions and returns focus to the
+originating terminal. Closing an expanded pane restores the normal layout.
+Expansion in one workspace does not affect another.
+
+Clicking a desktop notification for a hidden terminal restores the layout and
+focuses that terminal. An activation for a terminal that has closed or belongs
+to a previous application instance only raises the window.

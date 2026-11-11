@@ -1,40 +1,36 @@
 ---
-title: "Among Terminal overview"
+title: Among Terminal overview
 ---
 
 # Among Terminal overview
 
-Among Terminal combines native VTE terminals, nested panes and live workspaces
-in a GNOME window. The short [demonstration](/#demo) introduces the interface;
-the full-length recordings here cover more workflows and controls.
+Among Terminal combines native VTE terminals, nested panes and workspaces in a
+GNOME window. The [feature guide](/features/) explains the controls in 0.2.0.
 
-## Complete workflow tour
+## Workflow tour
 
-[![Watch the complete Among Terminal workflow tour](/media/among-terminal-overview.png)](/media/among-terminal-overview.mp4)
+[![Watch the Among Terminal workflow tour](/media/among-terminal-overview.png)](/media/among-terminal-overview.mp4)
 
-**[Watch the overview · 1 min 53 s](/media/among-terminal-overview.mp4)**
+[Watch or download the overview](/media/among-terminal-overview.mp4).
 
-The original silent tour joins the reviewed feature recordings with direct cuts:
-themes, splitting and resizing, pane movement, focus, zoom, fullscreen,
-workspace naming and switching, sidebar controls, plugins, consented session
-restoration and pane closing. Recorded shortcuts remain visible; no soundtrack
-or explanatory subtitles are added.
+The silent tour covers themes, splitting and resizing, pane movement, focus,
+zoom, fullscreen, workspace naming, sidebar controls, plugins, session
+restoration and pane closing. Recorded shortcuts remain visible.
+
+The recordings show the earlier plugin and appearance controls. Use the current
+[plugin guide](/plugins/) and [preferences guide](/preferences/) for those controls.
+The tools shown in the terminals, including Starship, `ll`, `mc` and `htop`,
+are not installed or configured by Among.
 
 ## Extended presentation
 
 [![Watch the extended Among Terminal presentation](/media/among-terminal-promo.png)](/media/among-terminal-promo.mp4)
 
-**[Watch the extended presentation · 2 min 1 s](/media/among-terminal-promo.mp4)**
+[Watch or download the extended presentation](/media/among-terminal-promo.mp4).
 
-The earlier long-form film presents the recorded workflows on a charcoal stage.
-It is retained here separately from the approved 23-second README film.
+## Current interface
 
-## Explore individual features
+![Among Terminal 0.2.0 with two panes and the sidebar](/media/app/main-window.png)
 
-- [Feature guide](/features/): demonstrations alongside controls and caveats.
-- [Panes](/panes/), [sessions](/sessions/), [preferences](/preferences/)
-  and [plugins](/plugins/): detailed references.
-
-Use fullscreen to inspect terminal text. Previews link to MP4 files; GitHub
-inline playback is not assumed. The recordings use isolated synthetic projects,
-not personal shell startup files.
+Read about [panes and workspaces](/panes/), [sessions](/sessions/),
+[keyboard shortcuts](/shortcuts/) and [installation](/install/).

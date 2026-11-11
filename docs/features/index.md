@@ -1,172 +1,96 @@
 ---
-title: "Features in practice"
+title: Features in practice
 ---
 
 # Features in practice
 
-Among Terminal keeps native VTE terminals in a single GNOME window. This guide
-connects each everyday control to a real demonstration and its detailed reference.
-The recordings use synthetic projects; zsh, Starship, `ll`, `mc` and `htop` are
-demo tools, not software installed or configured by Among Terminal.
-
-[Full-length overview videos](/overview/) ·
-[Default shortcuts](/shortcuts/)
+Among Terminal keeps native VTE terminals in a single GNOME window. Use a
+workspace for each project and split its terminals as needed.
 
 ## Split and resize terminals
 
-Press **Ctrl+Shift+N** to split the focused pane. A wide pane splits side by side;
-a tall pane splits top to bottom. Repeat to build a nested layout with separate
-shells, for example a project listing, file manager and process monitor.
+Press `Ctrl+Shift+N` to split the focused pane. A wide pane splits side by side;
+a tall pane splits top to bottom. The new shell starts in the original pane's
+known directory. Drag a divider or use `Ctrl+Shift` with an arrow to move it.
 
-Drag a divider to allocate more space, or use **Ctrl+Shift+Right** to grow the
-focused pane and **Ctrl+Shift+Left** to shrink it. Resizing keeps the terminals
-running rather than starting replacement shells.
+[![Separate terminals running a listing, file manager and process monitor](/media/features/02-split-resize.png)](/media/features/02-split-resize.mp4)
 
-[![Separate live terminals running ll, mc and htop](/media/features/02-split-resize.png)](/media/features/02-split-resize.mp4)
+The recording uses `ll`, `mc` and `htop` as examples. Among does not install
+these tools. See [splitting a pane](/panes/#splitting-a-pane) and
+[default shortcuts](/shortcuts/#defaults).
 
-**Demonstrations:** [split panes](/media/features/02-split-resize.mp4) ·
-[keyboard resize](/media/features/02b-keyboard-resize.mp4) ·
-[mouse resize](/media/features/02c-mouse-resize.mp4).
+## Move panes and organize workspaces
 
-## Rearrange panes without restarting tools
+Drag a pane header onto another pane's edge to rearrange the layout, or onto
+a workspace in the sidebar to move the terminal there. Its running process
+stays with it.
 
-Drag a **pane header**, not terminal text, onto another pane's edge. Left/right
-edges place panes side by side; top/bottom edges stack them. The drop indicator
-previews the destination. The moved terminal retains its process and focus;
-dragging inside terminal text still selects text.
+Create a workspace with `Ctrl+Shift+T`. Double-click its name to rename it,
+drag its entry to reorder it, or drag the sidebar's right edge to resize the
+list. [Workspace controls](/panes/#workspaces) explain naming, ordering and
+the collapsed sidebar.
 
-[![Moving a live pane by its header](/media/features/03-pane-drag.png)](/media/features/03-pane-drag.mp4)
+## Focus, expand and restore
 
-[Pane movement and drop rules](/panes/#dragging-a-pane-to-a-new-position).
+Use `Alt+Arrow` to move between panes. `Ctrl+Shift+X` expands the focused pane
+to fill its workspace. Press it again or use Restore pane in the header to
+return to the layout. Hidden terminals keep running. Restore the layout before
+splitting or moving focus with an arrow. `F11` toggles fullscreen.
 
-## Focus, zoom and fullscreen
+See [expanding a pane](/panes/#expanding-a-pane).
 
-- Click a terminal or its header to focus it; **Alt+Arrow** moves between panes.
-- **Ctrl+Shift+X** expands the focused pane to fill its workspace. Press again to
-  recover the same nested layout; hidden panes keep running.
-- **F11** enters or leaves fullscreen. Normal startup is maximized, not fullscreen.
+## Clipboard and links
 
-[![Zooming a pane while preserving the workspace layout](/media/features/04b-zoom.png)](/media/features/04b-zoom.mp4)
+Right-click a terminal or press `Shift+F10` for copy, paste and pane actions.
+Use `Shift+right-click` when a terminal program handles mouse input.
+`Ctrl+left-click` opens supported links with the desktop handler.
 
-**Demonstrations:** [focus](/media/features/04-focus.mp4) ·
-[zoom and restore](/media/features/04b-zoom.mp4) ·
-[fullscreen](/media/features/04c-fullscreen.mp4).
+[The terminal menu and link guide](/panes/#terminal-context-menu) covers
+selection, pasted commands and supported link types.
 
-## Organize projects into workspaces
+## Scrollback
 
-Use the header's **New workspace** button or **Ctrl+Shift+T**. Double-click its
-sidebar name to rename it: **Enter** accepts, **Escape** cancels, and empty names
-are rejected. Each workspace has a colour marker and a live terminal count.
+Mouse-wheel scrolling follows VTE's row-based behaviour. Touchpad scrolling
+uses the gesture's distance, converted to text rows. A full-screen editor,
+pager or monitor receives scrolling as its own input. Each pane keeps its own
+scroll position.
 
-Click a sidebar entry, use **Alt+1…9**, or cycle with **Ctrl+PageUp/PageDown**.
-Inactive workspaces keep their terminals and processes running. The sidebar
-collapse button reduces the list to a strip: colours and counts remain visible,
-and every workspace remains reachable.
+## Terminal notifications
 
-[![Renaming and switching between Atlas and Orbit](/media/features/05-workspaces.png)](/media/features/05-workspaces.mp4)
+An unfocused terminal can mark its pane and workspace when it rings a bell.
+Desktop notifications can bring you back to the terminal that rang.
 
-**Demonstrations:** [create, rename and switch](/media/features/05-workspaces.mp4) ·
-[collapse and expand the sidebar](/media/features/05b-sidebar.mp4).
+![A terminal bell marks its pane and workspace](/media/app/main-window-bell.png)
 
-## Clipboard, links and pane actions
+[Notification preferences](/preferences/#notifications) control when indicators,
+desktop delivery, sound and configured commands run.
 
-Right-click a terminal, or press **Shift+F10** in the focused terminal, to open
-its native menu. In mouse-reporting programs, use **Shift+right-click**; an
-ordinary right-click still goes to the program. Menu actions belong to the pane
-that requested them, including when another pane was previously focused.
+## Optional plugins
 
-**Copy** copies that pane's selected text; without selection it is disabled.
-**Paste** uses VTE's normal text-paste handling, including bracketed paste when
-requested by the terminal program; without a clipboard text format it is disabled.
-**Select All** selects available terminal text and scrollback, not other panes.
-Copy/Paste availability follows selection and clipboard changes even while the
-menu is open. Pasting sends text to the program: it is not session command replay,
-but a shell can interpret pasted newlines, so only paste text you trust.
+Install a clock, resource meters or per-pane directory labels from Settings.
+Application packages contain no plugins. Each new installation stays disabled
+until you review its access and enable it.
 
-Pointer-opened menus can offer **Copy Link** and **Open Link** for explicit
-hyperlinks and plain absolute **http**, **https** and **mailto** URLs. An explicit
-hyperlink takes precedence over its displayed text. Other valid explicit schemes
-are copy-only; malformed, control-containing or oversized targets are not offered.
-Keyboard-opened menus omit link entries rather than reuse an old pointer target.
-Open Link requests the desktop handler asynchronously, never a shell command;
-handler failure shows an error while the terminal remains usable.
+![Installed and available plugins in Preferences](/media/preferences/plugins.png)
 
-**Split Pane**, **Expand/Restore Pane** and **Close Terminal** reuse the existing
-pane controls. Their shortcut hints follow Settings, and removing a shortcut does
-not disable its menu action. Arrow keys navigate, Enter activates, and Escape
-returns to terminal input. No context-menu recording is included in the videos.
+The screenshot includes sample plugins. See [official plugins](/plugins/#installing-official-plugins)
+and [plugin protection](/plugins/#confinement) for the available functions and
+their limits.
 
-[Detailed menu and pane rules](/panes/#terminal-context-menu).
+## Session restoration
 
-## Optional live status plugins
+On a new launch, choose Restore to reopen a saved layout in fresh shells.
+Commands, running tools and scrollback are not resumed. See
+[sessions](/sessions/) for saved state, directory reporting and recovery.
 
-After [installing the examples](/plugins/#installing), open **Settings** with
-**Ctrl+,** and select **Plugins**. All three examples are disabled by default;
-enable only the ones you want. Switches apply immediately and persist on restart.
+## Appearance and keyboard controls
 
-| Plugin | Where it appears | What it reports |
-| --- | --- | --- |
-| `clock` | Right application footer | Local time, including seconds |
-| `system-status` | Application header | CPU, memory and root-filesystem usage, with percentages and meters |
-| `pane-pwd` | Each pane footer | That pane's known directory; the tooltip contains the full path |
+Choose text/background colours and an ANSI palette independently in
+[Terminal preferences](/preferences/#terminal). Changes apply to open terminals
+without restarting their shells. Configure your prompt in the shell itself.
 
-Directory changes need your shell to publish **OSC 7**; installing Starship alone
-does not supply it. Unknown directories are not replaced with another pane's
-path. Resource readings describe the plugin's process/mount namespace, which may
-differ from the whole host in a sandbox. Plugins run as separate processes, but
-that is fault isolation, not a security sandbox: install only trusted code.
+![Terminal colour choices in Preferences](/media/preferences/terminal.png)
 
-[![Toggling clock, resource meters and pane directories in Settings](/media/features/06-plugins.png)](/media/features/06-plugins.mp4)
-
-[Live status and directory integration](/plugins/#live-status-examples) ·
-[Third-party plugin protocol](/plugin-development/#protocol).
-
-## Restore a layout, not yesterday's commands
-
-On a new launch with a saved session, choose **Restore** or **Start new**.
-Restoration recovers workspace names, colours, nested splits, focus and known
-directories, including inactive workspaces. Every terminal starts a **fresh
-shell**: commands, running tools and scrollback are not replayed.
-
-The demonstration restores four shells in different project directories, then
-manually runs `ll`. Changed directories require shell OSC 7 reporting even if
-the directory plugin is disabled. Missing directories fall back to an accessible
-home/startup directory and are reported in Settings. Storage failures are visible
-and retryable; recent changes can be lost after a crash.
-
-[![Choosing Restore and reopening separate project directories](/media/features/07-session-restore.png)](/media/features/07-session-restore.mp4)
-
-[Session consent, storage and recovery limits](/sessions/).
-
-## Close a pane and keep working
-
-**Ctrl+Shift+W** closes the focused pane and its process. The sibling that fills
-the space receives focus, so the next keystrokes reach a surviving terminal.
-Closing a workspace's last pane closes that workspace; the final workspace asks
-for confirmation before the application exits. Closing a pane can end a running
-job: this is not a detach operation.
-
-[![Closing one pane and typing ll in its surviving sibling](/media/features/08-close-pane.png)](/media/features/08-close-pane.mp4)
-
-[Closing, process exit and focus rules](/panes/#closing-and-exiting).
-
-## Appearance and preferences
-
-The native interface supports light and dark styling. Shell prompts and terminal
-colours are configured separately; Among Terminal does not import GNOME Terminal
-profiles.
-
-[![The terminal listing in light and dark appearance](/media/features/01-themes.png)](/media/features/01-themes.mp4)
-
-In **Settings → Keyboard**, select an action and press a new shortcut, or use
-**Escape** to remove its binding. Changes take effect without restarting and are
-saved together with explicit unbinding. Save failures leave the current edit
-active for this session and show a warning; a later edit retries saving.
-
-Shortcut editing and storage recovery are documented but are not demonstrated
-in these clips. See [shortcut controls](/shortcuts/) and
-[preference persistence](/preferences/).
-
-The written instructions explain each action without requiring video playback.
-Demonstrations show native X11 behaviour; they do not establish support for
-untested platforms or assistive technologies.
+The [Keyboard page](/shortcuts/#preferences) changes or removes bindings.
+The [overview videos](/overview/) show earlier workflows; these written guides
+cover the current controls without requiring video playback.

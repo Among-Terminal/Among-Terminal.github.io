@@ -1,170 +1,220 @@
 ---
-title: "Using plugins"
+title: Using plugins
 ---
 
-# Plugins
+# Using plugins
 
-A plugin is an executable run directly by Among Terminal as a separate process.
-The host supplies no interpreter. Any language works if its installed executable
-can run on the system; scripts may use a shebang and must provide their runtime.
-Plugin code is never loaded into the application, and
-that is the whole point: a plugin that segfaults, hangs, or misbehaves takes only
-itself down, while the live terminals — which hold whatever the user is running —
-stay up.
+Plugins are separate programs that add status information or handle
+notifications. Among draws their content and controls their access.
+Application packages contain no plugins; install the ones you want in Settings.
 
-The cost is a process spawn and messaging round trips. Compiled examples also
-require a build step, unlike a script that can be copied with its runtime available.
+## What plugins can do
 
-The exchange is newline-delimited JSON on the plugin's stdin and stdout. Nothing
-else is shared. There is no GTK type, no widget handle, and no function pointer
-crossing the boundary, so there is no ABI for either side to break.
+With your permission, plugins can display text, icons and meters in the window,
+workspace, sidebar or individual panes. They can read selected terminal context,
+such as a reported directory or title, read system metrics, store their own
+settings and data, or take part in notifications.
 
-## Live status examples
+The plugin interface cannot type into terminals, read scrollback, open or close
+panes, change the layout, or run commands in your shell. It does not expose
+process command lines or environment variables. Plugins cannot create arbitrary
+HTML, CSS or GTK widgets. Knowing a directory does not grant access to its files.
 
-Host protocol 1.1 adds optional `meter` on a fragment: a finite fraction from 0
-to 1 rendered as a compact GTK bar. Keep a readable percentage in `text`.
-Bars are 50 pixels wide. Their whole track and fill share a continuously changing
-hue: green at 0%, yellow at 50%, red at 100%; the track is translucent so the
-filled fraction stays distinguishable. Numeric percentages remain a non-color cue.
-The host's shared application header and footer use bold monospace by default,
-including the clock and N/A labels. Footer text has opacity 0.7; the upper panel
-and individual pane footers are not dimmed. Plugins do not select this typography.
-Omit or set `meter` to null for N/A. Values outside this range are rejected.
-Major 1 is unchanged; 1.0 hosts ignore the field and show only the text.
-
-`clock` shows local 24-hour HH:MM:SS once at the right of the shared application
-footer every second, demonstrating a different slot than the resource header.
-It uses the process's local timezone configuration (including `TZ`), not UTC.
-
-`system-status` shows labelled graphical CPU, MEM and DISK bars with percentages. CPU samples
-the first eight aggregate `/proc/stat` counters: busy is the interval total minus
-idle and iowait; guest counters are not counted twice. Startup, reset and zero
-intervals show N/A. MEM is `(MemTotal - MemAvailable) / MemTotal`, not a sum that
-treats all caches as unavailable. Both are rounded to the nearest percent and
-sampled at most once a second. DISK targets `/` using `statvfs`: used is blocks
-minus free, divided by used plus available (excluding reserved availability),
-rounded upward like `df`. It is sampled at most once every five seconds.
-Failed sources show N/A independently. These describe the process's proc/mount
-namespace; sandbox figures need not describe the whole host.
-
-`pane-pwd` polls each pane's last terminal-reported directory every second,
-including unfocused panes. The full path is in the tooltip; long labels are
-truncated. Labels contain only the path, without a `PWD:` prefix. Unknown
-directories produce no content; the plugin never substitutes
-the host or focused pane's directory. A known initial shell directory is available
-at launch; subsequent directory changes require the shell to opt in to OSC 7.
-
-For Bash, test this in a terminal (no shell files are modified):
-
-```sh
-among_osc7() {
-    local LC_ALL=C directory uri='file://' byte encoded i
-    directory=$(pwd -P && printf '.') || return
-    directory=${directory%.}
-    directory=${directory%$'\n'}
-    for ((i=0; i<${#directory}; i++)); do
-        byte=${directory:i:1}
-        case "$byte" in
-            [a-zA-Z0-9/._~-]) uri+=$byte ;;
-            *) printf -v encoded '%%%02X' "'$byte"; uri+=$encoded ;;
-        esac
-    done
-    printf '\033]7;%s\007' "$uri"
-}
-PROMPT_COMMAND="among_osc7${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
-among_osc7
-```
-
-This optional helper uses Bash builtins, encoding physical-directory bytes rather
-than interpreting spaces, non-ASCII names or control characters as URI syntax.
-Add it to your own Bash configuration only if wanted.
-Try `cd /tmp` and wait up to two seconds for the footer. Other shells require
-their own prompt hook; no untested zsh/fish integration is claimed here.
+Network access is blocked, including for notification delivery plugins.
+Filesystem protection depends on the level shown in Settings. Read
+[confinement](#confinement) before accepting reduced protection.
 
 ## Installing
 
-Preferences saves explicit enable/disable choices immediately to `plugins.json`
-and restores them on startup. A Faulted process remains desired-enabled until
-you disable it. Save failures are reported as session-only changes; see
-[Preferences storage](/preferences/).
+1. Open Settings with `Ctrl+,` and select Plugins.
+2. Find a plugin under Available and choose Install. Check the version, package
+   and requested access in the confirmation.
+3. Once installed, turn it on under Installed.
+4. Review required and optional access, then choose Accept and enable.
 
-`cargo run --release` builds only the application. It does **not** build this
-independent example package, replace installed plugin files or enable new ones.
-To build all examples, back up installed copies and add only missing default
-configuration entries, run from the repository:
+Installation downloads a ready-built package and leaves it disabled. Among
+checks compatibility, release information, sizes and hashes before saving it.
+It does not compile code or run installation scripts. Opening the catalogue or
+plugin details does not install or enable anything.
 
-```sh
-sh scripts/install-plugins.sh --enable-new
-```
+![Install and verify a package, then review access and protection before running it](/media/diagrams/plugin-install.svg)
 
-Existing configuration fields and enabled/disabled entries are preserved. Backups
-are created before replacement. All three plugins are disabled by default;
-enable wanted plugins explicitly in Preferences.
-Existing explicitly enabled examples stay enabled during upgrades; turn them off
-in Preferences if no longer wanted. Backups
-are stored under `${XDG_DATA_HOME:-$HOME/.local/share}/among/plugin-backups/`.
-To update only selected binaries without changing configuration:
+If a check fails, that step stops and displays a reason. Copying an executable
+into an `among/plugins` directory does not install a managed plugin.
 
-```sh
-sh scripts/install-plugins.sh system-status clock
-```
+### Installing official plugins
 
-Disable/re-enable running plugins in Preferences after replacement. Newly added
-configuration names load on the next host startup. A rebuilt host does not
-replace an already running single-instance process: another `cargo run --release`
-may activate that process. Restart the host only when it is safe to end its live
-terminal sessions. Plugin updates alone do not close any terminal.
+The built-in Official plugins for Among Terminal source is
+[Among-Terminal/among-plugins](https://github.com/Among-Terminal/among-plugins).
+It cannot be removed. Official identity is tied to the repository and publisher,
+not just their display names.
 
-Merge plugin configuration entries with existing settings rather than replacing
-them. Clock and resource plugins are optional demonstrations of status slots.
+| Plugin | Display | Required access |
+| --- | --- | --- |
+| `clock` | Local time in the application footer | Status content |
+| `system-status` | CPU, memory and root filesystem usage in the header | Status content and system metrics |
+| `pane-pwd` | Each pane's reported directory in its footer | Status content, terminal identifiers and directories |
 
-Plugins are executables in `$XDG_DATA_HOME/among/plugins` (`~/.local/share/among/plugins`),
-named after the plugin:
+![Installed and available plugins](/media/preferences/plugins.png)
 
-```sh
-cargo build --release --locked --manifest-path examples/plugins/Cargo.toml
-plugin_dir="${XDG_DATA_HOME:-$HOME/.local/share}/among/plugins"
-mkdir -p "$plugin_dir"
-install -m 755 examples/plugins/target/release/clock "$plugin_dir/clock"
-install -m 755 examples/plugins/target/release/system-status "$plugin_dir/system-status"
-install -m 755 examples/plugins/target/release/pane-pwd "$plugin_dir/pane-pwd"
-```
+The screenshots include sample plugins and a sample additional source.
+The table lists the official plugins.
 
-Then register them in `$XDG_CONFIG_HOME/among/plugins.json` (`~/.config/among/plugins.json`):
+The Plugins page uses a saved catalogue when available. Without one, opening
+the page fetches the official list once. A failed fetch shows its reason and
+Load or refresh controls. It does not retry continuously. Refresh explicitly
+to check a saved catalogue for changes.
 
-```json
-{"plugins": [
-  {"name": "clock", "enabled": false},
-  {"name": "system-status", "enabled": false},
-  {"name": "pane-pwd", "enabled": false}
-]}
-```
+## Access review
 
-Configuration is read leniently, because one broken entry must not stop the
-application from starting:
+Required access must be accepted before a plugin can run. Optional access is
+unchecked on the first review. A plugin's details show its source, protection,
+settings and requested access. The shield describes origin and protection;
+it is not a code audit.
 
-- A missing file, unparsable JSON, or a file without a `plugins` key means no
-  plugins are loaded.
-- A plugin named in the configuration that is not installed is reported and
-  skipped; the rest still load.
-- An entry without a `name` is skipped.
+![Reviewing a plugin's required and optional access](/media/preferences/plugin-access-review.png)
 
-### Updating an installed example
+Review what the plugin needs: status display, terminal identifiers, reported
+directories, titles, process-running state, terminal events, system metrics,
+settings or notification roles. Unknown directories and titles stay unavailable.
+Read the [notification role rules](#notifications) before enabling those features.
 
-Changing an example in this repository does not update the installed copy.
-Build first, then replace the selected installed executable at the same name:
+Stop a running plugin before changing its reviewed access. Saving a review
+does not restart it or enable a notification delivery channel.
 
-```sh
-cargo build --release --locked --manifest-path examples/plugins/Cargo.toml
-install -m 755 examples/plugins/target/release/clock "${XDG_DATA_HOME:-$HOME/.local/share}/among/plugins/clock"
-```
+## Confinement
 
-Disable and re-enable `clock` in preferences to start the updated copy
-without closing any terminals.
-Replacing an old script with the binary does not require deleting it first.
-An already-running process keeps executing its old code until restarted.
+Among applies Linux Landlock filesystem rules and a seccomp system-call filter
+before a managed plugin starts. It refuses startup if the child cannot confirm
+the required protection.
 
+With full protection, the plugin can:
 
-## Develop a plugin
+- Read its installed package and execute its packaged programs.
+- Read system runtime paths: `/usr`, `/lib`, `/lib64`, `/etc/ld.so.cache` and
+  `/etc/localtime`, where present. Execution is allowed in the system directories.
+- Read and write its own private data directory, but not execute files there.
+- Read `/proc/stat`, `/proc/meminfo` and `/proc/loadavg` if granted system metrics.
 
-See [plugin development](/plugin-development/) for a Rust quick start and the JSON-lines protocol.
+The installed package is read-only. Other user files are outside these grants.
+Repository plugin data lives at
+`$XDG_DATA_HOME/among/plugin-data/<repo-id>/<plugin-id>/`. An unset, empty or
+relative `XDG_DATA_HOME` falls back to `$HOME/.local/share`.
+
+The filter blocks network and local sockets, process inspection and memory
+access, signal sending, shared IPC, and selected kernel operations. It also
+blocks changes to file permissions, ownership, timestamps and extended
+attributes. Child processes inherit the restrictions. Plugins do not inherit
+your `HOME`, `XDG_*` settings or full environment.
+
+### Reduced protection
+
+| Available protection | What it means |
+| --- | --- |
+| Landlock ABI 3 or newer plus seccomp | Full protection; available from kernel 6.2 where supported |
+| Landlock ABI 1 or 2 plus seccomp | Requires consent; a plugin can still truncate writable files outside allowed paths |
+| Seccomp without usable Landlock | Requires consent; the plugin can read and write any file your account can |
+| No usable seccomp | The plugin cannot start, even with consent |
+
+Settings shows the observed level and offers Allow reduced protection when
+applicable. The permission is stored per plugin and remains marked while saved.
+Each launch checks the kernel again. If it offers less protection than you
+accepted, Among asks again.
+
+There are no CPU or memory quotas, and confinement does not protect against
+kernel vulnerabilities. Install code you trust. A child that deliberately leaves
+the supervised process group remains confined but is no longer stopped with
+that group.
+
+## Live status examples
+
+The clock uses local time, including `TZ` when supplied to Among. Resource meters
+show the plugin process's view of the system, which may differ inside a container
+or package sandbox.
+
+`pane-pwd` shows each pane's last reported directory, including unfocused panes.
+Its tooltip contains the full path. Unknown directories produce no content.
+Later directory changes need [shell directory reporting](/sessions/#directory-reporting).
+
+## Notifications
+
+Plugin events follow your [notification policies](/preferences/#notifications).
+Submitting an event does not prove that a sound played or a desktop banner appeared.
+Notification content can include buttons. Clicking one sends an action to the
+plugin and does not execute a shell command.
+
+A plugin can produce events or provide delivery channels, but cannot do both
+in the same process. If it offers both optional roles, choose one or neither.
+Notification interface content is a separate permission.
+
+Delivery channels have separate switches in Notifications and start off.
+Access review alone does not enable them. A delivery plugin still has no network
+access or direct access to desktop services. Unavailable providers keep their
+saved choices but receive no delivery.
+
+## Updates and removal
+
+Refresh the source, then choose Update when a newer compatible version is
+offered. Review the version and access requirements. Only the selected plugin
+may restart; its settings remain. New required access or a changed publisher
+can require a new access review before startup.
+
+![Plugin details with settings, source and protection information](/media/preferences/plugin-info.png)
+
+Uninstall asks for confirmation, stops the plugin and removes its installation.
+Its local settings and private data directory remain. Retained settings can be
+removed separately in Preferences. If stopping or removal fails, the manager
+reports the failure and keeps the remaining state visible.
+
+### Testing prereleases
+
+Quit Among before starting `among --plugin-development`. The mode is not saved
+and cannot be enabled on an already running instance. Settings then offers a
+Stable / Pre-release selector. Prerelease installations remain visibly marked
+and start only in this mode. Replacing an installation with a prerelease starts
+it disabled and requires a new access review.
+
+Among retains the previous verified package. In this mode, Technical details
+offers Recover previous. Recovery still checks compatibility and access.
+For authoring and local package testing, use the
+[plugin template](https://github.com/Among-Terminal/among-plugin-template).
+
+## Plugin sources
+
+Use Add source to look up a public GitHub repository by `owner/repository` or URL.
+Previewing it is read-only. Add source saves the registration and catalogue;
+Cancel saves neither. Among supports up to 32 user sources plus the official source.
+
+![Plugin sources with catalogue age and check controls](/media/preferences/sources.png)
+
+Check source refreshes one repository; Check all checks them in order. Failed
+checks preserve the saved list. Old or future-dated check times are marked.
+A publisher change needs explicit review before replacing saved metadata; this
+does not grant installed code new access. An official publisher mismatch is refused.
+
+Repository identity survives a rename. A different repository reusing the old
+name does not inherit it. Removing a source does not stop or uninstall its
+plugins, but their updates are no longer offered.
+
+A GitHub rate limit stops source checks and shows the remaining count, or unknown.
+No retry is scheduled. The optional `AMONG_GITHUB_TOKEN` environment variable
+authenticates API requests; it is not sent to download hosts or child processes.
+Its original value can still be visible to the same user through Among's process
+information. Use a token with no access beyond reading public data.
+
+## Failure handling
+
+Starting, Running, Stopping and Faulted describe the process state. An enabled
+switch records your choice and can remain on when startup is unavailable or
+incompatible, or the process has faulted.
+
+A crash, closed output pipe or unanswered status request faults the plugin and removes
+its status content. At most three automatic restarts follow, after 2, 4 and 8
+seconds. Turning it off and on resets that allowance. Missing or incompatible
+executables are not automatically retried. Terminals remain usable.
+
+Malformed replies are rejected; repeated invalid replies can lead to a timeout.
+Stopping may persist until Among confirms that the supervised process group
+has gone. It will not start a replacement of that identity before confirmation.
+
+To write a plugin, use the [author guide and API reference](https://github.com/Among-Terminal/among-plugin-template).
