@@ -37,8 +37,8 @@ For Bash, test this helper in a terminal without changing shell files:
 
 ```sh
 among_osc7() {
-    local LC_ALL=C directory uri='file://' byte encoded i
-    directory=$(pwd -P && printf '.') || return
+    local status=$? LC_ALL=C directory uri='file://' byte encoded i
+    directory=$(pwd -P && printf '.') || return "$status"
     directory=${directory%.}
     directory=${directory%$'\n'}
     for ((i=0; i<${#directory}; i++)); do
@@ -49,13 +49,16 @@ among_osc7() {
         esac
     done
     printf '\033]7;%s\007' "$uri"
+    return "$status"
 }
 PROMPT_COMMAND="among_osc7${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 among_osc7
 ```
 
 The helper percent-encodes the physical directory using Bash builtins. Add it
-to your Bash configuration if wanted. Other shells need their own prompt hook.
+to your Bash configuration if wanted. It keeps the previous command's exit
+status, so prompt tools that run after it, such as Starship, still see that
+status. Other shells need their own prompt hook.
 The same reports supply [pane directory labels](/plugins/#live-status-examples)
 and the initial directory when [splitting a pane](/panes/#splitting-a-pane).
 
