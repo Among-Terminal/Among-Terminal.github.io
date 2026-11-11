@@ -12,7 +12,7 @@ are optional and installed separately from Among.
   after="/media/app/plugin-on.png"
   before-alt="Among Terminal without a status plugin"
   after-alt="Among Terminal with a sample status plugin showing CPU, memory and disk values"
-  caption="The sample status plugin adds CPU, memory and disk values to the application header. The values are synthetic."
+  caption="Drag the divider to compare. The sample status plugin adds CPU, memory and disk values to the application header; the values are synthetic."
 />
 
 ## Installing
