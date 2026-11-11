@@ -231,6 +231,9 @@ it disabled and requires a new access review.
 
 Among retains the previous verified package. In this mode, Technical details
 offers Recover previous. Recovery still checks compatibility and access.
+It also shows Protection at last start when a confinement record is available.
+That record does not refresh while the page is open. After the plugin finishes
+starting, go back and reopen its page to read the current record.
 For authoring and local package testing, use the
 [plugin template](https://github.com/Among-Terminal/among-plugin-template).
 

@@ -59,6 +59,12 @@ to your Bash configuration if wanted. Other shells need their own prompt hook.
 The same reports supply [pane directory labels](/plugins/#live-status-examples)
 and the initial directory when [splitting a pane](/panes/#splitting-a-pane).
 
+Use this hook in local shells. If it runs in a remote shell over SSH, it reports
+the remote directory as a local file URI. Among discards any hostname in OSC 7
+file URIs and treats the path as local. For example, `file://server/srv/project`
+becomes `/srv/project` on your computer. Splitting or restoring uses that local
+path; it does not reconnect over SSH.
+
 If a saved directory has been deleted or cannot be entered, the shell falls
 back to an accessible home or startup directory. Settings lists affected panes.
 Among records the actual known directory, not an unavailable requested path or

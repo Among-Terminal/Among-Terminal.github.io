@@ -117,6 +117,7 @@ looks for one existing match. If several entries match, it does not choose one.
 
 ### Upgrading an AppImageLauncher installation
 
+These commands assume the full AppImageLauncher, which provides `ail-cli`.
 Close the old process and remove only its owned integration:
 
 ```sh
@@ -135,20 +136,23 @@ AppImageLauncher entry: a manual native-ID entry can override the DEB launcher.
 
 ## Desktop notification integration
 
-GNOME Shell needs a desktop entry matching `com.github.among-terminal` to
-associate bell notifications with Among. DEB and RPM install it. An extracted
+GNOME Shell needs `com.github.among-terminal.desktop` in its application search
+path to associate bell notifications with Among. DEB and RPM install it. An extracted
 archive or bare AppImage does not. An AppImageLauncher entry named
 `appimagekit_…` alone does not match this notification identity.
 
 For an AppImage placed at `~/Applications/among.AppImage`, add a manual entry:
 
 ```sh
+(
+set -e
 mkdir -p ~/.local/share/applications ~/.local/share/icons/hicolor/scalable/apps
-cd ~/Applications
-./among.AppImage --appimage-extract usr/share/icons/hicolor/scalable/apps/com.github.among-terminal.svg
+among_icon_dir=$(mktemp -d "$HOME/Applications/.among-icon.XXXXXX")
+trap 'rm -rf -- "$among_icon_dir"' 0
+cd "$among_icon_dir"
+"$HOME/Applications/among.AppImage" --appimage-extract usr/share/icons/hicolor/scalable/apps/com.github.among-terminal.svg
 cp squashfs-root/usr/share/icons/hicolor/scalable/apps/com.github.among-terminal.svg \
   ~/.local/share/icons/hicolor/scalable/apps/
-rm -r squashfs-root
 cat > ~/.local/share/applications/com.github.among-terminal.desktop <<EOF_DESKTOP
 [Desktop Entry]
 Type=Application
@@ -162,13 +166,25 @@ StartupNotify=true
 StartupWMClass=among
 X-GNOME-UsesNotifications=true
 EOF_DESKTOP
+)
 ```
 
-Use a directory without an existing `squashfs-root` before extracting. If you
-move the image, update `Exec=`. This manual entry uses the native package's ID
-and can override its launcher if both are installed. For an archive, the entry
-must instead launch its installed executable. A running notification service
-accepting a request does not prove that GNOME displayed a banner.
+The commands extract the icon in a new temporary directory, stop on failure
+and remove only that directory when the subshell exits. If you move the image,
+update `Exec=`. This manual entry uses the native package's ID and can override
+its launcher if both are installed.
+
+For a binary archive, create `~/.local/share/applications/` and save the same
+desktop entry there as `com.github.among-terminal.desktop`. Set `Exec=` to the
+absolute path of the archive's `bin/among` executable. For the extraction below,
+that is `$HOME/among/bin/among`. Expand `$HOME` to your home directory when
+editing the file; desktop entries do not expand shell variables. Skip the
+AppImage icon-extraction commands.
+
+`X-GNOME-UsesNotifications=true` makes the entry available in GNOME's notification
+settings. Notification clicks target the running application; they do not restart
+it. A running notification service accepting a request does not prove that GNOME
+displayed a banner.
 
 ## Binary archive
 
