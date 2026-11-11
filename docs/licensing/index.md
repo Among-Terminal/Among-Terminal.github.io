@@ -8,6 +8,9 @@ Among Terminal uses
 [Apache-2.0](https://github.com/Among-Terminal/among/blob/main/LICENSE).
 Its AppStream catalogue metadata uses CC0-1.0.
 
+The application dynamically links GTK, libadwaita and VTE. Their LGPL terms
+are not replaced by Among's Apache licence. The AppImage bundles these libraries.
+
 Third-party components retain their own licences. Their notices and licence
 texts are included in
 [THIRD_PARTY](https://github.com/Among-Terminal/among/tree/main/THIRD_PARTY)

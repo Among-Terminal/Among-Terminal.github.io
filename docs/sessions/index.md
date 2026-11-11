@@ -20,8 +20,9 @@ replaces the previous session. Closing the window while the prompt is open
 exits without starting terminals or changing the old snapshot. Activating an
 already running application does not ask again. The window opens maximized.
 
-Changed state is checkpointed every two seconds. Disk completion depends on
-storage availability. Confirmed exit saves the latest state before closing
+Changed state is checkpointed every two seconds. Checkpoints do not write to
+disk when the state is unchanged. Disk completion depends on storage
+availability. Confirmed exit saves the latest state before closing
 terminals; cancelling exit keeps them running. A crash can lose changes since
 the last completed checkpoint. Power loss or storage errors can lose more.
 
@@ -65,9 +66,16 @@ another terminal's location.
 
 ## Storage and recovery
 
-The snapshot is `${XDG_DATA_HOME:-$HOME/.local/share}/among/session.json`.
+When `XDG_DATA_HOME` is set, the snapshot path is that value followed by
+`among/session.json`. An empty value produces the relative path
+`among/session.json`; a relative value also stays relative. Only when
+`XDG_DATA_HOME` is unset does Among use `$HOME/.local/share/among/session.json`,
+if `HOME` is set. If both variables are unset, no snapshot path is available.
+
 Saving it does not change preferences, install plugins or modify shell files.
 It contains no commands, process IDs, shell environment or scrollback.
+
+Snapshots are limited to 8 MiB, 64 nested splits, 4096 panes and 256 workspaces.
 
 Storage errors appear in Settings without blocking input. Later checkpoints
 retry after the problem is fixed. If the final save fails, choose whether to

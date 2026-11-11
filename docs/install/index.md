@@ -8,6 +8,9 @@ The 0.2.0 release provides DEB, RPM, AppImage and binary archives for x86-64
 (`amd64`) and ARM 64-bit (`arm64`). No Rust toolchain or compilation is needed.
 Application packages contain no plugins; [install plugins separately](/plugins/#installing).
 
+Snap Store and distribution archive packages are not available in 0.2.0.
+Use the direct downloads below.
+
 ## Download
 
 These links fetch the latest stable release. For the exact 0.2.0 files, use
@@ -159,6 +162,9 @@ Use a new extraction directory and the archive matching your system.
 
 ## Update and remove
 
+There is no Among APT or RPM repository. Updates for both DEB and RPM are manual;
+`apt upgrade` or `dnf upgrade` alone will not fetch a new Among release.
+
 Download a newer release and install it the same way. For AppImage, replace
 the file and update any launcher that refers to it. Close and reopen Among
 to use the new binary. Installation does not close running terminals for you.
@@ -174,6 +180,12 @@ Use the first command for DEB and the second for RPM. Delete an AppImage and
 its manually added desktop entry and icon to remove it. Delete `~/among` to
 remove the archive installed above. Preferences, sessions and separately
 installed plugins are preserved.
+
+## What the release checks cover
+
+The DEB and RPM release workflows build and install packages in containers for
+each listed distribution and architecture. Their display checks use X11 under
+Xvfb.
 
 ## Building from source
 

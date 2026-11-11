@@ -122,9 +122,9 @@ Each launch checks the kernel again. If it offers less protection than you
 accepted, Among asks again.
 
 There are no CPU or memory quotas, and confinement does not protect against
-kernel vulnerabilities. Install code you trust. A child that deliberately leaves
-the supervised process group remains confined but is no longer stopped with
-that group.
+kernel vulnerabilities. Install code you trust. A plugin can deliberately leave
+programs running after you turn it off. Those programs remain subject to the
+same protection.
 
 ## Live status examples
 
@@ -204,17 +204,18 @@ information. Use a token with no access beyond reading public data.
 
 ## Failure handling
 
-Starting, Running, Stopping and Faulted describe the process state. An enabled
-switch records your choice and can remain on when startup is unavailable or
-incompatible, or the process has faulted.
+Starting, Running, Stopping and Faulted describe the plugin's current state.
+An enabled switch records your choice and can remain on when startup is
+unavailable or incompatible, or the plugin has failed.
 
-A crash, closed output pipe or unanswered status request faults the plugin and removes
-its status content. At most three automatic restarts follow, after 2, 4 and 8
-seconds. Turning it off and on resets that allowance. Missing or incompatible
+If a plugin crashes, stops communicating or stops responding, its status content
+disappears and Settings reports the failure. At most three automatic restarts
+follow, after 2, 4 and 8 seconds. Turning it off and on resets that allowance.
+Missing or incompatible
 executables are not automatically retried. Terminals remain usable.
 
-Malformed replies are rejected; repeated invalid replies can lead to a timeout.
-Stopping may persist until Among confirms that the supervised process group
-has gone. It will not start a replacement of that identity before confirmation.
+Unusable plugin updates are ignored. If valid updates do not arrive in time,
+the plugin can be marked Faulted. While Settings shows Stopping, Among is still
+waiting for the plugin to stop. It will not start another copy until then.
 
 To write a plugin, use the [author guide and API reference](https://github.com/Among-Terminal/among-plugin-template).

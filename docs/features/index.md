@@ -7,6 +7,9 @@ title: Features in practice
 Among Terminal keeps native VTE terminals in a single GNOME window. Use a
 workspace for each project and split its terminals as needed.
 
+The recordings show an earlier interface. The demonstrated pane and workspace
+actions still apply, but action messages no longer appear as bottom popups.
+
 ## Split and resize terminals
 
 Press `Ctrl+Shift+N` to split the focused pane. A wide pane splits side by side;
@@ -19,16 +22,24 @@ The recording uses `ll`, `mc` and `htop` as examples. Among does not install
 these tools. See [splitting a pane](/panes/#splitting-a-pane) and
 [default shortcuts](/shortcuts/#defaults).
 
+Watch [keyboard resizing](/media/features/02b-keyboard-resize.mp4) or
+[mouse resizing](/media/features/02c-mouse-resize.mp4).
+
 ## Move panes and organize workspaces
 
 Drag a pane header onto another pane's edge to rearrange the layout, or onto
 a workspace in the sidebar to move the terminal there. Its running process
 stays with it.
 
+Watch [moving a pane by its header](/media/features/03-pane-drag.mp4).
+
 Create a workspace with `Ctrl+Shift+T`. Double-click its name to rename it,
 drag its entry to reorder it, or drag the sidebar's right edge to resize the
 list. [Workspace controls](/panes/#workspaces) explain naming, ordering and
 the collapsed sidebar.
+
+Watch [creating, renaming and switching workspaces](/media/features/05-workspaces.mp4)
+or [collapsing and expanding the sidebar](/media/features/05b-sidebar.mp4).
 
 ## Focus, expand and restore
 
@@ -38,6 +49,10 @@ return to the layout. Hidden terminals keep running. Restore the layout before
 splitting or moving focus with an arrow. `F11` toggles fullscreen.
 
 See [expanding a pane](/panes/#expanding-a-pane).
+
+Watch [moving focus](/media/features/04-focus.mp4),
+[expanding and restoring a pane](/media/features/04b-zoom.mp4), or
+[toggling fullscreen](/media/features/04c-fullscreen.mp4).
 
 ## Clipboard and links
 
@@ -82,6 +97,15 @@ their limits.
 On a new launch, choose Restore to reopen a saved layout in fresh shells.
 Commands, running tools and scrollback are not resumed. See
 [sessions](/sessions/) for saved state, directory reporting and recovery.
+
+Watch [restoring a layout in fresh shells](/media/features/07-session-restore.mp4).
+The recording runs `ll` manually after restoration.
+
+## Closing a pane
+
+Watch [closing a pane and continuing in its surviving sibling](/media/features/08-close-pane.mp4).
+See [closing and exiting](/panes/#closing-and-exiting) for the controls and
+confirmation rules.
 
 ## Appearance and keyboard controls
 

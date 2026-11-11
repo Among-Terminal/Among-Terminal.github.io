@@ -49,6 +49,8 @@ or empty sidebar space changes nothing. Hovering alone does not switch workspace
 
 ## Workspaces
 
+The header's left controls are Settings, the sidebar toggle, then New workspace.
+
 Use New workspace in the header or `Ctrl+Shift+T`. Click an entry in the sidebar
 to activate it. Inactive workspaces keep their terminals running.
 
@@ -128,7 +130,8 @@ reported on stderr without a dialog, and the terminal stays usable.
 receives focus; if the sibling is split, its first terminal in layout order
 receives focus. Closing a background pane preserves focus.
 
-A shell exiting follows the same layout rules. Closing a workspace's last pane
+A shell exiting follows the same layout rules. Among reports the exit on stderr,
+including the status when it is nonzero. Closing a workspace's last pane
 closes that workspace. At the final workspace, Among asks for confirmation
 before exiting. Closing the application window also asks while terminals are
 running. Closing a pane can end a running job.

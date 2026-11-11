@@ -35,8 +35,6 @@ route, link, anchor, media, generated-content and privacy checks pass.
 `npm run check` validates all rendered local targets and URL syntax without
 network requests. It cannot confirm external availability. Run build before check.
 
-The 0.2.0 source map and verification results are in `DOCUMENTATION-REPORT.txt`.
-
 Vite is pinned to 6.4.4 via an override: VitePress 1.6.4 otherwise selects an
 older development server with known security advisories. Keep the override until
 VitePress itself supplies a patched dependency; retest build and search on updates.
