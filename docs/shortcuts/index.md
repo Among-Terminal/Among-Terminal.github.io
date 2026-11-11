@@ -7,6 +7,7 @@ title: Keyboard shortcuts
 These shortcuts work while Among has focus. Desktop shortcuts can intercept
 keys before Among receives them. Among does not register global shortcuts;
 use your desktop's keyboard settings to launch it from another window.
+Unclaimed keys reach the focused terminal.
 
 ## Defaults
 
@@ -45,38 +46,3 @@ Check for conflicts in your desktop settings, especially for `Super` and
 
 A failed save leaves the edit active for this session and shows a warning.
 See [stored settings](/preferences/#stored-settings).
-
-## Startup overrides
-
-Print the built-in defaults from a new application process, then exit:
-
-```sh
-AMONG_LIST_BINDINGS=1 among
-```
-
-Override a binding when starting a new process:
-
-```sh
-AMONG_REBIND="split-pane=<Control><Shift>d" among
-```
-
-Separate multiple overrides with commas. Unknown actions and unusable
-accelerators are reported and ignored. Assigning an occupied combination
-unbinds its previous action.
-
-## Running an action without a key
-
-```sh
-AMONG_ACTION=split_pane among
-```
-
-Accepted names include `new-workspace`, `split-pane`/`split`, `close-pane`/`close`,
-`focus-up`, `focus-down`, `focus-left`, `focus-right`, `resize-up`, `resize-down`,
-`resize-left`, `resize-right`, `next-workspace`, `previous-workspace`,
-`workspace-N` (a positive position), `preferences`/`open-preferences`,
-`fullscreen`/`toggle-fullscreen`, and `zoom`/`toggle-zoom`.
-Hyphens and underscores are interchangeable; names are case-insensitive.
-
-This setting does not forward an action to an already running instance.
-An unknown name is reported. An action with no binding is also reported and
-does not run through this setting. Unclaimed keys reach the focused terminal.

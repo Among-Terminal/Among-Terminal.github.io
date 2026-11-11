@@ -17,6 +17,28 @@ Saving settings does not enable a disabled plugin. A running plugin can accept
 or reject a change, or require a restart. Preferences distinguishes locally
 saved settings from settings accepted by the running process.
 
+When accepted settings need a restart, the form offers a Restart plugin… button.
+Choose it to open a confirmation. Cancel leaves the current process and
+accepted settings unchanged. Confirming restarts only that plugin and preserves
+its enabled choice and live terminals. It cannot enable a disabled plugin.
+
+### Retained plugin settings
+
+After uninstalling a plugin, open Settings, select Plugins, then choose Settings
+of removed plugins. This entry appears when an uninstalled plugin has saved or
+pending settings. Installed plugins do not appear in this list.
+
+Choose Delete settings… beside the plugin, then confirm. Cancel, Escape or
+closing the confirmation deletes nothing. Deletion removes only that plugin's
+saved settings and pending settings edits, including unrecognised values within
+those settings.
+
+Access grants, saved enablement choices, installation records, source
+registrations and other preferences remain. Unknown fields outside the selected
+settings, other plugins' settings, legacy files and the plugin's private data
+directory also remain. Deletion cannot be undone through this control and is
+not secure erasure.
+
 ## Notifications
 
 Visual, Sound, Desktop and Command each have their own When condition:

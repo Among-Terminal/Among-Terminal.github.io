@@ -72,6 +72,10 @@ Installed and Available. Plugins with the same name remain separate. With
 several sources, user plugins show their repository. An installed plugin whose
 source was removed shows `source removed`.
 
+An unavailable or faulted plugin shows its reason in place of the description.
+An installation or removal in progress, or a failed operation, takes precedence
+over that reason.
+
 Use the info button to inspect source, protection and access. Available plugins
 also have details, without an enable switch or settings. Their protection reads
 `Checked when the plugin starts.` Installed plugins show Settings only when they
@@ -80,7 +84,7 @@ provide configurable options. See
 
 Technical details starts collapsed and shows the plugin identity. For an
 installed plugin, it also shows the repository and API compatibility, including
-the API observed when it ran.
+the API observed when it ran. You can select and copy the values.
 Use Tab or Shift+Tab to move between controls, Space to change switches, and
 Back or Escape to return. Opening or searching the inventory neither saves
 defaults nor enables plugins.
@@ -160,12 +164,19 @@ same protection.
 
 ## Live status examples
 
-The clock uses local time, including `TZ` when supplied to Among. Resource meters
-show the plugin process's view of the system, which may differ inside a container
-or package sandbox.
+The clock shows local time in 24-hour `HH:MM:SS` format, including `TZ` when
+supplied to Among.
+
+The `system-status` meters show CPU, memory and root filesystem usage as
+percentages. CPU excludes idle time and I/O wait and initially shows `N/A`.
+Memory usage is based on `MemAvailable`. Disk usage is for `/`, with reserved
+space excluded from available space, as in `df`.
+The meters show the plugin process's view of the system, which may differ
+inside a container or package sandbox.
 
 `pane-pwd` shows each pane's last reported directory, including unfocused panes.
-Its tooltip contains the full path. Unknown directories produce no content.
+The label contains at most 480 characters. Its tooltip contains the full path.
+Unknown directories produce no content.
 Later directory changes need [shell directory reporting](/sessions/#directory-reporting).
 
 ## Notifications
@@ -191,12 +202,18 @@ offered. Review the version and access requirements. Only the selected plugin
 may restart; its settings remain. New required access or a changed publisher
 can require a new access review before startup.
 
+Among does not offer a lower version as an update. Different installed and
+offered version labels must both follow Semantic Versioning 2.0.0 for Among to
+determine which is newer. Otherwise, no update is offered and the plugin's
+details explain that the version order is unknown.
+
 ![Plugin details with settings, source and protection information](/media/preferences/plugin-info.png)
 
 Uninstall asks for confirmation, stops the plugin and removes its installation.
 Its local settings and private data directory remain. Retained settings can be
-removed separately in Preferences. If stopping or removal fails, the manager
-reports the failure and keeps the remaining state visible.
+removed through [Settings of removed plugins](/preferences/#retained-plugin-settings).
+If stopping or removal fails, the manager reports the failure and keeps the
+remaining state visible.
 
 A row shows either progress or one action, such as Install, Update or Uninstall.
 Installation offers a Stop button. Uninstall shows progress in the row without

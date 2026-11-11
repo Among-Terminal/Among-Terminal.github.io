@@ -115,6 +115,24 @@ Among uses the entry only when its executable points to that exact image.
 When launched without a matching desktop entry supplied by the launcher, Among
 looks for one existing match. If several entries match, it does not choose one.
 
+### Upgrading an AppImageLauncher installation
+
+Close the old process and remove only its owned integration:
+
+```sh
+ail-cli unintegrate "/actual/integrated/old.AppImage"
+ail-cli integrate "/path/to/new.AppImage"
+```
+
+Use the old entry's actual `Exec` path; AppImageLauncher may move the image to
+a hash-suffixed filename. Pin the replacement entry. Beside a native package,
+AppImageLauncher may suffix the display name with `(1)`; native DEB pins remain
+separate. Do not delete unrelated entries or reset the dock. Old pins, duplicate
+manual launchers and caches can reference older files; an invisible icon alone
+does not identify the failed layer. Without registration, a direct GNOME Wayland
+launch may show a technical ID and generic icon. Beside a DEB, prefer the distinct
+AppImageLauncher entry: a manual native-ID entry can override the DEB launcher.
+
 ## Desktop notification integration
 
 GNOME Shell needs a desktop entry matching `com.github.among-terminal` to
@@ -173,8 +191,10 @@ There is no Among APT or RPM repository. Updates for both DEB and RPM are manual
 `apt upgrade` or `dnf upgrade` alone will not fetch a new Among release.
 
 Download a newer release and install it the same way. For AppImage, replace
-the file and update any launcher that refers to it. Close and reopen Among
-to use the new binary. Installation does not close running terminals for you.
+the file and update any launcher that refers to it. For an AppImageLauncher
+installation, follow the [upgrade procedure](#upgrading-an-appimagelauncher-installation).
+Close and reopen Among to use the new binary. Installation does not close
+running terminals for you.
 
 Remove native packages with:
 
