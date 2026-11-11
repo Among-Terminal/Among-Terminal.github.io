@@ -1,17 +1,17 @@
 {
   "assets": {
     "desktop-notification.png": {
-      "bytes": 16395,
+      "bytes": 16272,
       "height": 130,
       "kind": "png",
-      "sha256": "c311c496806a7cec506afec5b7dbe52d5cf0ac007b8025905ee1b752cb1bf706",
+      "sha256": "09a59b3467410d15251da2d2a04eba2fb212f95bbc3278014685333e044138ba",
       "width": 640
     },
     "expanded-pane.png": {
-      "bytes": 45993,
+      "bytes": 46349,
       "height": 1000,
       "kind": "png",
-      "sha256": "9d77af0df1361e5806578357719b5497d17277938e2dbbbee2d2a86fee441ba5",
+      "sha256": "f5adea3a803d51b2b6f542b86c4046b3b6ec82a9c90f00fe5138bfd0d851aefe",
       "width": 1600
     },
     "keyboard.png": {
@@ -22,29 +22,29 @@
       "width": 1040
     },
     "main-window.png": {
-      "bytes": 72644,
+      "bytes": 73076,
       "height": 1000,
       "kind": "png",
-      "sha256": "4c03ae96af94aad71c9a506fa62c873b37d763c01a9e4ceb2958f2502a84e52a",
+      "sha256": "e02f5748cf4f9a864415b6ceb3b90c9333217d31670d34ff0dbe30c0ff730518",
       "width": 1600
     },
     "notification-return-poster.png": {
-      "bytes": 151546,
+      "bytes": 149024,
       "height": 1000,
       "kind": "png",
-      "sha256": "82ced1e2113bb802e55deeb2566a5843349bf54197ee31698b586c44aa480d8f",
+      "sha256": "3d0e6c6a7e55d2bf66528d1bd72d349881cd7e23bbb5f01f52b0921b548172b3",
       "width": 1600
     },
     "notification-return.mp4": {
-      "bytes": 83855,
+      "bytes": 83464,
       "kind": "mp4",
-      "sha256": "e2e251cc4f899bf7c9e8a38eb389d9b4792fb44c26c0244fe52e1fcb1295be57"
+      "sha256": "ffab1f3cab2007c0e552cfc608d10516070196d77c39d18c219f7bbdb92c1ede"
     },
     "notifications.png": {
-      "bytes": 43837,
+      "bytes": 44012,
       "height": 1060,
       "kind": "png",
-      "sha256": "8e365b97eea67f3c0da781b77346174d6878d04205d31e2f2755de8b5d90675f",
+      "sha256": "d9fc2ddb0f5b3c42f9e73c80e8afac896fa09ccdbf082509a0d354b685e1e661",
       "width": 1040
     },
     "plugin-access-review.png": {
@@ -55,10 +55,10 @@
       "width": 1040
     },
     "plugins.png": {
-      "bytes": 44347,
+      "bytes": 44362,
       "height": 800,
       "kind": "png",
-      "sha256": "e45abd86cedbc579e68361a6b2e53bfa8957c9da4527c692aff1d95bf590e245",
+      "sha256": "55d6b0044b3d0ce186d7cc3f473d09d25756a61c58cf04219a3c4178efa455c1",
       "width": 1040
     },
     "session-restore.png": {
@@ -76,10 +76,10 @@
       "width": 1040
     },
     "workspaces.png": {
-      "bytes": 86402,
+      "bytes": 86930,
       "height": 1000,
       "kind": "png",
-      "sha256": "6ec4cdd6d877c1e644c5f5b4f9e2fe3acf771a3caad7c90ead4295ca19e68da7",
+      "sha256": "bad4bb31579f1238949629f4a1e8220acddabc58272717b8d4d847ac5e8294e8",
       "width": 1600
     }
   },
