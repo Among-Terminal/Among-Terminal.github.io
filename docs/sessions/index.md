@@ -1,92 +1,99 @@
 ---
-title: "Sessions"
+title: Sessions
 ---
 
 # Sessions
 
-Session snapshots live at `${XDG_DATA_HOME:-$HOME/.local/share}/among/session.json`.
-This is independent of `plugins.json` and `shortcuts.json`: saving a session does
-not rewrite preferences, install plugins or modify shell configuration.
+Among saves workspace names, colours, sidebar order, nested splits, focus and
+known directories. Restoring starts fresh shells. It does not resume commands,
+running processes or scrollback, and does not retain temporary pane expansion.
 
 ## Saving and restoring
 
-A new application process with a valid snapshot asks **Restore** or **Start new**.
-Restore recreates each terminal as a fresh shell in its saved directory, including
-inactive workspaces, and restores the active workspace and its focused pane.
-It does not resume old processes, repeat commands, restore scrollback or retain
-temporary pane zoom. The window opens maximized as usual.
+A new application process with a valid saved session asks you to choose Restore
+or Start new. Restore recreates inactive workspaces too, with the saved active
+workspace and focused pane. A pane moved to another workspace belongs to that
+destination in the saved session.
 
-Start new (also Escape) opens the usual single-terminal workspace. Its next
-checkpoint replaces the previous session. Closing the window while the prompt is
-still open exits without launching terminals or altering the old snapshot.
-Activating an already running application does not ask again.
+Start new, or Escape, opens a single-terminal workspace. Its next checkpoint
+replaces the previous session. Closing the window while the prompt is open
+exits without starting terminals or changing the old snapshot. Activating an
+already running application does not ask again. The window opens maximized.
 
-Changed session state is checkpointed every two seconds by a separate ordered
-writer, normally reaching disk within three seconds. Unchanged state does not
-cause disk writes. Confirmed application exit saves the latest model before
-terminal teardown; canceling exit keeps the live session running. A crash can
-lose changes newer than the last completed checkpoint. Power loss or a storage
-error can lose more: there is no unconditional durability guarantee.
+Changed state is checkpointed every two seconds. Checkpoints do not write to
+disk when the state is unchanged. Disk completion depends on storage
+availability. Confirmed exit saves the latest state before closing
+terminals; cancelling exit keeps them running. A crash can lose changes since
+the last completed checkpoint. Power loss or storage errors can lose more.
 
-If a saved directory is deleted or inaccessible, the shell uses an accessible
-home or startup directory. Settings shows affected panes. VTE can silently fall
-back during spawning; the host reads the new process's actual `/proc/<pid>/cwd`
-rather than assuming the requested path was used. Only the actual known location
-is recorded. New ordinary terminals retain the normal startup directory.
+## Directory reporting
 
-For directory changes after launch, the shell must publish OSC 7. See the tested
-[Bash integration](/plugins/#live-status-examples). This does not require enabling
-pane-pwd or any other plugin, and Among Terminal never edits your shell files.
-For example, after enabling the optional Bash hook, `cd /tmp` is recorded on the
-next checkpoint even when the workspace is inactive.
+Among knows each shell's initial directory. Later changes require the shell to
+publish OSC 7 directory reports, even when the workspace is inactive. No plugin
+is needed, and Among never edits shell startup files. Installing Starship alone
+does not provide directory reporting.
 
-Storage failures are reported in Settings without blocking terminal input. Later
-checkpoints retry after the problem is fixed. Invalid or future-version documents
-are preserved until externally corrected or removed. A failed final save asks
-whether to keep working or exit without saving; keeping the window open resumes
-checkpoint retries. Routine checkpoints do not show success notifications.
+For Bash, test this helper in a terminal without changing shell files:
 
-## Snapshot format
-
-Version 1 stores workspace order, names, colours, the active workspace index,
-per-workspace focus, nested split orientations/ratios and a directory entry for
-each pane. `vertical` means a vertical divider (panes side by side), while
-`horizontal` means a horizontal divider (panes stacked). Ratios describe the
-first child's fraction, not pixels, and must lie between 0.05 and 0.95.
-
-```json
-{
-  "version": 1,
-  "active": 0,
-  "workspaces": [
-    {
-      "name": "project",
-      "colour": 0,
-      "focused": 1,
-      "layout": {"type": "pane", "id": 1},
-      "directories": [{"pane": 1, "cwd": null}]
-    }
-  ]
+```sh
+among_osc7() {
+    local status=$? LC_ALL=C directory uri='file://' byte encoded i
+    directory=$(pwd -P && printf '.') || return "$status"
+    directory=${directory%.}
+    directory=${directory%$'\n'}
+    for ((i=0; i<${#directory}; i++)); do
+        byte=${directory:i:1}
+        case "$byte" in
+            [a-zA-Z0-9/._~-]) uri+=$byte ;;
+            *) printf -v encoded '%%%02X' "'$byte"; uri+=$encoded ;;
+        esac
+    done
+    printf '\033]7;%s\007' "$uri"
+    return "$status"
 }
+PROMPT_COMMAND="among_osc7${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+among_osc7
 ```
 
-Pane IDs are nonzero and unique across all workspaces. Sparse IDs retain their
-numbers without reserving an array up to that number; exhausted IDs prevent new
-pane creation instead of wrapping. Each focused ID must belong to that workspace.
-Directory entries must exactly match its leaves. Paths are absolute or `null`
-when unknown; they come from terminal-reported cwd or a known initial shell
-directory, never another pane's cwd. Changes after launch need shell OSC 7 reporting
-to be known reliably. No plugin is required to collect these reports.
+The helper percent-encodes the physical directory using Bash builtins. Add it
+to your Bash configuration if wanted. It keeps the previous command's exit
+status, so prompt tools that run after it, such as Starship, still see that
+status. Other shells need their own prompt hook.
+The same reports supply [pane directory labels](/plugins/#live-status-examples)
+and the initial directory when [splitting a pane](/panes/#splitting-a-pane).
 
-The file contains no commands, process IDs, shell environment or scrollback.
-Input is bounded to 8 MiB, 64 nested splits, 4096 panes and 256 workspaces;
-unreadable, malformed, unsupported or unsafe files are not silently overwritten.
-The loader also retains the JSON parser's recursion safety limit.
+Use this hook in local shells. If it runs in a remote shell over SSH, it reports
+the remote directory as a local file URI. Among discards any hostname in OSC 7
+file URIs and treats the path as local. For example, `file://server/srv/project`
+becomes `/srv/project` on your computer. Splitting or restoring uses that local
+path; it does not reconnect over SSH.
 
-New snapshot files are private (mode 0600). Existing stricter permissions are
-preserved. Saving writes and syncs a same-directory temporary file, then renames
-it atomically and syncs its directory. A failed replacement retains the previous
-complete file; a directory-sync error after replacement means the new file was
-written but its power-loss durability is uncertain. Symlink and non-regular
-destinations are refused. Manually editing a snapshot while it is being saved
-can produce a retryable concurrent-change warning.
+If a saved directory has been deleted or cannot be entered, the shell falls
+back to an accessible home or startup directory. Settings lists affected panes.
+Among records the actual known directory, not an unavailable requested path or
+another terminal's location.
+
+## Storage and recovery
+
+When `XDG_DATA_HOME` is set, the snapshot path is that value followed by
+`among/session.json`. An empty value produces the relative path
+`among/session.json`; a relative value also stays relative. Only when
+`XDG_DATA_HOME` is unset does Among use `$HOME/.local/share/among/session.json`,
+if `HOME` is set. If both variables are unset, no snapshot path is available.
+
+Saving it does not change preferences, install plugins or modify shell files.
+It contains no commands, process IDs, shell environment or scrollback.
+
+Snapshots are limited to 8 MiB, 64 nested splits, 4096 panes and 256 workspaces.
+
+Storage errors appear in Settings without blocking input. Later checkpoints
+retry after the problem is fixed. If the final save fails, choose whether to
+keep working or exit without saving. Keeping the window open resumes retries.
+
+Invalid or future-version snapshots are preserved until corrected or removed
+externally. Symlink and non-regular destinations are refused. New snapshots
+are private, with mode `0600`; existing stricter permissions are preserved.
+Atomic replacement keeps the previous complete file if replacement fails.
+A directory-sync error after replacement means the new file was written but
+its durability through power loss is uncertain. Editing a snapshot while Among
+saves it can produce a retryable concurrent-change warning.

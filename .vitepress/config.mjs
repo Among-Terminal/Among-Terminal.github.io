@@ -9,6 +9,7 @@ export default defineConfig({
   cleanUrls: true,
   sitemap: { hostname: 'https://among-terminal.github.io' },
   transformHead({ pageData }) {
+    if (pageData.relativePath === '404.md') return [['meta', { name: 'robots', content: 'noindex' }]]
     const route = pageData.relativePath.replace(/index\.md$/, '')
     const url = `https://among-terminal.github.io/${route}`
     return [
@@ -35,7 +36,7 @@ export default defineConfig({
     logo: { src: '/media/logo-small.svg', alt: 'Among Terminal' },
     nav: [
       { text: 'Features', link: '/features/' },
-      { text: 'Plugin development', link: '/plugin-development/' },
+      { text: 'Plugins', link: '/plugins/' },
       { text: 'Install', link: '/install/' },
     ],
     sidebar: [
@@ -44,17 +45,11 @@ export default defineConfig({
         items: [
           { text: 'Start here', link: '/' },
           { text: 'Features', link: '/features/' },
-          { text: 'Panes', link: '/panes/' },
-          { text: 'Workspaces and sessions', link: '/sessions/' },
+          { text: 'Panes and workspaces', link: '/panes/' },
+          { text: 'Sessions', link: '/sessions/' },
           { text: 'Keyboard shortcuts', link: '/shortcuts/' },
           { text: 'Preferences', link: '/preferences/' },
           { text: 'Using plugins', link: '/plugins/' },
-        ],
-      },
-      {
-        text: 'Plugin development',
-        items: [
-          { text: 'Quick start and protocol', link: '/plugin-development/' },
         ],
       },
       {
@@ -62,8 +57,14 @@ export default defineConfig({
         items: [
           { text: 'Video overview', link: '/overview/' },
           { text: 'Installation', link: '/install/' },
-          { text: 'Building from source', link: '/build/' },
           { text: 'Licensing', link: '/licensing/' },
+        ],
+      },
+      {
+        text: 'Development resources',
+        items: [
+          { text: 'Plugin author guide and API', link: 'https://github.com/Among-Terminal/among-plugin-template' },
+          { text: 'Contributing to Among', link: 'https://github.com/Among-Terminal/among/blob/main/CONTRIBUTING.md' },
         ],
       },
     ],

@@ -4,20 +4,22 @@ title: Licensing
 
 # Licensing
 
-Among Terminal's original code, example plugins and artwork use
+Among Terminal uses
 [Apache-2.0](https://github.com/Among-Terminal/among/blob/main/LICENSE).
-AppStream catalog metadata uses CC0-1.0.
+Its AppStream catalogue metadata uses CC0-1.0.
 
-Third-party dependencies retain their own licenses. Rust dependency notices are
-preserved in [THIRD_PARTY](https://github.com/Among-Terminal/among/tree/main/THIRD_PARTY)
+The application dynamically links GTK, libadwaita and VTE. Their LGPL terms
+are not replaced by Among's Apache licence. The AppImage bundles these libraries.
+
+Third-party components retain their own licences. Their notices and licence
+texts are included in
+[THIRD_PARTY](https://github.com/Among-Terminal/among/tree/main/THIRD_PARTY)
 and [NOTICE](https://github.com/Among-Terminal/among/blob/main/NOTICE).
+DEB installations place the inventory in `/usr/share/doc/among-terminal/THIRD_PARTY/`.
 
-The application dynamically links native GTK, libadwaita and VTE libraries.
-Their LGPL terms are not replaced by the application's Apache license.
-Distributors must preserve applicable notices and license texts and satisfy
-corresponding-source and library replacement/debugging obligations for the
-components they actually ship.
+AppImages also carry a notice for their runtime and its third-party components.
+Installing a plugin is separate from installing Among; review the licensing
+material supplied with that plugin's package.
 
-See the repository's [distribution obligations](https://github.com/Among-Terminal/among/blob/main/docs/licensing.md)
-and [source delivery instructions](https://github.com/Among-Terminal/among/blob/main/docs/source-delivery.md).
-A build or generated inventory alone does not establish license compliance.
+For application build and distribution documentation, follow the
+[contributor instructions](https://github.com/Among-Terminal/among/blob/main/CONTRIBUTING.md).
