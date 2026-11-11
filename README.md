@@ -24,7 +24,7 @@ npm run build
 npm run check
 ```
 
-Directory-based pages preserve the existing routes, such as `/features/` and
+Directory-based pages preserve the existing routes, such as `/panes/` and
 `/plugin-development/`. Adapt repository-relative links to these public routes;
 do not copy internal recording tools, rehearsal reports or local machine paths.
 
