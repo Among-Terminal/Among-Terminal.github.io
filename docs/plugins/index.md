@@ -65,12 +65,32 @@ the page fetches the official list once. A failed fetch shows its reason and
 Load or refresh controls. It does not retry continuously. Refresh explicitly
 to check a saved catalogue for changes.
 
+### Finding and inspecting plugins
+
+Search matches names, descriptions, full identities and origins in both
+Installed and Available. Plugins with the same name remain separate. With
+several sources, user plugins show their repository. An installed plugin whose
+source was removed shows `source removed`.
+
+Use the info button to inspect source, protection and access. Available plugins
+also have details, without an enable switch or settings. Their protection reads
+`Checked when the plugin starts.` Installed plugins show Settings only when they
+provide configurable options. See
+[plugin settings](/preferences/#plugins) for saving changes.
+
+Technical details starts collapsed and shows the plugin identity. For an
+installed plugin, it also shows the repository and API compatibility, including
+the API observed when it ran.
+Use Tab or Shift+Tab to move between controls, Space to change switches, and
+Back or Escape to return. Opening or searching the inventory neither saves
+defaults nor enables plugins.
+
 ## Access review
 
 Required access must be accepted before a plugin can run. Optional access is
 unchecked on the first review. A plugin's details show its source, protection,
 settings and requested access. The shield describes origin and protection;
-it is not a code audit.
+its accessible name also identifies them. It is not a code audit.
 
 ![Reviewing a plugin's required and optional access](/media/preferences/plugin-access-review.png)
 
@@ -79,8 +99,15 @@ directories, titles, process-running state, terminal events, system metrics,
 settings or notification roles. Unknown directories and titles stay unavailable.
 Read the [notification role rules](#notifications) before enabling those features.
 
-Stop a running plugin before changing its reviewed access. Saving a review
-does not restart it or enable a notification delivery channel.
+For an installed plugin with notification roles, open Notification role, then
+Review role / access. This control is on the plugin's page and remains available
+after an earlier review. The page distinguishes your reviewed role from the
+role currently allowed to run. The Notifications page contains channel controls.
+
+If the plugin is running, choose Stop and disable plugin, wait for it to stop,
+then reopen the review. Save reviewed access stores the choice for that plugin
+and publisher without enabling the plugin or its channels. The initial enable
+flow uses Accept and enable.
 
 ## Confinement
 
@@ -120,6 +147,11 @@ Settings shows the observed level and offers Allow reduced protection when
 applicable. The permission is stored per plugin and remains marked while saved.
 Each launch checks the kernel again. If it offers less protection than you
 accepted, Among asks again.
+
+A running plugin's protection text shows the level it actually reached. The
+warning shield remains while permission for reduced protection is saved, even
+if the current run has full protection. Problems with the plugin's data-directory
+path, ownership or permissions leave it Unavailable.
 
 There are no CPU or memory quotas, and confinement does not protect against
 kernel vulnerabilities. Install code you trust. A plugin can deliberately leave
@@ -166,6 +198,12 @@ Its local settings and private data directory remain. Retained settings can be
 removed separately in Preferences. If stopping or removal fails, the manager
 reports the failure and keeps the remaining state visible.
 
+A row shows either progress or one action, such as Install, Update or Uninstall.
+Installation offers a Stop button. Uninstall shows progress in the row without
+a separate progress dialog and cannot be cancelled after it begins. A failure
+leaves the details page open with a banner. When removal completes, the page
+closes and focus returns to the list.
+
 ### Testing prereleases
 
 Quit Among before starting `among --plugin-development`. The mode is not saved
@@ -188,16 +226,23 @@ Cancel saves neither. Among supports up to 32 user sources plus the official sou
 ![Plugin sources with catalogue age and check controls](/media/preferences/sources.png)
 
 Check source refreshes one repository; Check all checks them in order. Failed
-checks preserve the saved list. Old or future-dated check times are marked.
+checks preserve the saved list. Saved lists checked at least 24 hours ago, or
+with a check time in the future, are marked.
 A publisher change needs explicit review before replacing saved metadata; this
 does not grant installed code new access. An official publisher mismatch is refused.
+
+If a publisher changes while you are using Pre-release, choose Stable, check
+the source again and approve the change there. Prerelease catalogues are not saved.
 
 Repository identity survives a rename. A different repository reusing the old
 name does not inherit it. Removing a source does not stop or uninstall its
 plugins, but their updates are no longer offered.
 
 A GitHub rate limit stops source checks and shows the remaining count, or unknown.
-No retry is scheduled. The optional `AMONG_GITHUB_TOKEN` environment variable
+No retry is scheduled. A permission refusal without a rate-limit indication
+reports the failure and continues checking the remaining sources.
+
+The optional `AMONG_GITHUB_TOKEN` environment variable
 authenticates API requests; it is not sent to download hosts or child processes.
 Its original value can still be visible to the same user through Among's process
 information. Use a token with no access beyond reading public data.

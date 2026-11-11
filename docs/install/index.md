@@ -108,6 +108,13 @@ itself to the applications menu. AppImageLauncher can create an entry; Among
 uses a matching registration for that exact image when available. Duplicate or
 old registrations can still point to older files. For a manual entry, see below.
 
+### Checking an AppImageLauncher entry
+
+Check the entry's actual `Exec` path against the AppImage you are launching.
+Among uses the entry only when its executable points to that exact image.
+When launched without a matching desktop entry supplied by the launcher, Among
+looks for one existing match. If several entries match, it does not choose one.
+
 ## Desktop notification integration
 
 GNOME Shell needs a desktop entry matching `com.github.among-terminal` to

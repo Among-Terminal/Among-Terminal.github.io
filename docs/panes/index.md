@@ -36,11 +36,17 @@ The moved pane keeps its terminal and running process, and focus follows it.
 Its old space closes up. Dropping on itself or outside a pane changes nothing.
 Dragging inside terminal text selects text.
 
+If the source or destination closes during a drag, dropping makes no further
+layout change. This also applies when moving a pane to another workspace.
+
 ## Moving a pane to another project
 
 Drag a pane header onto another workspace's entry in either sidebar view.
 The outlined destination receives the pane after its last pane in layout order,
 becomes active and gives the moved terminal focus.
+
+The destination's last pane splits to make room. If it is at least as wide as
+it is tall, the moved pane goes beside it. Otherwise, it goes below it.
 
 The terminal retains its process, scrollback, directory, plugin content and
 title-change marker. Its header takes the destination workspace's colour.
@@ -108,6 +114,9 @@ uses its target, even when the displayed text differs. Plain absolute `http`,
 can be copied but not opened. Malformed, control-containing or oversized targets
 are refused. A keyboard-opened menu has no link target.
 
+Copy Link uses the target captured when you opened the menu, even if you move
+the pointer before selecting it.
+
 Split Pane, Expand/Restore Pane and Close Terminal use the same controls as
 keyboard shortcuts. Their hints follow your bindings, and removing a binding
 leaves its menu action available. Split Pane is inactive while a pane is expanded.
@@ -142,6 +151,11 @@ running. Closing a pane can end a running job.
 or use Restore pane at the right of its header to return to the stored layout.
 The button also works with Enter or Space when focused.
 
+Restore pane fits within the normal header height, leaving terminal height
+unchanged. Long titles shorten to keep the button visible. The button also
+appears when you explicitly expand a workspace's only pane. An ordinary
+single-pane workspace has no Restore button.
+
 Hidden terminals keep running. While expanded, directional focus stays on the
 visible pane and splitting is refused. Closing or restoring still works.
 Restoration preserves nested divider positions and returns focus to the
@@ -151,3 +165,5 @@ Expansion in one workspace does not affect another.
 Clicking a desktop notification for a hidden terminal restores the layout and
 focuses that terminal. An activation for a terminal that has closed or belongs
 to a previous application instance only raises the window.
+Only the terminal you focus has its bell indicators cleared; other terminals
+keep their unread indicators.

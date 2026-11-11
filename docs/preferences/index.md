@@ -12,7 +12,7 @@ closing Preferences, including while a source request is running.
 
 The [plugin guide](/plugins/) covers installation, access review, protection,
 updates and removal. Click a plugin row to open its settings and details.
-Plugin-specific forms require Save; closing without saving discards edits.
+Plugin-specific forms require Save; Back or closing without saving discards edits.
 Saving settings does not enable a disabled plugin. A running plugin can accept
 or reject a change, or require a restart. Preferences distinguishes locally
 saved settings from settings accepted by the running process.
@@ -21,8 +21,11 @@ saved settings from settings accepted by the running process.
 
 Visual, Sound, Desktop and Command each have their own When condition:
 Always, Terminal not in view or Among in background. Terminal not in view also
-applies while Among is in the background. Preferences and native menus count
-as foreground Among, but do not count as viewing a terminal.
+applies while Among is in the background, as its tooltip explains. Preferences
+and native menus count as foreground Among, but do not count as viewing a terminal.
+
+A successful save shows no banner. Invalid values are marked on their row;
+failed or uncertain saves show a banner.
 
 | Channel | Default |
 | --- | --- |
@@ -36,11 +39,18 @@ as foreground Among, but do not count as viewing a terminal.
 A bell marks the originating pane and workspace as unread until you focus that
 terminal. The thin line at the left of each header or row thickens and can pulse.
 Disabling system animations stops the motion without clearing unread state.
-With Always selected, a bell in the already focused terminal pulses briefly
-without marking it unread.
+With Always selected and animations enabled, a bell in the already focused
+terminal pulses for one second without marking it unread, thickening its line
+or adding an unread announcement.
+Bell indicators do not change the workspace colour.
 
-Desktop notifications name the workspace and include the title and directory
-when known. Clicking one switches to the originating terminal, restoring an
+The desktop notification title is the workspace name, or `Among Terminal` when
+the name is missing. Its body starts with `Bell in '<title>'`, or `Bell` when
+the terminal title is unknown, followed by the directory when known. Programs
+can set terminal titles. This text can appear in the notification centre or on
+the lock screen; disable Desktop if it would expose sensitive information.
+
+Clicking a notification switches to the originating terminal, restoring an
 expanded sibling's layout if necessary. A terminal currently being viewed does
 not send a desktop notification, even with Always selected. Closing or focusing
 its source, disabling the channel or exiting Among withdraws the notification.
@@ -58,14 +68,28 @@ the defaults.
 ### Sound
 
 Use the bundled Among alert or choose a WAV file with the folder button. Among
-checks the file before selecting it. A rejected file leaves the previous valid
-sound selected. A missing or invalid saved file disables playback until a valid
-source is selected. The undo button restores the bundled sound.
+shows `Among alert (built-in)` or the selected filename; hover over the filename
+to see its full path. Choose files through the WAV-filtered dialog. The Sound
+row has no editable path.
+
+Among checks the file before selecting it, showing a spinner and
+`Checking the file…`. A rejected file shows a problem line and warning mark.
+It leaves the previous valid sound selected, saves nothing and plays no fallback.
+A missing or invalid saved file disables playback until a valid source is
+selected. The undo button appears only for custom files and restores the bundled
+sound. Successful selection adds no status message.
+
+Choose a local, uncompressed RIFF/WAVE file with 8-, 16-, 24- or 32-bit PCM,
+or 32- or 64-bit IEEE float samples. Matching WAVEFORMATEXTENSIBLE variants
+are supported. Files must contain at least one audio frame, be mono or stereo,
+and be no larger than 10 MiB or 10 seconds, with a sample rate of at most 96 kHz.
+Compressed WAV, RIFX and RF64 files are rejected.
 
 Play previews the accepted sound even when event audio is off. Stop cancels
 playback or an in-progress file check. If the previous sound is still stopping,
 wait for it to stop and press Play again. An accepted playback request does not
-confirm audible output from your speakers.
+confirm audible output from your speakers. A disabled Play button explains why
+in its tooltip.
 
 ### Run a command
 
@@ -86,9 +110,12 @@ the terminal's full environment.
 ### Plugin channels
 
 Each plugin delivery channel has its own choice and starts off. Unavailable
-channels retain editable choices but receive no delivery. Inspecting a channel
-does not start its plugin. See [plugin notifications](/plugins/#notifications)
-for access and role controls.
+channels are labelled Unavailable and retain editable choices but receive no
+delivery. Available channels show their name and description, plus whether the
+plugin is disabled, waiting for admission or admitted to deliver. The channel
+switch records your permission separately.
+Inspecting a channel does not start its plugin. See
+[plugin notifications](/plugins/#notifications) for access and role controls.
 
 ## Keyboard
 
@@ -117,6 +144,9 @@ launch. Colours that do not match a built-in choice are shown as custom.
 About shows the application version and recorded build commit and date.
 Missing build metadata is shown as unknown. Copy build details copies the
 version, commit, build date and operating-system description for a bug report.
+The copy button shows a check mark for two seconds, without a pop-up message.
+About also lists the Apache-2.0 license and links to the website, source code
+and issue tracker.
 Opening About does not make a network request; following a link opens it in
 the desktop's default handler.
 
