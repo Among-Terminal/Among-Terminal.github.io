@@ -55,16 +55,16 @@ export default defineConfig({
       {
         text: 'Resources',
         items: [
-          { text: 'Video overview', link: '/overview/' },
+          { text: 'A workspace in practice', link: '/overview/' },
           { text: 'Installation', link: '/install/' },
           { text: 'Licensing', link: '/licensing/' },
         ],
       },
       {
-        text: 'Development resources',
+        text: 'For contributors',
         items: [
-          { text: 'Plugin author guide and API', link: 'https://github.com/Among-Terminal/among-plugin-template' },
-          { text: 'Contributing to Among', link: 'https://github.com/Among-Terminal/among/blob/main/CONTRIBUTING.md' },
+          { text: 'Plugin development', link: '/plugin-development/' },
+          { text: 'Building and contributing', link: '/build/' },
         ],
       },
     ],
@@ -72,7 +72,7 @@ export default defineConfig({
     outline: [2, 3],
     socialLinks: [{ icon: 'github', link: 'https://github.com/Among-Terminal/among' }],
     footer: {
-      message: 'Apache-2.0 · <a href="/llms.txt">llms.txt</a> · <a href="/llms-full.txt">Full documentation for LLMs</a>',
+      message: 'Apache-2.0 · <a href="/licensing/">Licensing</a> · <a href="https://github.com/Among-Terminal/among">Source code</a>',
     },
   },
 })

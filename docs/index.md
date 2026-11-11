@@ -1,44 +1,117 @@
 ---
 title: Among Terminal
+description: A native GNOME terminal for developers working across several shells. Arrange tools in panes and keep tasks in named workspaces.
+layout: page
+sidebar: false
+outline: false
 ---
 
-# Among Terminal
+<main class="showcase">
 
-Among Terminal is a native GNOME terminal with split panes, named workspaces
-and optional status and notification plugins. These guides cover version 0.2.0.
+<div class="showcase-intro">
 
-![Among Terminal with two panes and a workspace sidebar](/media/app/main-window.png)
+<p class="eyebrow">Among Terminal · Linux · 0.2.0</p>
 
-## Get started
+# Keep your tools in view
 
-[Install Among Terminal](/install/), then open it from your applications menu.
-The installation guide covers DEB, RPM, AppImage and binary archives, with
-checksums, updates and removal instructions.
+<p class="intro-copy">A native GNOME terminal for developers working across several shells. Put related tools in panes and keep separate tasks in named workspaces.</p>
 
-Press `Ctrl+Shift+N` to split a terminal or `Ctrl+Shift+T` to create a workspace.
-Use `Ctrl+,` to open Settings.
+<div class="showcase-actions">
+<a class="showcase-button" href="/install/">Install Among Terminal</a>
+<a class="showcase-link" href="/features/">See what you can do</a>
+</div>
 
-## Work with several terminals
+</div>
 
-- [Split, resize and move panes](/panes/), including moving a live terminal to
-  another workspace.
-- [Name and reorder workspaces](/panes/#workspaces) in the sidebar.
-- [Restore a saved session](/sessions/) with fresh shells in known directories.
-- [Choose keyboard shortcuts](/shortcuts/) for pane and workspace controls.
+<figure class="showcase-hero">
+<a href="/media/app/main-window.png"><img src="/media/app/main-window.png" alt="Among Terminal with a Git diff, checklist and change summary in three panes, plus Workbench, Review and Notes workspaces" width="1270" height="750" fetchpriority="high"></a>
+<figcaption>Keep a diff beside your checklist and change summary. "Review ready" in the sidebar comes from a sample plugin.</figcaption>
+</figure>
 
-[Explore the features](/features/) or [watch the overview](/overview/).
+<div class="showcase-benefits">
 
-## Set up notifications and appearance
+<section class="showcase-benefit">
 
-[Notification preferences](/preferences/#notifications) control terminal bell
-indicators, desktop notifications, sounds and commands. The
-[Terminal page](/preferences/#terminal) selects text, background and ANSI colours.
+## Give one tool more room
 
-## Add plugins
+Expand a pane to fill its workspace, then return to your layout. The other
+terminals keep running while hidden.
 
-Open Settings, select Plugins and install from the official source. Review a
-plugin's access before enabling it. The [plugin guide](/plugins/) explains
-available plugins, protection levels and updates.
+[![A Git diff expanded to fill its workspace, with Restore pane in the header](/media/app/expanded-pane.png)](/media/app/expanded-pane.png)
 
-Plugin authors can use the [author guide and API reference](https://github.com/Among-Terminal/among-plugin-template).
-Application contributors can start with [CONTRIBUTING.md](https://github.com/Among-Terminal/among/blob/main/CONTRIBUTING.md).
+[Arrange your panes](/panes/#expanding-a-pane)
+
+</section>
+
+<section class="showcase-benefit">
+
+## Keep separate tasks together
+
+Name your workspaces and switch between their terminal layouts from the
+sidebar. Reorder them to match your work.
+
+<figure class="workspace-detail">
+<a href="/media/app/workspaces.png"><img src="/media/app/workspaces.png" alt="Workbench, Review and Notes workspaces with distinct colours and terminal counts" width="240" height="125" loading="lazy"></a>
+<figcaption>Three named workspaces. "Review ready" comes from a sample plugin.</figcaption>
+</figure>
+
+[Organize workspaces](/panes/#workspaces)
+
+</section>
+
+<section class="showcase-benefit showcase-notifications">
+
+## Terminal notifications
+
+<figure class="notification-clip">
+<video autoplay loop muted playsinline preload="auto" poster="/media/app/notification-return-poster.png" width="1240" height="336" aria-label="A desktop notification names the workspace and command that rang; clicking it switches to that workspace and terminal">
+<source src="/media/app/notification-return.mp4" type="video/mp4">
+</video>
+<figcaption>A terminal in another workspace rings. The desktop notification names the workspace and the command, and a click opens that terminal.</figcaption>
+</figure>
+
+Inside the window, the stripes beside the workspace and the pane that rang pulse
+until you focus that terminal.
+
+<figure class="bell-clip">
+<video autoplay loop muted playsinline preload="auto" poster="/media/app/bell-poster.png" width="614" height="502" aria-label="The green stripes beside the Connectum workspace and its pane header pulse after a terminal bell">
+<source src="/media/app/bell.mp4" type="video/mp4">
+</video>
+<figcaption>After a bell, the green stripes beside the workspace and the pane header keep pulsing.</figcaption>
+</figure>
+
+[Choose your notifications](/preferences/#notifications)
+
+</section>
+
+<section class="showcase-benefit">
+
+## Choose the status you need
+
+Add optional plugins for a clock, resource meters or pane directory labels.
+Review their access before enabling them.
+
+[![The Plugins page separates installed plugins from those available to install](/media/preferences/plugins.png)](/media/preferences/plugins.png)
+
+This settings example uses sample plugins.
+
+[Choose your plugins](/plugins/)
+
+</section>
+
+</div>
+
+<section class="showcase-start">
+
+## Set up your first workspace
+
+Download the package for your Linux system, open Among and split your first
+pane. Plugins are installed separately.
+
+<a class="showcase-button" href="/install/">Choose your download</a>
+
+[Start with panes and workspaces](/panes/) · [Learn the shortcuts](/shortcuts/) · [Restore a session](/sessions/)
+
+</section>
+
+</main>

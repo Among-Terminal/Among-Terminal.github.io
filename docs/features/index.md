@@ -1,120 +1,90 @@
 ---
-title: Features in practice
+title: What you can do
 ---
 
-# Features in practice
+# What you can do
 
-Among Terminal keeps native VTE terminals in a single GNOME window. Use a
-workspace for each project and split its terminals as needed.
+Arrange your terminals around the task in front of you. These views show
+Among Terminal 0.2.0 with a synthetic example project. "Review ready" in the
+sidebar comes from a sample plugin.
 
-The recordings show an earlier interface. The demonstrated pane and workspace
-actions still apply, but action messages no longer appear as bottom popups.
+## See related tools at once
 
-## Split and resize terminals
+Keep a diff, checklist and change summary beside each other. Resize their
+panes with a divider or the keyboard.
 
-Press `Ctrl+Shift+N` to split the focused pane. A wide pane splits side by side;
-a tall pane splits top to bottom. The new shell starts in the original pane's
-known directory. Drag a divider or use `Ctrl+Shift` with an arrow to move it.
+[![A Git diff, checklist and change summary share a three-pane workspace](/media/app/main-window.png)](/media/app/main-window.png)
 
-[![Separate terminals running a listing, file manager and process monitor](/media/features/02-split-resize.png)](/media/features/02-split-resize.mp4)
+[Split and resize panes](/panes/#splitting-a-pane).
 
-The recording uses `ll`, `mc` and `htop` as examples. Among does not install
-these tools. See [splitting a pane](/panes/#splitting-a-pane) and
-[default shortcuts](/shortcuts/#defaults).
+## Give a pane the whole workspace
 
-Watch [keyboard resizing](/media/features/02b-keyboard-resize.mp4) or
-[mouse resizing](/media/features/02c-mouse-resize.mp4).
+Expand a terminal when you need room to read. Your other terminals keep
+running, and you can return to the same layout.
 
-## Move panes and organize workspaces
+[![The diff fills its workspace while the other terminals stay hidden](/media/app/expanded-pane.png)](/media/app/expanded-pane.png)
 
-Drag a pane header onto another pane's edge to rearrange the layout, or onto
-a workspace in the sidebar to move the terminal there. Its running process
-stays with it.
+[Expand and restore a pane](/panes/#expanding-a-pane).
 
-Watch [moving a pane by its header](/media/features/03-pane-drag.mp4).
+## Keep tasks in named workspaces
 
-Create a workspace with `Ctrl+Shift+T`. Double-click its name to rename it,
-drag its entry to reorder it, or drag the sidebar's right edge to resize the
-list. [Workspace controls](/panes/#workspaces) explain naming, ordering and
-the collapsed sidebar.
+Switch between separate layouts from the sidebar. Drag a pane into another
+workspace with its running process intact.
 
-Watch [creating, renaming and switching workspaces](/media/features/05-workspaces.mp4)
-or [collapsing and expanding the sidebar](/media/features/05b-sidebar.mp4).
+<figure class="workspace-detail">
+<a href="/media/app/workspaces.png"><img src="/media/app/workspaces.png" alt="Workbench, Review and Notes workspaces with distinct colours and terminal counts" width="240" height="125" loading="lazy"></a>
+<figcaption>Three named workspaces. "Review ready" comes from a sample plugin.</figcaption>
+</figure>
 
-## Focus, expand and restore
-
-Use `Alt+Arrow` to move between panes. `Ctrl+Shift+X` expands the focused pane
-to fill its workspace. Press it again or use Restore pane in the header to
-return to the layout. Hidden terminals keep running. Restore the layout before
-splitting or moving focus with an arrow. `F11` toggles fullscreen.
-
-See [expanding a pane](/panes/#expanding-a-pane).
-
-Watch [moving focus](/media/features/04-focus.mp4),
-[expanding and restoring a pane](/media/features/04b-zoom.mp4), or
-[toggling fullscreen](/media/features/04c-fullscreen.mp4).
-
-## Clipboard and links
-
-Right-click a terminal or press `Shift+F10` for copy, paste and pane actions.
-Use `Shift+right-click` when a terminal program handles mouse input.
-`Ctrl+left-click` opens supported links with the desktop handler.
-
-[The terminal menu and link guide](/panes/#terminal-context-menu) covers
-selection, pasted commands and supported link types.
-
-## Scrollback
-
-Mouse-wheel scrolling follows VTE's row-based behaviour. Touchpad scrolling
-uses the gesture's distance, converted to text rows. A full-screen editor,
-pager or monitor receives scrolling as its own input. Each pane keeps its own
-scroll position.
+[Organize workspaces](/panes/#workspaces) or [move a live pane](/panes/#moving-a-pane-to-another-project).
 
 ## Terminal notifications
 
-An unfocused terminal can mark its pane and workspace when it rings a bell.
-Desktop notifications can bring you back to the terminal that rang.
+<figure class="notification-clip">
+<video autoplay loop muted playsinline preload="auto" poster="/media/app/notification-return-poster.png" width="1240" height="336" aria-label="A desktop notification names the workspace and command that rang; clicking it switches to that workspace and terminal">
+<source src="/media/app/notification-return.mp4" type="video/mp4">
+</video>
+<figcaption>A terminal in another workspace rings. The desktop notification names the workspace and the command, and a click opens that terminal.</figcaption>
+</figure>
 
-![A terminal bell marks its pane and workspace](/media/app/main-window-bell.png)
+Inside the window, the stripes beside the workspace and the pane that rang pulse
+until you focus that terminal.
 
-[Notification preferences](/preferences/#notifications) control when indicators,
-desktop delivery, sound and configured commands run.
+<figure class="bell-clip">
+<video autoplay loop muted playsinline preload="auto" poster="/media/app/bell-poster.png" width="614" height="502" aria-label="The green stripes beside the Connectum workspace and its pane header pulse after a terminal bell">
+<source src="/media/app/bell.mp4" type="video/mp4">
+</video>
+<figcaption>After a bell, the green stripes beside the workspace and the pane header keep pulsing.</figcaption>
+</figure>
 
-## Optional plugins
+[Choose notification conditions](/preferences/#notifications).
 
-Install a clock, resource meters or per-pane directory labels from Settings.
-Application packages contain no plugins. Each new installation stays disabled
-until you review its access and enable it.
+## Add the status you use
 
-![Installed and available plugins in Preferences](/media/preferences/plugins.png)
+Optional plugins put a clock, resource meters or directory labels around your
+terminals. Choose what to install and review its access before enabling it.
 
-The screenshot includes sample plugins. See [official plugins](/plugins/#installing-official-plugins)
-and [plugin protection](/plugins/#confinement) for the available functions and
-their limits.
+[![Installed and available sample plugins in Settings](/media/preferences/plugins.png)](/media/preferences/plugins.png)
 
-## Session restoration
+This settings example uses sample plugins and an example community source.
+[Choose and install plugins](/plugins/).
 
-On a new launch, choose Restore to reopen a saved layout in fresh shells.
-Commands, running tools and scrollback are not resumed. See
-[sessions](/sessions/) for saved state, directory reporting and recovery.
+## Return to your layout after restarting
 
-Watch [restoring a layout in fresh shells](/media/features/07-session-restore.mp4).
-The recording runs `ll` manually after restoration.
+Choose Restore at launch to reopen your workspaces and panes in fresh shells.
+Commands, running tools and scrollback do not return.
 
-## Closing a pane
+![The restore prompt explains that layouts return but commands and processes do not](/media/app/session-restore.png)
 
-Watch [closing a pane and continuing in its surviving sibling](/media/features/08-close-pane.mp4).
-See [closing and exiting](/panes/#closing-and-exiting) for the controls and
-confirmation rules.
+[Set up session restoration](/sessions/), including tracking directories.
 
-## Appearance and keyboard controls
+## Choose your terminal colours
 
-Choose text/background colours and an ANSI palette independently in
-[Terminal preferences](/preferences/#terminal). Changes apply to open terminals
-without restarting their shells. Configure your prompt in the shell itself.
+Set text and background colours separately from the ANSI palette. Changes
+apply to open panes without restarting their shells.
 
-![Terminal colour choices in Preferences](/media/preferences/terminal.png)
+[![Solarized text and background selected independently from the ANSI palette](/media/preferences/terminal.png)](/media/preferences/terminal.png)
 
-The [Keyboard page](/shortcuts/#preferences) changes or removes bindings.
-The [overview videos](/overview/) show earlier workflows; these written guides
-cover the current controls without requiring video playback.
+[Adjust terminal colours](/preferences/#terminal).
+
+[Install Among Terminal](/install/) and [create your first workspace](/panes/).
