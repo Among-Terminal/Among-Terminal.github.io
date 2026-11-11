@@ -24,8 +24,8 @@ outline: false
 </div>
 
 <figure class="showcase-hero">
-<a href="/media/app/main-window.png"><img src="/media/app/main-window.png" alt="Among Terminal with a Git diff, checklist and change summary in three panes, plus Workbench, Review and Notes workspaces" width="1270" height="750" fetchpriority="high"></a>
-<figcaption>Keep a diff beside your checklist and change summary. "Review ready" in the sidebar comes from a sample plugin.</figcaption>
+<a href="/media/app/main-window.png"><img src="/media/app/main-window.png" alt="Among Terminal with a Git diff, checklist and change summary in three panes, plus Workbench, Review and Notes workspaces" width="1600" height="1000" fetchpriority="high"></a>
+<figcaption>A Git diff, checklist and change summary in three named workspaces. The example project is synthetic.</figcaption>
 </figure>
 
 <div class="showcase-benefits">
@@ -51,8 +51,8 @@ Name your workspaces and switch between their terminal layouts from the
 sidebar. Reorder them to match your work.
 
 <figure class="workspace-detail">
-<a href="/media/app/workspaces.png"><img src="/media/app/workspaces.png" alt="Workbench, Review and Notes workspaces with distinct colours and terminal counts" width="240" height="125" loading="lazy"></a>
-<figcaption>Three named workspaces. "Review ready" comes from a sample plugin.</figcaption>
+<a href="/media/app/workspaces.png"><img src="/media/app/workspaces.png" alt="Workbench, Review and Notes workspaces with distinct colours and terminal counts" width="1600" height="1000" loading="lazy"></a>
+<figcaption>Three named workspaces with distinct colours and terminal counts.</figcaption>
 </figure>
 
 [Organize workspaces](/panes/#workspaces)
@@ -64,21 +64,14 @@ sidebar. Reorder them to match your work.
 ## Terminal notifications
 
 <figure class="notification-clip">
-<video autoplay loop muted playsinline preload="auto" poster="/media/app/notification-return-poster.png" width="1240" height="336" aria-label="A desktop notification names the workspace and command that rang; clicking it switches to that workspace and terminal">
+<video autoplay loop muted playsinline preload="auto" poster="/media/app/notification-return-poster.png" width="1600" height="1000" aria-label="A desktop notification names the Review workspace and the status terminal; clicking it opens that terminal">
 <source src="/media/app/notification-return.mp4" type="video/mp4">
 </video>
-<figcaption>A terminal in another workspace rings. The desktop notification names the workspace and the command, and a click opens that terminal.</figcaption>
+<figcaption>A terminal rings while Among is in the background. The desktop notification names the workspace and command, and a click opens that terminal.</figcaption>
 </figure>
 
 Inside the window, the stripes beside the workspace and the pane that rang pulse
 until you focus that terminal.
-
-<figure class="bell-clip">
-<video autoplay loop muted playsinline preload="auto" poster="/media/app/bell-poster.png" width="614" height="502" aria-label="The green stripes beside the Connectum workspace and its pane header pulse after a terminal bell">
-<source src="/media/app/bell.mp4" type="video/mp4">
-</video>
-<figcaption>After a bell, the green stripes beside the workspace and the pane header keep pulsing.</figcaption>
-</figure>
 
 [Choose your notifications](/preferences/#notifications)
 

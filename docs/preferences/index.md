@@ -13,7 +13,7 @@ Choose your text and background colours, then choose an ANSI palette for
 coloured terminal output. The choices apply to open panes without restarting
 their shells. Configure your prompt in your shell itself.
 
-[![Solarized text, background and palette selected in Terminal settings](/media/preferences/terminal.png)](/media/preferences/terminal.png)
+[![Gray on black text and background with the Tango ANSI palette](/media/preferences/terminal.png)](/media/preferences/terminal.png)
 
 GNOME Terminal default reads that application's default profile when Among
 starts. You can also choose a bundled scheme without GNOME Terminal installed.

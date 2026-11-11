@@ -5,8 +5,7 @@ title: What you can do
 # What you can do
 
 Arrange your terminals around the task in front of you. These views show
-Among Terminal 0.2.0 with a synthetic example project. "Review ready" in the
-sidebar comes from a sample plugin.
+Among Terminal 0.2.0 with a synthetic example project.
 
 ## See related tools at once
 
@@ -32,8 +31,8 @@ Switch between separate layouts from the sidebar. Drag a pane into another
 workspace with its running process intact.
 
 <figure class="workspace-detail">
-<a href="/media/app/workspaces.png"><img src="/media/app/workspaces.png" alt="Workbench, Review and Notes workspaces with distinct colours and terminal counts" width="240" height="125" loading="lazy"></a>
-<figcaption>Three named workspaces. "Review ready" comes from a sample plugin.</figcaption>
+<a href="/media/app/workspaces.png"><img src="/media/app/workspaces.png" alt="Workbench, Review and Notes workspaces with distinct colours and terminal counts" width="1600" height="1000" loading="lazy"></a>
+<figcaption>Three named workspaces with distinct colours and terminal counts.</figcaption>
 </figure>
 
 [Organize workspaces](/panes/#workspaces) or [move a live pane](/panes/#moving-a-pane-to-another-project).
@@ -41,21 +40,14 @@ workspace with its running process intact.
 ## Terminal notifications
 
 <figure class="notification-clip">
-<video autoplay loop muted playsinline preload="auto" poster="/media/app/notification-return-poster.png" width="1240" height="336" aria-label="A desktop notification names the workspace and command that rang; clicking it switches to that workspace and terminal">
+<video autoplay loop muted playsinline preload="auto" poster="/media/app/notification-return-poster.png" width="1600" height="1000" aria-label="A desktop notification names the Review workspace and the status terminal; clicking it opens that terminal">
 <source src="/media/app/notification-return.mp4" type="video/mp4">
 </video>
-<figcaption>A terminal in another workspace rings. The desktop notification names the workspace and the command, and a click opens that terminal.</figcaption>
+<figcaption>A terminal rings while Among is in the background. The desktop notification names the workspace and command, and a click opens that terminal.</figcaption>
 </figure>
 
 Inside the window, the stripes beside the workspace and the pane that rang pulse
 until you focus that terminal.
-
-<figure class="bell-clip">
-<video autoplay loop muted playsinline preload="auto" poster="/media/app/bell-poster.png" width="614" height="502" aria-label="The green stripes beside the Connectum workspace and its pane header pulse after a terminal bell">
-<source src="/media/app/bell.mp4" type="video/mp4">
-</video>
-<figcaption>After a bell, the green stripes beside the workspace and the pane header keep pulsing.</figcaption>
-</figure>
 
 [Choose notification conditions](/preferences/#notifications).
 
@@ -83,7 +75,7 @@ Commands, running tools and scrollback do not return.
 Set text and background colours separately from the ANSI palette. Changes
 apply to open panes without restarting their shells.
 
-[![Solarized text and background selected independently from the ANSI palette](/media/preferences/terminal.png)](/media/preferences/terminal.png)
+[![Gray on black text and background with the Tango ANSI palette](/media/preferences/terminal.png)](/media/preferences/terminal.png)
 
 [Adjust terminal colours](/preferences/#terminal).
 

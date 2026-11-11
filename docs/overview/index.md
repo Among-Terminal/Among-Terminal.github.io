@@ -5,8 +5,7 @@ title: A workspace in practice
 # A workspace in practice
 
 Keep the tools for one task in view, then switch workspaces for the next task.
-This example shows Among Terminal 0.2.0 with synthetic notes. "Review ready"
-in the sidebar comes from a sample plugin.
+This example shows Among Terminal 0.2.0 with synthetic notes.
 
 [![A diff, checklist and change summary arranged in a workspace](/media/app/main-window.png)](/media/app/main-window.png)
 

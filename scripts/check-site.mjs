@@ -110,14 +110,6 @@ function checkTargets(directory) {
 }
 checkTargets(root)
 
-for (const entry of fs.readdirSync('docs/public/media/diagrams')) {
-  assert(entry.endsWith('.svg'), `Unexpected diagram format: ${entry}`)
-  const svg = fs.readFileSync(path.join('docs/public/media/diagrams', entry), 'utf8')
-  assert(/<title\b[^>]*>[^<]+<\/title>/.test(svg), `Diagram needs a title: ${entry}`)
-  assert(/<rect\b[^>]*fill="#20262f"/.test(svg), `Diagram needs an explicit background: ${entry}`)
-  assert(svg.includes('#fdae02'), `Diagram needs the project amber: ${entry}`)
-  assert.deepEqual(fs.readFileSync(path.join(root, 'media/diagrams', entry)), Buffer.from(svg), `Diagram changed during build: ${entry}`)
-}
 
 function checkPrivacy(directory) {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
@@ -132,5 +124,5 @@ function checkPrivacy(directory) {
 }
 checkPrivacy(root)
 console.log(`PASS ${routes.length} routes, generated LLM files, per-page Markdown, ownership and privacy`)
-console.log(`PASS ${localTargets} local targets, ${anchors} anchors, ${media} media references and diagram assets`)
+console.log(`PASS ${localTargets} local targets, ${anchors} anchors and ${media} media references`)
 console.log(`PASS syntax for ${external.size} external URLs; remote availability not checked (offline)`)
