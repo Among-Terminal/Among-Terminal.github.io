@@ -239,6 +239,11 @@ For authoring and local package testing, use the
 
 ## Plugin sources
 
+Community plugins are collected in
+[awesome-among-terminal](https://github.com/Among-Terminal/awesome-among-terminal).
+The project does not review or endorse these plugins; add a plugin's source as
+described below and review its [access](#access-review) before enabling it.
+
 Use Add source to look up a public GitHub repository by `owner/repository` or URL.
 Previewing it is read-only. Add source saves the registration and catalogue;
 Cancel saves neither. Among supports up to 32 user sources plus the official source.
