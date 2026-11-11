@@ -30,6 +30,35 @@ for (const [name, expected] of [
   assert.deepEqual(delivered, fs.readFileSync(path.join('docs/public/media', name)))
 }
 
+// The captured media manifest binds every published still and recording to
+// the scene output that was reviewed.
+const captured = JSON.parse(fs.readFileSync('docs/media.json', 'utf8'))
+const appMedia = new Set([
+  'main-window.png', 'expanded-pane.png', 'workspaces.png', 'session-restore.png',
+  'notification-return.mp4', 'notification-return-poster.png', 'desktop-notification.png',
+])
+const mediaFiles = [
+  ...fs.readdirSync('docs/public/media/app').map(name => ['app', name]),
+  ...fs.readdirSync('docs/public/media/preferences').map(name => ['preferences', name]),
+].filter(([, name]) => /\.(?:png|mp4)$/.test(name))
+assert.deepEqual(
+  new Set(mediaFiles.map(([, name]) => name)),
+  new Set(Object.keys(captured.assets)),
+  'Media manifest must list every published still and recording',
+)
+for (const [directory, name] of mediaFiles) {
+  const file = path.join('docs/public/media', directory, name)
+  const bytes = fs.readFileSync(file)
+  const entry = captured.assets[name]
+  assert.equal(bytes.length, entry.bytes, `Media size changed: ${name}`)
+  assert.equal(
+    createHash('sha256').update(bytes).digest('hex'),
+    entry.sha256,
+    `Media does not match the reviewed capture: ${name}`,
+  )
+  assert.equal(appMedia.has(name), directory === 'app', `Media is in the wrong directory: ${name}`)
+}
+
 const index = fs.readFileSync(path.join(root, 'llms.txt'), 'utf8')
 const full = fs.readFileSync(path.join(root, 'llms-full.txt'), 'utf8')
 const links = [...index.matchAll(/\]\((https:\/\/among-terminal\.github\.io\/[^)]+)\)/g)]

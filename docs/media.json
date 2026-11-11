@@ -1,0 +1,99 @@
+{
+  "assets": {
+    "desktop-notification.png": {
+      "bytes": 16395,
+      "height": 130,
+      "kind": "png",
+      "sha256": "c311c496806a7cec506afec5b7dbe52d5cf0ac007b8025905ee1b752cb1bf706",
+      "width": 640
+    },
+    "expanded-pane.png": {
+      "bytes": 45993,
+      "height": 1000,
+      "kind": "png",
+      "sha256": "9d77af0df1361e5806578357719b5497d17277938e2dbbbee2d2a86fee441ba5",
+      "width": 1600
+    },
+    "keyboard.png": {
+      "bytes": 45548,
+      "height": 980,
+      "kind": "png",
+      "sha256": "c03ff396365044e9f59ff92001b6cf44c0e22cb34fa45d70a3fe7812f9e40861",
+      "width": 1040
+    },
+    "main-window.png": {
+      "bytes": 72644,
+      "height": 1000,
+      "kind": "png",
+      "sha256": "4c03ae96af94aad71c9a506fa62c873b37d763c01a9e4ceb2958f2502a84e52a",
+      "width": 1600
+    },
+    "notification-return-poster.png": {
+      "bytes": 151546,
+      "height": 1000,
+      "kind": "png",
+      "sha256": "82ced1e2113bb802e55deeb2566a5843349bf54197ee31698b586c44aa480d8f",
+      "width": 1600
+    },
+    "notification-return.mp4": {
+      "bytes": 83855,
+      "kind": "mp4",
+      "sha256": "e2e251cc4f899bf7c9e8a38eb389d9b4792fb44c26c0244fe52e1fcb1295be57"
+    },
+    "notifications.png": {
+      "bytes": 43837,
+      "height": 1060,
+      "kind": "png",
+      "sha256": "8e365b97eea67f3c0da781b77346174d6878d04205d31e2f2755de8b5d90675f",
+      "width": 1040
+    },
+    "plugin-access-review.png": {
+      "bytes": 47730,
+      "height": 880,
+      "kind": "png",
+      "sha256": "613a5df871e42bc4e8187341c7e2fac47dd01980743047f0f2013e2322d7f17e",
+      "width": 1040
+    },
+    "plugins.png": {
+      "bytes": 44347,
+      "height": 800,
+      "kind": "png",
+      "sha256": "e45abd86cedbc579e68361a6b2e53bfa8957c9da4527c692aff1d95bf590e245",
+      "width": 1040
+    },
+    "session-restore.png": {
+      "bytes": 6285,
+      "height": 480,
+      "kind": "png",
+      "sha256": "9a96ee398547191105b70f529924218ea58daf01589fdd16dbc08c41a6358309",
+      "width": 800
+    },
+    "terminal.png": {
+      "bytes": 8884,
+      "height": 580,
+      "kind": "png",
+      "sha256": "7df0297d859fd291501ea335b830183bc02db2ec804cbd2ff9c160395eedf052",
+      "width": 1040
+    },
+    "workspaces.png": {
+      "bytes": 86402,
+      "height": 1000,
+      "kind": "png",
+      "sha256": "6ec4cdd6d877c1e644c5f5b4f9e2fe3acf771a3caad7c90ead4295ca19e68da7",
+      "width": 1600
+    }
+  },
+  "canvas": {
+    "backdrop": "#20262f",
+    "border": "#3a414d",
+    "frame": 5,
+    "narrow_margin": 80,
+    "narrow_width": 1040,
+    "wide": [
+      1600,
+      1000
+    ]
+  },
+  "source": null,
+  "version": 1
+}
