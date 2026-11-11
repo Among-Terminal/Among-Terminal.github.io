@@ -45,8 +45,9 @@ if you use an AppImage or archive.
 
 Turn Play a sound on to use the bundled alert. The folder button lets you choose
 a local, uncompressed WAV file. Use Play to preview it and Stop to end playback.
-If Among rejects a file, choose another or return to the built-in sound with
-the undo button.
+Choose an uncompressed PCM or IEEE-float WAV of at most 10 seconds and 10 MiB,
+with a sample rate up to 96 kHz. If Among rejects a file, choose another or
+return to the built-in sound with the undo button.
 
 ### Run a command
 

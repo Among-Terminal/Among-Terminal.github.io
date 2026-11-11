@@ -21,7 +21,9 @@ leaves the saved session untouched.
 
 Shell integration lets Among follow directory changes. New splits can then
 start in the directory you are working in, and session restoration can return
-there. The optional pane directory plugin uses the same information.
+there. The optional pane directory plugin uses the same information. Other
+shells can report the current directory with an OSC 7 prompt hook; a report
+from an inactive workspace is still recorded.
 
 Follow the optional [shell integration setup](/install/#shell-integration).
 Among does not change your shell configuration. Without integration, it knows

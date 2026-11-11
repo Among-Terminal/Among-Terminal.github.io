@@ -40,7 +40,7 @@ workspace with its running process intact.
 ## Terminal notifications
 
 <figure class="notification-clip">
-<video autoplay loop muted playsinline preload="auto" poster="/media/app/notification-return-poster.png" width="1600" height="1000" aria-label="A desktop notification names the Review workspace and the status terminal; clicking it opens that terminal">
+<video autoplay loop muted controls playsinline preload="auto" poster="/media/app/notification-return-poster.png" width="1600" height="1000" aria-label="A desktop notification names the Review workspace and the status terminal; clicking it opens that terminal">
 <source src="/media/app/notification-return.mp4" type="video/mp4">
 </video>
 <figcaption>A terminal rings while Among is in the background. The desktop notification names the workspace and command, and a click opens that terminal.</figcaption>
