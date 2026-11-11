@@ -35,6 +35,8 @@ for (const [name, expected] of [
 const captured = JSON.parse(fs.readFileSync('docs/media.json', 'utf8'))
 const appMedia = new Set([
   'main-window.png', 'expanded-pane.png', 'workspaces.png', 'session-restore.png',
+  'plugin-off.png', 'plugin-on.png', 'panes.mp4', 'panes-poster.png',
+  'overview.mp4', 'overview-poster.png',
   'notification-return.mp4', 'notification-return-poster.png', 'desktop-notification.png',
 ])
 const mediaFiles = [

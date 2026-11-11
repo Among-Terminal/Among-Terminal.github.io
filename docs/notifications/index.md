@@ -8,6 +8,13 @@ A terminal bell can mark the pane and workspace, play a sound, send a desktop
 notification or run a command. Open Settings with `Ctrl+,` and choose
 Notifications to change what happens.
 
+<figure class="notification-clip">
+<video autoplay loop muted controls playsinline preload="auto" poster="/media/app/notification-return-poster.png" width="1600" height="1000" aria-label="A terminal ring sends a desktop notification while Among is in the background; clicking the notification opens the terminal that rang">
+<source src="/media/app/notification-return.mp4" type="video/mp4">
+</video>
+<figcaption>A terminal rings while Among is in the background. The desktop banner names the workspace and terminal, and a click opens that terminal.</figcaption>
+</figure>
+
 [![The Notifications tab with the four built-in channels](/media/preferences/notifications.png)](/media/preferences/notifications.png)
 
 ## Marks in the window

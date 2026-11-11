@@ -28,6 +28,13 @@ outline: false
 <figcaption>A Git diff, checklist and change summary in three named workspaces. The example project is synthetic.</figcaption>
 </figure>
 
+<figure class="showcase-film">
+<video controls playsinline preload="none" poster="/media/app/overview-poster.png" width="1920" height="1080" aria-label="A short tour of Among Terminal: panes, workspaces, plugins, access review, notifications and terminal colours">
+<source src="/media/app/overview.mp4" type="video/mp4">
+</video>
+<figcaption>A short tour of panes, workspaces, plugins, sandboxing, notifications and terminal colours.</figcaption>
+</figure>
+
 <div class="showcase-benefits">
 
 <section class="showcase-benefit">
@@ -63,15 +70,9 @@ sidebar. Reorder them to match your work.
 
 ## Terminal notifications
 
-<figure class="notification-clip">
-<video autoplay loop muted controls playsinline preload="auto" poster="/media/app/notification-return-poster.png" width="1600" height="1000" aria-label="A desktop notification names the Review workspace and the status terminal; clicking it opens that terminal">
-<source src="/media/app/notification-return.mp4" type="video/mp4">
-</video>
-<figcaption>A terminal rings while Among is in the background. The desktop notification names the workspace and command, and a click opens that terminal.</figcaption>
-</figure>
-
 Inside the window, the stripes beside the workspace and the pane that rang pulse
-until you focus that terminal.
+until you focus that terminal. A desktop banner can name the workspace and the
+terminal that rang.
 
 [Choose your notifications](/notifications/)
 

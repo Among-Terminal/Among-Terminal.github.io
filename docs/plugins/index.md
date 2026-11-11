@@ -7,6 +7,14 @@ title: Using plugins
 Add a clock, resource meters or directory labels to your terminals. Plugins
 are optional and installed separately from Among.
 
+<ComparisonSlider
+  before="/media/app/plugin-off.png"
+  after="/media/app/plugin-on.png"
+  before-alt="Among Terminal without a status plugin"
+  after-alt="Among Terminal with a sample status plugin showing CPU, memory and disk values"
+  caption="The sample status plugin adds CPU, memory and disk values to the application header. The values are synthetic."
+/>
+
 ## Installing
 
 1. Open Settings with `Ctrl+,` and select Plugins.

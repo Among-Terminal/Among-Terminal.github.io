@@ -1,17 +1,17 @@
 {
   "assets": {
     "desktop-notification.png": {
-      "bytes": 18960,
+      "bytes": 20237,
       "height": 130,
       "kind": "png",
-      "sha256": "40f9a2c1bf895719ff9533b71ff97b1915fb19c4c69f463889172fe044d3fa79",
+      "sha256": "befa7df4249402610f9871399d29c7c29e3b6c87694b541aaca3b15bc1f23f86",
       "width": 640
     },
     "expanded-pane.png": {
-      "bytes": 46349,
+      "bytes": 46365,
       "height": 1000,
       "kind": "png",
-      "sha256": "f5adea3a803d51b2b6f542b86c4046b3b6ec82a9c90f00fe5138bfd0d851aefe",
+      "sha256": "f41602c62e8bcfdd37b52580b92acdf97e60ebb75ecd001fe7ee3fbaf1a8e002",
       "width": 1600
     },
     "keyboard.png": {
@@ -22,23 +22,23 @@
       "width": 1040
     },
     "main-window.png": {
-      "bytes": 72903,
+      "bytes": 72981,
       "height": 1000,
       "kind": "png",
-      "sha256": "4dd797509a4760b8dbb5e40373eda65ab3a91aebaa3ae3ee6c6cdb3ac1657f4b",
+      "sha256": "f4d669ae589462fc91c2d2d5953e0cfd91bdf5fe0f7ff96fe9357ea44ba3c55a",
       "width": 1600
     },
     "notification-return-poster.png": {
-      "bytes": 179346,
+      "bytes": 185674,
       "height": 1000,
       "kind": "png",
-      "sha256": "43a7519476a037cf1061702efd72546afc23604163572ca07d418ad2b567a238",
+      "sha256": "e1278cfdbf6b8eef685f9cdfde0b7ef7dd88b124d866564e4a2f39dbb7850f48",
       "width": 1600
     },
     "notification-return.mp4": {
-      "bytes": 84550,
+      "bytes": 84785,
       "kind": "mp4",
-      "sha256": "480dfa0856c98c112f37cb295273115165963cdfa0304b41c7c7a8e0ef58fd43"
+      "sha256": "f08f214a41f52cc73baefed970ec3374f8407af917c491f7d8142972b9fca459"
     },
     "notifications.png": {
       "bytes": 43837,
@@ -47,18 +47,56 @@
       "sha256": "8e365b97eea67f3c0da781b77346174d6878d04205d31e2f2755de8b5d90675f",
       "width": 1040
     },
+    "overview-poster.png": {
+      "bytes": 246696,
+      "kind": "png",
+      "sha256": "9e7d9db0e8e55de35fa6cc1430ca8a8c356bb874e5a8c16d5eab99acdf6a837f",
+      "width": 1600,
+      "height": 900
+    },
+    "overview.mp4": {
+      "bytes": 7176534,
+      "kind": "mp4",
+      "sha256": "6b87410f8f9c9c948e3db94aea091a0965a7664acc6e1a3c3289229a39417971"
+    },
+    "panes-poster.png": {
+      "bytes": 83338,
+      "height": 1000,
+      "kind": "png",
+      "sha256": "00c1c0cba439c93199988f6eb7206a38c83de8cc761207585248b20097676830",
+      "width": 1600
+    },
+    "panes.mp4": {
+      "bytes": 133773,
+      "kind": "mp4",
+      "sha256": "b38293a1b2a31b04f7501c1bbab377498a8011a5d14c1eb010c8e0317a95579d"
+    },
     "plugin-access-review.png": {
-      "bytes": 47730,
+      "bytes": 49232,
       "height": 880,
       "kind": "png",
-      "sha256": "613a5df871e42bc4e8187341c7e2fac47dd01980743047f0f2013e2322d7f17e",
+      "sha256": "4753cc8f45a08397e37349bfd2cd89c25cb876fb5ba24c395f9717e28eb8047e",
       "width": 1040
     },
+    "plugin-off.png": {
+      "bytes": 73002,
+      "height": 1000,
+      "kind": "png",
+      "sha256": "e48a50b14c0a8520098e6da3e5e7f21b77db60d77956c6ef096cc03730e65412",
+      "width": 1600
+    },
+    "plugin-on.png": {
+      "bytes": 75899,
+      "height": 1000,
+      "kind": "png",
+      "sha256": "14cb4aade54a1fec23c44123721bc51b3ffaa811651749f486f06754f34dbe91",
+      "width": 1600
+    },
     "plugins.png": {
-      "bytes": 44363,
+      "bytes": 51450,
       "height": 800,
       "kind": "png",
-      "sha256": "6a138effb5d035a16f3b630eb9078d6741f56a3a20a67fd5979a96bbb68e8c18",
+      "sha256": "0cc639e453dd834c3f9506d21a84a145b4691bf091686b4a9e67d9d7a103cfad",
       "width": 1040
     },
     "session-restore.png": {
@@ -69,10 +107,10 @@
       "width": 800
     },
     "terminal.png": {
-      "bytes": 18933,
+      "bytes": 8884,
       "height": 580,
       "kind": "png",
-      "sha256": "ec75077fdb2ff854f2967f4ee8691070698a6d3433fc5ac27d4f35463db8353a",
+      "sha256": "7df0297d859fd291501ea335b830183bc02db2ec804cbd2ff9c160395eedf052",
       "width": 1040
     },
     "workspaces.png": {

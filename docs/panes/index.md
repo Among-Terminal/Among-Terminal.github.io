@@ -7,6 +7,13 @@ title: Panes and workspaces
 Keep related terminals together. Use panes for tools you want to see at once
 and workspaces for separate tasks.
 
+<figure class="pane-clip">
+<video autoplay loop muted controls playsinline preload="auto" poster="/media/app/panes-poster.png" width="1600" height="1000" aria-label="One pane splits into five, the dividers move, a pane is dragged to a new position, then other workspaces open">
+<source src="/media/app/panes.mp4" type="video/mp4">
+</video>
+<figcaption>One terminal becomes five: split, resize the dividers, drag a pane by its header, then switch workspaces. The example project is synthetic.</figcaption>
+</figure>
+
 ## Splitting a pane
 
 Press `Ctrl+Shift+N`. A wide pane splits side by side; a tall pane splits into
