@@ -49,6 +49,8 @@ remain. Among has no separate action to delete them yet.
 Copy build details reports the application version and the available build and
 system details. The page also links to the source, licence and issue tracker.
 
+[![The About tab with version, source, licence and build details](/media/preferences/about.png)](/media/preferences/about.png)
+
 ## If a setting cannot be saved
 
 Settings shows a warning when a change cannot be saved; that edit may apply only

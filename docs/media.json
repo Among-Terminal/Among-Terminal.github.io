@@ -1,123 +1,130 @@
 {
   "assets": {
+    "about.png": {
+      "bytes": 35156,
+      "height": 642,
+      "kind": "png",
+      "sha256": "82045968236e6312c288c40776a1082b80bbb25bf041f55da0340b523374baa4",
+      "width": 882
+    },
     "desktop-notification.png": {
-      "bytes": 19247,
+      "bytes": 11341,
       "height": 130,
       "kind": "png",
-      "sha256": "11ec67ad79b71b59c2c77fcd23d1b62ca7da8feab50f379502d96625d5a3095c",
+      "sha256": "8a04f1eb5347193c1654ebe66b18fdec6c474dddb7125b617dfb43348ea25d2a",
       "width": 640
     },
     "expanded-pane.png": {
-      "bytes": 46365,
+      "bytes": 45922,
       "height": 1000,
       "kind": "png",
-      "sha256": "f41602c62e8bcfdd37b52580b92acdf97e60ebb75ecd001fe7ee3fbaf1a8e002",
+      "sha256": "a786dab7257176b03ab92a65cc0ccc3142a6acca80dc61e107f411d909dbe06d",
       "width": 1600
     },
     "keyboard.png": {
-      "bytes": 45548,
-      "height": 980,
+      "bytes": 43571,
+      "height": 822,
       "kind": "png",
-      "sha256": "c03ff396365044e9f59ff92001b6cf44c0e22cb34fa45d70a3fe7812f9e40861",
-      "width": 1040
+      "sha256": "bbb32c3071e8c89a76da0f9995e6c876d062d3ff544296d30a368bef03c478c1",
+      "width": 882
     },
     "main-window.png": {
-      "bytes": 72926,
+      "bytes": 72425,
       "height": 1000,
       "kind": "png",
-      "sha256": "162aada3059b72699ddebf9f28e27ac0d8492d953bdbd985b7ca4c126e242ddc",
+      "sha256": "79d10f49f8cacf8e89e7ff39b09c3844052e125db52c52da48b6e331d7d491af",
       "width": 1600
     },
     "notification-return-poster.png": {
-      "bytes": 46461,
+      "bytes": 28842,
       "height": 1000,
       "kind": "png",
-      "sha256": "bbc2fad2fd02d506c1367e102c40df88bd64221e209c0adfc690c39457b2f613",
+      "sha256": "f3de40ca93daa9d62f0f6a409aef720a62462709a1f0d2050fb4729c6410c7e1",
       "width": 1600
     },
     "notification-return.mp4": {
-      "bytes": 97391,
+      "bytes": 99541,
       "kind": "mp4",
-      "sha256": "3c7cb33a8e9d38f9774e6fa9e22699a1723e7eb1a5ba33deadf701b984bbe6de"
+      "sha256": "9497ea1ae6d1a3d40b537d9f152b7fd58b79558d4d466cddc46d89b6d9961824"
     },
     "notifications.png": {
-      "bytes": 43837,
-      "height": 1060,
+      "bytes": 41958,
+      "height": 902,
       "kind": "png",
-      "sha256": "8e365b97eea67f3c0da781b77346174d6878d04205d31e2f2755de8b5d90675f",
-      "width": 1040
+      "sha256": "8fe3e4f7e20b4dfaf0656bba5de9822af936ad61b81bacd92e3b33434b38b705",
+      "width": 882
     },
     "overview-poster.png": {
-      "bytes": 237774,
+      "bytes": 151367,
       "kind": "png",
-      "sha256": "bfde71b6060f7d0a3e528d82b99eb007efd9bb1703ebb68d8c0712f53009b780",
+      "sha256": "49772e502c0d3696a926dd4f71f6566c43a60ffc7593a535665e9ffb5cc01a9f",
       "width": 1600,
       "height": 900
     },
     "overview.mp4": {
-      "bytes": 3472297,
+      "bytes": 3810808,
       "kind": "mp4",
-      "sha256": "446faf27d82bae68f037a0e86e2de98259726abd03b1123eac477129b2727e97"
+      "sha256": "02dffad03095a74ebf0abedf95ca3c31c8ce30757340c824e26eacaaeb9367d3"
     },
     "panes-poster.png": {
-      "bytes": 82811,
+      "bytes": 85727,
       "height": 1000,
       "kind": "png",
-      "sha256": "26961cc039719851e4bf3d0ce23886d5ae2ad2801d7abe03d799192ad4cea8a9",
+      "sha256": "e0539bcae1c73a425e8b6d128d704901723756e5b683d21d8188e682c099ec37",
       "width": 1600
     },
     "panes.mp4": {
-      "bytes": 132810,
+      "bytes": 145583,
       "kind": "mp4",
-      "sha256": "bf08d42ec71fa444da858179e10ebea360ebc0949c3c6fb47ca8f89914ec56c3"
+      "sha256": "6a9be91feeed1a440b9f81b0437240de5108e0bdab78b26e4074a1316e2ce24b"
     },
     "plugin-access-review.png": {
-      "bytes": 47730,
-      "height": 880,
+      "bytes": 45766,
+      "height": 722,
       "kind": "png",
-      "sha256": "613a5df871e42bc4e8187341c7e2fac47dd01980743047f0f2013e2322d7f17e",
-      "width": 1040
+      "sha256": "b56b30541d36a1ba2dd770b0c15a61c8a8a488ca29e964d160db162c80733530",
+      "width": 882
     },
     "plugin-off.png": {
-      "bytes": 72946,
+      "bytes": 72408,
       "height": 1000,
       "kind": "png",
-      "sha256": "c38cd03363f4a73b649bcf3c0819725086c30ead72a346f1d0ff3ca8819ce138",
+      "sha256": "98fd1dfa2edb8140f194419f72b6e5f8e51d3adcdee3fb8db7428c9b5f953383",
       "width": 1600
     },
     "plugin-on.png": {
-      "bytes": 75849,
+      "bytes": 75312,
       "height": 1000,
       "kind": "png",
-      "sha256": "b8cbda6b57c88a2839bc60261376955af2d9767df20026c2357a842a1c30b7ef",
+      "sha256": "abc3fc15e865849f90af14f24640ed022f99172c0d433c349d762641ba166399",
       "width": 1600
     },
     "plugins.png": {
-      "bytes": 44347,
-      "height": 800,
+      "bytes": 42238,
+      "height": 642,
       "kind": "png",
-      "sha256": "8b03c4c4d8ebb21de8bfbaf436e290bb5a3a8033d1a2d53346e6ad4b48c457c6",
-      "width": 1040
+      "sha256": "edaa0324c1f6aa449ab0c83e0110a8e02b5786ad541cd1c8cbb894e06e5e0528",
+      "width": 882
     },
     "session-restore.png": {
-      "bytes": 6285,
+      "bytes": 6268,
       "height": 480,
       "kind": "png",
-      "sha256": "9a96ee398547191105b70f529924218ea58daf01589fdd16dbc08c41a6358309",
+      "sha256": "384506dd7af1a94bb24ac2e3daf37716999674a75c5117ecc2b8769144b84e1a",
       "width": 800
     },
     "terminal.png": {
-      "bytes": 8884,
-      "height": 580,
+      "bytes": 17525,
+      "height": 422,
       "kind": "png",
-      "sha256": "7df0297d859fd291501ea335b830183bc02db2ec804cbd2ff9c160395eedf052",
-      "width": 1040
+      "sha256": "38caee8dd20e4174bb73bd93b37205d15fa6d3d868fb80284f540059d1555cbe",
+      "width": 882
     },
     "workspaces.png": {
-      "bytes": 86930,
+      "bytes": 86768,
       "height": 1000,
       "kind": "png",
-      "sha256": "bad4bb31579f1238949629f4a1e8220acddabc58272717b8d4d847ac5e8294e8",
+      "sha256": "6096e5daf3c61978ca73da218192f3e3ebd5e7b883eab2cfb07bdc1413d43663",
       "width": 1600
     }
   },
@@ -125,13 +132,13 @@
     "backdrop": "#20262f",
     "border": "#3a414d",
     "frame": 5,
-    "narrow_margin": 80,
-    "narrow_width": 1040,
+    "narrow_margin": 1,
+    "narrow_width": 882,
     "wide": [
       1600,
       1000
     ]
   },
-  "source": "c9b40ba5a4c1a708306faae3f29835d52908a9fa",
+  "source": "4f585f006a9407dc0e1a7aa61bd2383b545a362b",
   "version": 1
 }
