@@ -4,45 +4,35 @@ title: Keyboard shortcuts
 
 # Keyboard shortcuts
 
-These shortcuts work while Among has focus. Desktop shortcuts can intercept
-keys before Among receives them. Among does not register global shortcuts;
-use your desktop's keyboard settings to launch it from another window.
-Unclaimed keys reach the focused terminal.
+Move between terminals and adjust your layout while keeping your hands on
+the keyboard. These shortcuts work when Among has focus.
 
 ## Defaults
 
-| Action | Binding | Behaviour |
-| --- | --- | --- |
-| Focus up, down, left or right | `Alt+Up`, `Alt+Down`, `Alt+Left`, `Alt+Right` | No change without a neighbour or while expanded |
-| Activate workspace 1 through 9 | `Alt+1` through `Alt+9` | Uses current sidebar order; no change beyond the last workspace |
-| New workspace | `Ctrl+Shift+T` | Creates and activates a workspace |
-| Split pane | `Ctrl+Shift+N` | Chooses orientation from the pane's shape; refused while expanded |
-| Move divider up or down | `Ctrl+Shift+Up`, `Ctrl+Shift+Down` | Moves the nearest stacked divider above the pane in the layout |
-| Move divider left or right | `Ctrl+Shift+Left`, `Ctrl+Shift+Right` | Moves the nearest side-by-side divider above the pane in the layout |
-| Close pane | `Ctrl+Shift+W` | Closes its process; the last workspace asks before exit |
-| Open preferences | `Ctrl+,` | Opens Settings |
-| Toggle fullscreen | `F11` | Returns to the previous size |
-| Toggle pane zoom | `Ctrl+Shift+X` | Expands the focused pane or restores the layout |
-| Next workspace | `Ctrl+PageDown` | Wraps around |
-| Previous workspace | `Ctrl+PageUp` | Wraps around |
+| Task | Shortcut |
+| --- | --- |
+| Split a pane | `<Ctrl> + <Shift> + N` |
+| Move focus | `<Alt> + Arrow` |
+| Resize a split | `<Ctrl> + <Shift> + Arrow` |
+| Expand or restore a pane | `<Ctrl> + <Shift> + X` |
+| Close the focused pane | `<Ctrl> + <Shift> + W` |
+| Create a workspace | `<Ctrl> + <Shift> + T` |
+| Switch to workspace 1 through 9 | `<Alt> + 1` through `<Alt> + 9` |
+| Next or previous workspace | `<Ctrl> + Page Down` or `<Ctrl> + Page Up` |
+| Open Settings | `<Ctrl> + ,` |
+| Enter or leave fullscreen | `F11` |
 
-`Ctrl+Shift+Arrow` resizes dividers; `Alt+Arrow` moves focus. There is no default
-`Alt+0` binding for the tenth workspace. See [workspace ordering](/panes/#workspaces)
-and [the terminal context menu](/panes/#terminal-context-menu) for mouse controls
-and `Shift+F10`.
+Closing a pane can end a running job. Restore an expanded pane before splitting
+or moving focus with arrows.
 
 ## Preferences
 
-Open Settings with `Ctrl+,` and select Keyboard. Every action is listed,
-including actions with no binding. Select a row and press a new combination.
-Select it again to cancel capture, or press Escape to remove its binding.
+Open Settings with `<Ctrl> + ,` and choose Keyboard. Select an action and press
+the combination you want. Select it again to cancel, or press Escape to remove
+its binding. Changes apply immediately.
 
-![Keyboard shortcut editor in Preferences](/media/preferences/keyboard.png)
+[![Select an action in Keyboard to change its shortcut](/media/preferences/keyboard.png)](/media/preferences/keyboard.png)
 
-Changes apply immediately. Assigning a shortcut already used by another action
-removes the previous assignment. Removed and displaced bindings are saved too.
-Check for conflicts in your desktop settings, especially for `Super` and
-`Ctrl+Alt` combinations. Among does not check the desktop's assignments.
-
-A failed save leaves the edit active for this session and shows a warning.
-See [stored settings](/preferences/#stored-settings).
+Assigning a shortcut already used by another action removes the previous
+assignment. If a shortcut does not reach Among, check your desktop's keyboard
+settings for a conflict. Desktop shortcuts can intercept keys first.
