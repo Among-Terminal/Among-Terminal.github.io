@@ -55,28 +55,28 @@
       "width": 882
     },
     "overview-poster.png": {
-      "bytes": 151367,
+      "bytes": 145437,
       "kind": "png",
-      "sha256": "49772e502c0d3696a926dd4f71f6566c43a60ffc7593a535665e9ffb5cc01a9f",
+      "sha256": "77983fe239ddfe38b3e101d9dc818c7b9955337f5738879417ee004e27c0fe67",
       "width": 1600,
       "height": 900
     },
     "overview.mp4": {
-      "bytes": 3810808,
+      "bytes": 3381420,
       "kind": "mp4",
-      "sha256": "02dffad03095a74ebf0abedf95ca3c31c8ce30757340c824e26eacaaeb9367d3"
+      "sha256": "3a1187cb94bf3a393055f62737816043b252eabbb22fab1132511308b0b04840"
     },
     "panes-poster.png": {
-      "bytes": 85727,
+      "bytes": 86969,
       "height": 1000,
       "kind": "png",
-      "sha256": "e0539bcae1c73a425e8b6d128d704901723756e5b683d21d8188e682c099ec37",
+      "sha256": "1d9db113e04d0c99c857330ce64684b59b04dba40d8afa3deeccb0ce77ec8867",
       "width": 1600
     },
     "panes.mp4": {
-      "bytes": 145583,
+      "bytes": 147269,
       "kind": "mp4",
-      "sha256": "6a9be91feeed1a440b9f81b0437240de5108e0bdab78b26e4074a1316e2ce24b"
+      "sha256": "2212d29f462633217b22078cadee52e3c9e7e0d23fd3edcd6ca06f43bcb451a3"
     },
     "plugin-access-review.png": {
       "bytes": 45766,
@@ -139,6 +139,6 @@
       1000
     ]
   },
-  "source": "4f585f006a9407dc0e1a7aa61bd2383b545a362b",
+  "source": "2d9f147842479f39b10e53ac49f995a6a2d9f985",
   "version": 1
 }
