@@ -12,12 +12,12 @@ are optional and installed separately from Among.
   after="/media/app/plugin-on.png"
   before-alt="Among Terminal without a status plugin"
   after-alt="Among Terminal with a sample status plugin showing CPU, memory and disk values"
-  caption="The sample status plugin adds CPU, memory and disk values to the application header; the values are synthetic."
+  caption="The sample plugins add a clock and CPU, memory and disk values to the application header, plus directory labels under each pane. The values are synthetic."
 />
 
 ## Installing
 
-1. Open Settings with `Ctrl+,` and select Plugins.
+1. Open Settings with `<Ctrl> + ,` and select Plugins.
 2. Choose a plugin under Available, select Install and confirm.
 3. Turn it on under Installed.
 4. Review its access and choose Accept and enable.

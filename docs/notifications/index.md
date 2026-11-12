@@ -5,7 +5,7 @@ title: Terminal notifications
 # Terminal notifications
 
 A terminal bell can mark the pane and workspace, play a sound, send a desktop
-notification or run a command. Open Settings with `Ctrl+,` and choose
+notification or run a command. Open Settings with `<Ctrl> + ,` and choose
 Notifications to change what happens.
 
 <figure class="notification-clip">

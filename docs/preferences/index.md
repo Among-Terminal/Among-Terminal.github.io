@@ -4,7 +4,7 @@ title: Preferences
 
 # Preferences
 
-Press `Ctrl+,` to open Settings. Choose Plugins, Notifications, Keyboard,
+Press `<Ctrl> + ,` to open Settings. Choose Plugins, Notifications, Keyboard,
 Terminal or About at the top. Most changes apply immediately and there is no
 general Save button; plugin forms and the command fields have their own Save
 buttons.

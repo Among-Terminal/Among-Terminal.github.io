@@ -11,15 +11,15 @@ the keyboard. These shortcuts work when Among has focus.
 
 | Task | Shortcut |
 | --- | --- |
-| Split a pane | `Ctrl+Shift+N` |
-| Move focus | `Alt+Arrow` |
-| Resize a split | `Ctrl+Shift+Arrow` |
-| Expand or restore a pane | `Ctrl+Shift+X` |
-| Close the focused pane | `Ctrl+Shift+W` |
-| Create a workspace | `Ctrl+Shift+T` |
-| Switch to workspace 1 through 9 | `Alt+1` through `Alt+9` |
-| Next or previous workspace | `Ctrl+PageDown` or `Ctrl+PageUp` |
-| Open Settings | `Ctrl+,` |
+| Split a pane | `<Ctrl> + <Shift> + N` |
+| Move focus | `<Alt> + Arrow` |
+| Resize a split | `<Ctrl> + <Shift> + Arrow` |
+| Expand or restore a pane | `<Ctrl> + <Shift> + X` |
+| Close the focused pane | `<Ctrl> + <Shift> + W` |
+| Create a workspace | `<Ctrl> + <Shift> + T` |
+| Switch to workspace 1 through 9 | `<Alt> + 1` through `<Alt> + 9` |
+| Next or previous workspace | `<Ctrl> + Page Down` or `<Ctrl> + Page Up` |
+| Open Settings | `<Ctrl> + ,` |
 | Enter or leave fullscreen | `F11` |
 
 Closing a pane can end a running job. Restore an expanded pane before splitting
@@ -27,7 +27,7 @@ or moving focus with arrows.
 
 ## Preferences
 
-Open Settings with `Ctrl+,` and choose Keyboard. Select an action and press
+Open Settings with `<Ctrl> + ,` and choose Keyboard. Select an action and press
 the combination you want. Select it again to cancel, or press Escape to remove
 its binding. Changes apply immediately.
 

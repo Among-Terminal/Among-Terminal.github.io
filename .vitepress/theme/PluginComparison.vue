@@ -46,16 +46,17 @@ onBeforeUnmount(() => {
         class="comparison-layer comparison-before"
         :class="{ hidden: showAfter }"
       >
-        <img class="comparison-image" :src="props.before" :alt="props.beforeAlt">
-        <span class="comparison-tag comparison-tag-before">Without</span>
+        <a :href="props.before"><img class="comparison-image" :src="props.before" :alt="props.beforeAlt"></a>
       </div>
       <div
         class="comparison-layer comparison-after"
         :class="{ visible: showAfter }"
       >
-        <img class="comparison-image" :src="props.after" :alt="props.afterAlt">
-        <span class="comparison-tag comparison-tag-after">With plugin</span>
+        <a :href="props.after"><img class="comparison-image" :src="props.after" :alt="props.afterAlt"></a>
       </div>
+      <span class="comparison-tag" aria-live="polite">
+        {{ showAfter ? 'With plugin' : 'Without plugin' }}
+      </span>
       <button
         type="button"
         class="comparison-toggle"
