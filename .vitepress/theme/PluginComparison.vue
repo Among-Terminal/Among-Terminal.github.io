@@ -45,12 +45,16 @@ onBeforeUnmount(() => {
       <div
         class="comparison-layer comparison-before"
         :class="{ hidden: showAfter }"
+        :inert="showAfter"
+        :aria-hidden="showAfter"
       >
         <a :href="props.before"><img class="comparison-image" :src="props.before" :alt="props.beforeAlt"></a>
       </div>
       <div
         class="comparison-layer comparison-after"
         :class="{ visible: showAfter }"
+        :inert="!showAfter"
+        :aria-hidden="!showAfter"
       >
         <a :href="props.after"><img class="comparison-image" :src="props.after" :alt="props.afterAlt"></a>
       </div>

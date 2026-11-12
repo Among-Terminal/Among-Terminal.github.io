@@ -12,10 +12,10 @@ function open(event) {
   if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
   const target = event.target
   if (!(target instanceof Element)) return
-  const image = target.closest('img')
-  if (!image || !image.closest('.vp-doc, .showcase')) return
-  const anchor = image.closest('a')
-  if (!anchor) return
+  const anchor = target.closest('a')
+  if (!anchor || !anchor.closest('.vp-doc, .showcase')) return
+  const image = anchor.querySelector('img')
+  if (!image) return
   const href = anchor.getAttribute('href') || ''
   if (!/\.(?:png|jpe?g|gif|webp|svg|avif)(?:[?#]|$)/i.test(href)) return
   event.preventDefault()
