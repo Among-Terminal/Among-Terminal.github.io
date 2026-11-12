@@ -1,0 +1,123 @@
+{
+  "assets": {
+    "about.png": {
+      "bytes": 35081,
+      "height": 642,
+      "kind": "png",
+      "sha256": "ea0d64431fb71a9c0d28e649b369a27d785776f52296ca39017479f11001d2e6",
+      "width": 882
+    },
+    "desktop-notification.png": {
+      "bytes": 11341,
+      "height": 130,
+      "kind": "png",
+      "sha256": "8a04f1eb5347193c1654ebe66b18fdec6c474dddb7125b617dfb43348ea25d2a",
+      "width": 640
+    },
+    "keyboard.png": {
+      "bytes": 43571,
+      "height": 822,
+      "kind": "png",
+      "sha256": "bbb32c3071e8c89a76da0f9995e6c876d062d3ff544296d30a368bef03c478c1",
+      "width": 882
+    },
+    "notification-return-poster.png": {
+      "bytes": 28842,
+      "height": 1000,
+      "kind": "png",
+      "sha256": "f3de40ca93daa9d62f0f6a409aef720a62462709a1f0d2050fb4729c6410c7e1",
+      "width": 1600
+    },
+    "notification-return.mp4": {
+      "bytes": 99541,
+      "kind": "mp4",
+      "sha256": "9497ea1ae6d1a3d40b537d9f152b7fd58b79558d4d466cddc46d89b6d9961824"
+    },
+    "notifications.png": {
+      "bytes": 41958,
+      "height": 902,
+      "kind": "png",
+      "sha256": "8fe3e4f7e20b4dfaf0656bba5de9822af936ad61b81bacd92e3b33434b38b705",
+      "width": 882
+    },
+    "overview-poster.png": {
+      "bytes": 120599,
+      "kind": "png",
+      "sha256": "1e21933223b822763d716194d72b533c6771cd6ba001f79e0bb94fa55ebaee09",
+      "width": 1600,
+      "height": 900
+    },
+    "overview.mp4": {
+      "bytes": 4240257,
+      "kind": "mp4",
+      "sha256": "339b5255dedb4ec321461460c2a6325a466b4e7b7e6eb7b3a18c1c99f1d6eaba"
+    },
+    "panes-poster.png": {
+      "bytes": 86969,
+      "height": 1000,
+      "kind": "png",
+      "sha256": "1d9db113e04d0c99c857330ce64684b59b04dba40d8afa3deeccb0ce77ec8867",
+      "width": 1600
+    },
+    "panes.mp4": {
+      "bytes": 147269,
+      "kind": "mp4",
+      "sha256": "2212d29f462633217b22078cadee52e3c9e7e0d23fd3edcd6ca06f43bcb451a3"
+    },
+    "plugin-access-review.png": {
+      "bytes": 45766,
+      "height": 722,
+      "kind": "png",
+      "sha256": "b56b30541d36a1ba2dd770b0c15a61c8a8a488ca29e964d160db162c80733530",
+      "width": 882
+    },
+    "plugin-off.png": {
+      "bytes": 72584,
+      "height": 1000,
+      "kind": "png",
+      "sha256": "15a1316553052c286b27bd6f63af26324e411c38a1b7b4cfb287eec40d9486d4",
+      "width": 1600
+    },
+    "plugin-on.png": {
+      "bytes": 79912,
+      "height": 1000,
+      "kind": "png",
+      "sha256": "3de8fa106aa1700db3c114d24e2ee4b3c48e7c686f6f5ad8e2761982900b1825",
+      "width": 1600
+    },
+    "plugins.png": {
+      "bytes": 42240,
+      "height": 642,
+      "kind": "png",
+      "sha256": "79ef92993e2d9946c970332560126e5c09b861eaa3ba16d1834ec2c099ae6275",
+      "width": 882
+    },
+    "session-restore.png": {
+      "bytes": 6268,
+      "height": 480,
+      "kind": "png",
+      "sha256": "384506dd7af1a94bb24ac2e3daf37716999674a75c5117ecc2b8769144b84e1a",
+      "width": 800
+    },
+    "terminal.png": {
+      "bytes": 8117,
+      "height": 422,
+      "kind": "png",
+      "sha256": "9f362031bb446699e6bf01ce5824798340e21124baa9cfc11fccd53e60428b1f",
+      "width": 882
+    }
+  },
+  "canvas": {
+    "backdrop": "#20262f",
+    "border": "#3a414d",
+    "frame": 5,
+    "narrow_margin": 1,
+    "narrow_width": 882,
+    "wide": [
+      1600,
+      1000
+    ]
+  },
+  "source": "fe81e8c50e0dcc95a1d15a37c3c6f89faa477333",
+  "version": 1
+}
