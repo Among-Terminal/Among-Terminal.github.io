@@ -630,3 +630,81 @@ body.media-preview-open {
   font-size: 15px;
   line-height: 1.6;
 }
+
+/* Landing player ------------------------------------------------------ */
+
+.landing-player {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+}
+
+.landing-player-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.landing-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border: 0;
+  background: linear-gradient(rgba(9, 11, 15, 0.12), rgba(9, 11, 15, 0.42));
+  color: #fff;
+  cursor: pointer;
+}
+
+.landing-play-icon {
+  display: block;
+  width: 78px;
+  height: 78px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: rgba(9, 11, 15, 0.45);
+  box-shadow: 0 0 0 8px rgba(9, 11, 15, 0.18);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.landing-play-icon::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  margin: 25px 0 0 31px;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 19px solid #fff;
+}
+
+.landing-play-label {
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(9, 11, 15, 0.62);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.landing-play:hover .landing-play-icon,
+.landing-play:focus-visible .landing-play-icon {
+  border-color: var(--vp-c-brand-1);
+  transform: scale(1.04);
+}
+
+.landing-play:focus-visible {
+  outline: 3px solid var(--vp-c-brand-1);
+  outline-offset: -3px;
+}
+
+.landing-player.started .landing-play {
+  display: none;
+}

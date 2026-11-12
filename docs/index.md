@@ -8,11 +8,7 @@ outline: false
 
 <main class="showcase landing">
 
-<section class="landing-hero" aria-label="Product overview">
-<video autoplay loop muted playsinline controls preload="auto" poster="/media/app/overview-poster.png" width="1920" height="1080" aria-label="A short tour of Among Terminal: panes, workspaces, plugins, access review, notifications, terminal colours and the About page">
-<source src="/media/app/overview.mp4" type="video/mp4">
-</video>
-</section>
+<LandingVideo />
 
 <nav class="landing-links" aria-label="Documentation sections">
 <a href="/panes/">
