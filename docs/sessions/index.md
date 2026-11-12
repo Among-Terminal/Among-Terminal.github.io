@@ -7,6 +7,13 @@ title: Sessions
 Return to your workspace names, colours and pane layout after restarting Among.
 Restored terminals open fresh shells in their last known directories.
 
+<figure class="pane-clip">
+<video autoplay loop muted controls playsinline preload="auto" poster="/media/app/session-restore-poster.png" width="1600" height="1200" aria-label="Among opens with a restore prompt; choosing Restore brings back the Atlas workspace with its three panes in their saved directories">
+<source src="/media/app/session-restore.mp4" type="video/mp4">
+</video>
+<figcaption>Restore brings back the workspace, its pane layout and each terminal's directory. Commands, running tools and scrollback do not return.</figcaption>
+</figure>
+
 ## Restore your layout
 
 Open Among and choose Restore when asked. Your other workspaces return too.

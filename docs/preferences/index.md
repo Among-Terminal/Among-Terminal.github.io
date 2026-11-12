@@ -9,6 +9,18 @@ Terminal or About at the top. Most changes apply immediately and there is no
 general Save button; plugin forms and the command fields have their own Save
 buttons.
 
+## Light and dark styling
+
+Among uses the desktop's light or dark styling, and open windows follow a change
+as it happens. Terminal text and background colours remain a separate choice.
+
+<figure class="pane-clip">
+<video autoplay loop muted controls playsinline preload="auto" poster="/media/app/theme-switch-poster.png" width="1600" height="1200" aria-label="An open terminal window switches from light to dark styling and back as the loop repeats">
+<source src="/media/app/theme-switch.mp4" type="video/mp4">
+</video>
+<figcaption>The window, sidebar and terminal colours switch together while the shells keep running; the clip loops the fade.</figcaption>
+</figure>
+
 ## Terminal
 
 Choose text and background colours, then an ANSI palette. The two choices are

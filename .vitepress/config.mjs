@@ -33,7 +33,11 @@ export default defineConfig({
     })],
   },
   themeConfig: {
-    logo: { src: '/media/logo-small.svg', alt: 'Among Terminal' },
+    logo: {
+      light: '/media/logo-small.svg',
+      dark: '/media/logo-small-cream.svg',
+      alt: 'Among Terminal',
+    },
     nav: [
       { text: 'Panes', link: '/panes/' },
       { text: 'Plugins', link: '/plugins/' },

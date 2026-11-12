@@ -14,26 +14,12 @@
       "sha256": "8a04f1eb5347193c1654ebe66b18fdec6c474dddb7125b617dfb43348ea25d2a",
       "width": 640
     },
-    "expanded-pane.png": {
-      "bytes": 45996,
-      "height": 1000,
-      "kind": "png",
-      "sha256": "7dc1aebd09ea0140576594a1e78f3f06f15d18d9740913e98440ade01e74e1b7",
-      "width": 1600
-    },
     "keyboard.png": {
       "bytes": 43571,
       "height": 822,
       "kind": "png",
       "sha256": "bbb32c3071e8c89a76da0f9995e6c876d062d3ff544296d30a368bef03c478c1",
       "width": 882
-    },
-    "main-window.png": {
-      "bytes": 72603,
-      "height": 1000,
-      "kind": "png",
-      "sha256": "82241a68ba77e32664724de42a755d122933ca5faa21feb7f382767d64ccec45",
-      "width": 1600
     },
     "notification-return-poster.png": {
       "bytes": 28842,
@@ -119,13 +105,6 @@
       "kind": "png",
       "sha256": "9f362031bb446699e6bf01ce5824798340e21124baa9cfc11fccd53e60428b1f",
       "width": 882
-    },
-    "workspaces.png": {
-      "bytes": 86768,
-      "height": 1000,
-      "kind": "png",
-      "sha256": "6096e5daf3c61978ca73da218192f3e3ebd5e7b883eab2cfb07bdc1413d43663",
-      "width": 1600
     }
   },
   "canvas": {
