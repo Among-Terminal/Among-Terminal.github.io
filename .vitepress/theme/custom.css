@@ -720,6 +720,6 @@ body.media-preview-open {
   height: 100%;
 }
 
-.VPFooter {
-  border-top: none;
+.VPFooter.VPFooter {
+  border-top: none !important;
 }
