@@ -7,12 +7,12 @@ title: Using plugins
 Add a clock, resource meters or directory labels to your terminals. Plugins
 are optional and installed separately from Among.
 
-<ComparisonSlider
+<PluginComparison
   before="/media/app/plugin-off.png"
   after="/media/app/plugin-on.png"
   before-alt="Among Terminal without a status plugin"
   after-alt="Among Terminal with a sample status plugin showing CPU, memory and disk values"
-  caption="Drag the divider to compare. The sample status plugin adds CPU, memory and disk values to the application header; the values are synthetic."
+  caption="The sample status plugin adds CPU, memory and disk values to the application header; the values are synthetic."
 />
 
 ## Installing
@@ -33,8 +33,8 @@ sizes and available versions depend on the source you use.
 ### Installing official plugins
 
 The built-in [official source](https://github.com/Among-Terminal/among-plugins)
-has a clock in the application footer, CPU, memory and disk meters in the
-header, and directory labels under each pane. Directory labels need
+has a clock, CPU, memory and disk meters in the application header, and
+directory labels under each pane. Directory labels need
 [shell integration](/install/#shell-integration) to follow directory changes.
 
 ## Access review

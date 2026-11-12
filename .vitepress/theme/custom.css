@@ -306,81 +306,55 @@ body.media-preview-open {
   }
 }
 
-/* Before/after comparison --------------------------------------------- */
+/* Plugin before/after comparison ------------------------------------- */
 
-.comparison-slider {
+.plugin-comparison {
   margin: 24px 0;
 }
 
 .comparison-frame {
   position: relative;
   overflow: hidden;
+  aspect-ratio: 1600 / 1000;
   border: 1px solid var(--vp-c-divider);
   border-radius: 8px;
   background: #20262f;
 }
 
-.comparison-frame:focus-within {
+.comparison-frame:has(.comparison-toggle:focus-visible) {
   outline: 3px solid var(--vp-c-brand-1);
   outline-offset: 3px;
 }
 
-.comparison-before,
-.comparison-after img {
+.comparison-layer {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.6s ease;
+}
+
+.comparison-layer.hidden {
+  opacity: 0;
+}
+
+.comparison-layer.after {
+  opacity: 0;
+}
+
+.comparison-layer.visible {
+  opacity: 1;
+}
+
+.comparison-image {
   display: block;
   width: 100%;
-  height: auto;
-  cursor: ew-resize;
-}
-
-.comparison-after {
-  position: absolute;
-  inset: 0;
-  clip-path: inset(0 0 0 var(--position));
-}
-
-.comparison-after img {
   height: 100%;
-}
-
-.comparison-range {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  opacity: 0;
-  cursor: ew-resize;
-}
-
-.comparison-handle {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: var(--position);
-  width: 2px;
-  margin-left: -1px;
-  background: #ffc247;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
-  pointer-events: none;
-}
-
-.comparison-handle::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 32px;
-  height: 32px;
-  transform: translate(-50%, -50%);
-  border: 2px solid #ffc247;
-  border-radius: 999px;
-  background: rgba(20, 24, 30, 0.7);
+  object-fit: cover;
 }
 
 .comparison-tag {
   position: absolute;
   top: 12px;
+  z-index: 2;
   padding: 4px 8px;
   border-radius: 4px;
   background: rgba(20, 24, 30, 0.72);
@@ -398,7 +372,22 @@ body.media-preview-open {
   right: 12px;
 }
 
-.comparison-slider figcaption {
+.comparison-toggle {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2;
+  padding: 4px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  background: rgba(20, 24, 30, 0.72);
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.plugin-comparison figcaption {
   margin-top: 12px;
   color: var(--vp-c-text-2);
   font-size: 14px;

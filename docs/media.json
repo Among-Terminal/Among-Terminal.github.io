@@ -1,10 +1,10 @@
 {
   "assets": {
     "desktop-notification.png": {
-      "bytes": 20237,
+      "bytes": 19247,
       "height": 130,
       "kind": "png",
-      "sha256": "befa7df4249402610f9871399d29c7c29e3b6c87694b541aaca3b15bc1f23f86",
+      "sha256": "11ec67ad79b71b59c2c77fcd23d1b62ca7da8feab50f379502d96625d5a3095c",
       "width": 640
     },
     "expanded-pane.png": {
@@ -22,23 +22,23 @@
       "width": 1040
     },
     "main-window.png": {
-      "bytes": 72981,
+      "bytes": 72926,
       "height": 1000,
       "kind": "png",
-      "sha256": "f4d669ae589462fc91c2d2d5953e0cfd91bdf5fe0f7ff96fe9357ea44ba3c55a",
+      "sha256": "162aada3059b72699ddebf9f28e27ac0d8492d953bdbd985b7ca4c126e242ddc",
       "width": 1600
     },
     "notification-return-poster.png": {
-      "bytes": 185674,
+      "bytes": 46461,
       "height": 1000,
       "kind": "png",
-      "sha256": "e1278cfdbf6b8eef685f9cdfde0b7ef7dd88b124d866564e4a2f39dbb7850f48",
+      "sha256": "bbc2fad2fd02d506c1367e102c40df88bd64221e209c0adfc690c39457b2f613",
       "width": 1600
     },
     "notification-return.mp4": {
-      "bytes": 84785,
+      "bytes": 97391,
       "kind": "mp4",
-      "sha256": "f08f214a41f52cc73baefed970ec3374f8407af917c491f7d8142972b9fca459"
+      "sha256": "3c7cb33a8e9d38f9774e6fa9e22699a1723e7eb1a5ba33deadf701b984bbe6de"
     },
     "notifications.png": {
       "bytes": 43837,
@@ -48,55 +48,55 @@
       "width": 1040
     },
     "overview-poster.png": {
-      "bytes": 246696,
+      "bytes": 237774,
       "kind": "png",
-      "sha256": "9e7d9db0e8e55de35fa6cc1430ca8a8c356bb874e5a8c16d5eab99acdf6a837f",
+      "sha256": "bfde71b6060f7d0a3e528d82b99eb007efd9bb1703ebb68d8c0712f53009b780",
       "width": 1600,
       "height": 900
     },
     "overview.mp4": {
-      "bytes": 7176534,
+      "bytes": 3472297,
       "kind": "mp4",
-      "sha256": "6b87410f8f9c9c948e3db94aea091a0965a7664acc6e1a3c3289229a39417971"
+      "sha256": "446faf27d82bae68f037a0e86e2de98259726abd03b1123eac477129b2727e97"
     },
     "panes-poster.png": {
-      "bytes": 83338,
+      "bytes": 82811,
       "height": 1000,
       "kind": "png",
-      "sha256": "00c1c0cba439c93199988f6eb7206a38c83de8cc761207585248b20097676830",
+      "sha256": "26961cc039719851e4bf3d0ce23886d5ae2ad2801d7abe03d799192ad4cea8a9",
       "width": 1600
     },
     "panes.mp4": {
-      "bytes": 133773,
+      "bytes": 132810,
       "kind": "mp4",
-      "sha256": "b38293a1b2a31b04f7501c1bbab377498a8011a5d14c1eb010c8e0317a95579d"
+      "sha256": "bf08d42ec71fa444da858179e10ebea360ebc0949c3c6fb47ca8f89914ec56c3"
     },
     "plugin-access-review.png": {
-      "bytes": 49232,
+      "bytes": 47730,
       "height": 880,
       "kind": "png",
-      "sha256": "4753cc8f45a08397e37349bfd2cd89c25cb876fb5ba24c395f9717e28eb8047e",
+      "sha256": "613a5df871e42bc4e8187341c7e2fac47dd01980743047f0f2013e2322d7f17e",
       "width": 1040
     },
     "plugin-off.png": {
-      "bytes": 73002,
+      "bytes": 72946,
       "height": 1000,
       "kind": "png",
-      "sha256": "e48a50b14c0a8520098e6da3e5e7f21b77db60d77956c6ef096cc03730e65412",
+      "sha256": "c38cd03363f4a73b649bcf3c0819725086c30ead72a346f1d0ff3ca8819ce138",
       "width": 1600
     },
     "plugin-on.png": {
-      "bytes": 75899,
+      "bytes": 75849,
       "height": 1000,
       "kind": "png",
-      "sha256": "14cb4aade54a1fec23c44123721bc51b3ffaa811651749f486f06754f34dbe91",
+      "sha256": "b8cbda6b57c88a2839bc60261376955af2d9767df20026c2357a842a1c30b7ef",
       "width": 1600
     },
     "plugins.png": {
-      "bytes": 51450,
+      "bytes": 44347,
       "height": 800,
       "kind": "png",
-      "sha256": "0cc639e453dd834c3f9506d21a84a145b4691bf091686b4a9e67d9d7a103cfad",
+      "sha256": "8b03c4c4d8ebb21de8bfbaf436e290bb5a3a8033d1a2d53346e6ad4b48c457c6",
       "width": 1040
     },
     "session-restore.png": {
@@ -132,6 +132,6 @@
       1000
     ]
   },
-  "source": null,
+  "source": "c9b40ba5a4c1a708306faae3f29835d52908a9fa",
   "version": 1
 }

@@ -25,7 +25,7 @@ outline: false
 
 <figure class="showcase-hero">
 <a href="/media/app/main-window.png"><img src="/media/app/main-window.png" alt="Among Terminal with a Git diff, checklist and change summary in three panes, plus Workbench, Review and Notes workspaces" width="1600" height="1000" fetchpriority="high"></a>
-<figcaption>A Git diff, checklist and change summary in three named workspaces. The example project is synthetic.</figcaption>
+<figcaption>A Git diff, checklist and change summary in three panes, with Review and Notes in the sidebar. The example project is synthetic.</figcaption>
 </figure>
 
 <figure class="showcase-film">
